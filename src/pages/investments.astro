@@ -9,7 +9,7 @@ import Icon from "../components/Icon.astro";
 ---
 
 <Base path="/investments/">
-  <PosterBand crumb="Investment ledger" parent={{ href: "/evidence/", label: "Evidence & progress" }}>
+  <PosterBand path="/investments/">
     <Fragment slot="title">What the money<br /><em>record shows.</em></Fragment>
     <p slot="intro">
       Dated evidence of holdings, purchases, funding, and scheduled maturities. Each entry describes a specific event; this is
@@ -33,7 +33,7 @@ import Icon from "../components/Icon.astro";
           establish that value.
         </p>
         <p>
-          <a class="go" download href="/media/investment-events-2026-09-28.xlsx"
+          <a class="go go--inline" download href="/media/investment-events-2026-09-28.xlsx"
             ><Icon name="download" />Download the complete event ledger (Excel .xlsx)</a
           >. Coupons are contractual rates, not evidence of superior or inferior returns.
         </p>
@@ -106,9 +106,7 @@ import Icon from "../components/Icon.astro";
     background: var(--screen), var(--paper);
     border: 2px solid var(--rule);
   }
-  .warning strong {
-    color: var(--red-deep);
-  }
+
   .read-first .go .icon {
     width: 1.1em;
     height: 1.1em;

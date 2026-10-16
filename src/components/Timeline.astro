@@ -293,5 +293,15 @@ const laneOf = (inst: string) => lanes.find((l) => l.inst === inst)!;
     .timeline__list li::before {
       background: CanvasText;
     }
+    /* The two fall dates keep a distinct mark: hollow square, heavy stroke. */
+    .tl-mark.tl-due {
+      fill: Canvas;
+      stroke: CanvasText;
+      stroke-width: 3.5;
+    }
+    .timeline__list li.due::before {
+      background: Highlight;
+      outline-color: CanvasText;
+    }
   }
 </style>

@@ -11,7 +11,7 @@ const cells = matrix.cells as Record<string, Record<string, Cell>>;
 ---
 
 <Base path="/progress/">
-  <PosterBand crumb="Progress" parent={{ href: "/evidence/", label: "Evidence & progress" }}>
+  <PosterBand path="/progress/">
     <Fragment slot="title">A promise needs<br /><em>a record.</em></Fragment>
     <p slot="intro">
       We want Arkansas’s investment decisions to change. Here is how we distinguish a public commitment from instructions,
@@ -177,7 +177,7 @@ const cells = matrix.cells as Record<string, Record<string, Cell>>;
   }
   .status--against {
     font-weight: 700;
-    color: var(--red-deep);
+    color: var(--ink);
   }
   .after {
     margin-top: var(--s-5);

@@ -6,7 +6,7 @@ import { SITE } from "../data/site";
 ---
 
 <Base path="/take-action/">
-  <PosterBand crumb="Take action" scale="poster" class="act-band">
+  <PosterBand path="/take-action/" scale="poster" class="act-band">
     <Fragment slot="title">Turn solidarity<br /><em>into pressure.</em></Fragment>
     <p slot="intro">Ask Treasurer John Thurston for no new Israel Bonds, no renewals, and no reinvestment.</p>
 
@@ -243,7 +243,7 @@ import { SITE } from "../data/site";
     grid-template-columns: auto minmax(0, 1fr);
     gap: 0 var(--s-4);
     padding-block: var(--s-5);
-    border-bottom: 1px solid rgb(239 241 233 / 0.25);
+    border-bottom: 1px solid var(--paper-25);
   }
   .steps__num {
     font-family: var(--display);
@@ -287,7 +287,7 @@ import { SITE } from "../data/site";
     }
     .steps > li + li {
       padding-left: var(--s-5);
-      border-left: 1px solid rgb(239 241 233 / 0.25);
+      border-left: 1px solid var(--paper-25);
     }
   }
   .shortcuts {
@@ -348,7 +348,7 @@ import { SITE } from "../data/site";
   .letter__sheet {
     margin-top: var(--s-4);
     padding: var(--s-6) var(--s-5);
-    background: #fbfcf8;
+    background: var(--letter);
     border: 2px solid var(--rule);
     border-top-width: 0.5rem;
     font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
@@ -370,8 +370,8 @@ import { SITE } from "../data/site";
     height: 1.05em;
   }
   .copy-button.is-copied {
-    background: var(--olive);
-    border-color: var(--olive);
+    background: var(--ink);
+    border-color: var(--paper);
     color: var(--paper);
   }
   .contact > * + * {
@@ -392,10 +392,19 @@ import { SITE } from "../data/site";
     padding: var(--s-5);
     background: var(--screen), var(--paper);
     border: 2px solid var(--rule);
-    max-width: 46rem;
+    display: grid;
+    gap: var(--s-3) var(--s-7);
+    grid-template-columns: minmax(0, 1fr);
   }
   .follow p {
-    margin-top: var(--s-3);
+    max-width: 34em;
+  }
+  @media (min-width: 60rem) {
+    .follow {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+      align-items: baseline;
+      padding: var(--s-6);
+    }
   }
   .way {
     margin-top: var(--s-8);
