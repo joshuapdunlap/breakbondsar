@@ -1,0 +1,147 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+import Icon from "../components/Icon.astro";
+import { SITE } from "../data/site";
+---
+
+<Base path="/about/">
+  <PosterBand crumb="About the campaign">
+    <Fragment slot="title">Break the Bonds<br /><em>Arkansas</em></Fragment>
+    <p slot="intro">We organize for Palestinian freedom and an end to Arkansas’s investment in Israel Bonds.</p>
+  </PosterBand>
+
+  <div class="wrap about">
+    <div class="about__grid">
+      <p class="statement">Palestinian freedom.<br />Our responsibility.<br />Collective action.</p>
+      <div class="prose">
+        <p>
+          Break the Bonds | Arkansas is a standalone campaign organizing to end Arkansas’s financial support for the Israeli
+          government through Israel Bonds.
+        </p>
+        <p>
+          Our demand is no new Israel Bonds, no renewals, and no reinvestment. We want the principal brought home as existing
+          bonds mature and kept out of Israel Bonds.
+        </p>
+
+        <section aria-labelledby="liberation-title">
+          <h2 id="liberation-title">For Palestinian liberation</h2>
+          <p>
+            We respond to the Palestinian call for boycott, divestment, and sanctions: an end to occupation and colonization,
+            equality for Palestinian citizens of Israel, and the right of return for Palestinian refugees.
+          </p>
+          <p>
+            People in Arkansas can act on that solidarity by organizing together to end our public institutions’ investment in
+            Israel Bonds.
+          </p>
+          <a class="go" href="https://bdsmovement.net/call">Read the Palestinian call for BDS <Icon name="external" /></a>
+        </section>
+
+        <section id="corrections" aria-labelledby="corrections-title">
+          <h2 id="corrections-title">Evidence and corrections</h2>
+          <p>
+            Our research makes public institutions’ choices visible. We date our findings, provide sources, and distinguish a
+            purchase from manager funding or a later holdings balance.
+          </p>
+          <p>
+            Substantive factual corrections will be explained. To flag an error, send the page link and supporting source to <a
+              href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a
+            >.
+          </p>
+        </section>
+
+        <section aria-labelledby="part-title">
+          <h2 id="part-title">Take part</h2>
+          <p>
+            Ask Treasurer Thurston to commit to ending the Treasury’s Israel Bonds investments. Bring others into the demand and
+            follow up together.
+          </p>
+          <p>For a first conversation about joining the campaign, email <a href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a>.</p>
+          <div class="stack">
+            <a class="go" href="/take-action/">Take action together <Icon name="arrow-right" /></a>
+            <a class="go" href={SITE.instagram}>Follow @breakbondsar <Icon name="external" /></a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="about__grid about__more">
+      <div class="prose">
+        <section id="accountability" aria-labelledby="responsible-title">
+          <h2 id="responsible-title">Who is responsible</h2>
+          <p>
+            Break the Bonds | Arkansas is an informal, unincorporated campaign. It has no fiscal sponsor and does not claim
+            nonprofit status.
+          </p>
+          <p>
+            The campaign is responsible for this website’s research, editorial decisions, and corrections. Reach us at <a
+              href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a
+            >. We use a campaign contact so people can raise questions without exposing volunteers’ personal details.
+          </p>
+        </section>
+
+        <section aria-labelledby="check-title">
+          <h2 id="check-title">How we check our work</h2>
+          <p>
+            We check financial claims against source documents, identify the date and type of event, and explain what the
+            records leave unresolved. Legal analysis identifies the authority and the limits of its application. Palestinian
+            testimony remains dated and attributed to its original source.
+          </p>
+          <p>
+            To request a correction, send the page, the disputed wording, and a supporting source. We review the claim against
+            the records.
+          </p>
+          <p><a href="/evidence/">Explore the evidence and publication method</a>.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <CloseStrip />
+</Base>
+
+<style>
+  .about {
+    padding-block: var(--s-7) var(--s-8);
+  }
+  .about__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-6) var(--s-8);
+  }
+  @media (min-width: 60rem) {
+    .about__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, var(--measure));
+    }
+    .statement {
+      position: sticky;
+      top: var(--s-6);
+      align-self: start;
+    }
+  }
+  .statement {
+    font-family: var(--display);
+    font-size: var(--step-3);
+    line-height: 0.98;
+  }
+  .about section {
+    margin-top: var(--s-7);
+    padding-top: var(--s-4);
+    border-top: 2px solid var(--rule);
+  }
+  .about section > * + * {
+    margin-top: 0.8em;
+  }
+  .about section h2 {
+    font-size: var(--step-2);
+  }
+  .about__more {
+    margin-top: var(--s-4);
+  }
+  @media (min-width: 60rem) {
+    .about__more > .prose {
+      grid-column: 2;
+    }
+  }
+</style>

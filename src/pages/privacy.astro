@@ -1,0 +1,99 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import { SITE } from "../data/site";
+---
+
+<Base path="/privacy/">
+  <PosterBand crumb="Privacy">
+    <Fragment slot="title">Your information.<br /><em>Your choices.</em></Fragment>
+    <p slot="intro">This notice covers the Break the Bonds | Arkansas website and its campaign contact links.</p>
+  </PosterBand>
+
+  <div class="wrap privacy">
+    <div class="prose">
+      <section aria-labelledby="hosting-title">
+        <h2 id="hosting-title">Website hosting</h2>
+        <p>
+          WordPress.com hosts this site. Its provider, Automattic, processes technical information such as IP addresses,
+          browser details, referring pages, and access times to provide its services. Its services may also use cookies and
+          similar technologies.
+        </p>
+        <p>
+          <a href="https://automattic.com/privacy-notice/">Read Automattic’s privacy notice for visitors to hosted sites</a> for
+          details about collection, use, sharing, and retention.
+        </p>
+        <p>
+          WordPress.com statistics resources load during visits to this site. Automattic describes using technical information,
+          including IP addresses, to provide site statistics. Its linked notice explains the provider’s uses and retention
+          practices. Reading a page or downloading a document does not require sending the campaign your name or email address.
+        </p>
+      </section>
+
+      <section aria-labelledby="contacting-title">
+        <h2 id="contacting-title">Contacting the campaign</h2>
+        <p>
+          Campaign contact links open your email application. The website does not send an email for you. If you choose to
+          write, the campaign receives your email address and the information you include.
+        </p>
+        <p>
+          To ask about information you have shared with the campaign, or request a correction or deletion, email <a
+            href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a
+          >.
+        </p>
+      </section>
+
+      <section aria-labelledby="tools-title">
+        <h2 id="tools-title">Action tools and outside links</h2>
+        <p>
+          The copy buttons place the displayed message or discussion prompts on your clipboard only when you press them. They do
+          not send a message or submit anything to a public office.
+        </p>
+        <p>
+          Links to public offices, source documents, Instagram, and other websites take you to those services. Their own privacy
+          practices apply. The campaign’s font files are served from this website.
+        </p>
+      </section>
+
+      <section aria-labelledby="updates-title">
+        <h2 id="updates-title">Updates</h2>
+        <p>This notice will be updated if the website’s features or information practices change.</p>
+        <p class="provenance">Last reviewed: September 7, 2026.</p>
+      </section>
+
+      <section aria-labelledby="records-title">
+        <h2 id="records-title">Records and contact choices</h2>
+        <p>
+          You can read the records and download the ledger without submitting information to the campaign. Email is optional.
+          Avoid including banking details, identity documents, or other sensitive information when reporting an error or asking
+          to join.
+        </p>
+        <p>
+          Campaign correspondence is used to respond to the message and discuss the next step you request. Questions about
+          access, correction, deletion, or how your correspondence is handled can be sent to the campaign contact above.
+        </p>
+        <p>
+          The public evidence archive uses reviewed copies with private contact and account details removed. Public investment
+          identifiers identify securities; they are not personal bank-account numbers.
+        </p>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .privacy {
+    padding-block: var(--s-6) var(--s-8);
+  }
+  .privacy section {
+    margin-top: var(--s-7);
+    padding-top: var(--s-4);
+    border-top: 2px solid var(--rule);
+  }
+  .privacy section > * + * {
+    margin-top: 0.8em;
+  }
+  .privacy h2 {
+    font-size: var(--step-2);
+  }
+</style>

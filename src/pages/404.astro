@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<Base path="/404/" title="Page not found | Break the Bonds | Arkansas" description="This page is not on the site." noindex>
+  <section class="lost on-olive crop" aria-labelledby="page-title">
+    <div class="wrap lost__inner">
+      <h1 id="page-title">This page is not<br /><em>on the site.</em></h1>
+      <p>The address may be mistyped, or the page may have moved when the site was rebuilt. Every campaign page is still here.</p>
+      <ul class="stack">
+        <li><a class="go" href="/">Home <Icon name="arrow-right" /></a></li>
+        <li><a class="go" href="/the-issue/">The issue <Icon name="arrow-right" /></a></li>
+        <li><a class="go" href="/evidence/">Evidence &amp; progress <Icon name="arrow-right" /></a></li>
+        <li><a class="go" href="/take-action/">Take action <Icon name="arrow-right" /></a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lost {
+    padding-block: var(--s-7) var(--s-9);
+  }
+  .lost__inner > * + * {
+    margin-top: var(--s-5);
+  }
+  .lost h1 {
+    font-size: var(--step-4);
+  }
+  .lost p {
+    max-width: 30em;
+    font-size: var(--step-1);
+  }
+  .lost ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>
