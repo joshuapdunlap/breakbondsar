@@ -32,6 +32,17 @@ check(home.headers.get("x-content-type-options") === "nosniff", "X-Content-Type-
 if (canonical) check(/max-age=\d+/.test(home.headers.get("strict-transport-security") ?? ""), "HSTS is sent on the apex");
 check(html.includes(`<link rel="canonical" href="https://breakbondsar.org/">`), "home page canonical points to breakbondsar.org");
 
+// Cloudflare adds its own scripts (Web Analytics) to HTML only for browsers, so ask as one.
+const BROWSER = {
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+  accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+};
+for (const route of ["/", "/privacy/"]) {
+  const page = await (await get(route, { headers: BROWSER })).text();
+  const foreign = [...page.matchAll(/<script[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]).filter((src) => new URL(src, origin).origin !== origin);
+  check(foreign.length === 0, `${route} gives a browser no scripts from other hosts`, foreign.join(" "));
+}
+
 const script = html.match(/\/_astro\/[^"']+\.js/)?.[0];
 if (script) {
   const s = await get(script);
