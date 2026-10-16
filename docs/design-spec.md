@@ -39,7 +39,7 @@ Tints are halftone screens of olive dots, and secondary text on paper is set in 
 
 ## Type
 
-- Lalezar sets titles, figures and buttons. It comes from Arabic-script poster and cinema lettering and has a Latin companion. It has one weight, so emphasis in a title is printed in a second ink.
+- Lalezar sets titles, figures and buttons. It comes from Arabic-script poster and cinema lettering and has a Latin companion. It has one weight. On the olive sheet, a title's second line is printed in the second ink (paper screened over olive); on paper, titles print in one ink.
 - Markazi Text sets the reading copy. It was drawn for Arabic and Latin together, so it shares Lalezar's heritage. It runs narrow, so body text is 21 to 23 px and the measure is 30em, about 70 characters.
 - Atkinson Hyperlegible Mono sets record IDs, ISO dates, CUSIPs and hashes, where a reader has to tell 0 from O and 1 from l.
 
@@ -47,7 +47,8 @@ All three are OFL, self-hosted, Latin subsets, about 60 KB together. Fallback fa
 
 ## Layout
 
-- Poster band. Every page except home opens on an olive band with a breadcrumb, the title and the intro. The label that sat above each old page title is now the breadcrumb's last item.
+- Home poster. The title "Arkansas out of Israel Bonds." is sized from the font's measured widths so its longest line fills the measure: two lines on desktop (up to 11rem), three on phones. The witness line, the lede and the action share one row under it, and "For Palestinian freedom" signs off the sheet. The red strip with the two dates and "Tell the Treasurer" still lands inside a 1280 by 800 screen.
+- Poster band. Every other page opens on an olive band with a breadcrumb, the title and the intro. Read pages set the title up to 5rem so the record starts higher; Take action and How we win use the full 6rem. The label that sat above each old page title is now the breadcrumb's last item, and the breadcrumb's structured data comes from the same map.
 - Margin system. On Read pages, datelines such as "Marwa · Gaza · March 2024" and record IDs sit in a 12rem left margin beside the heading on desktop, and under it on phones. Nothing is printed above a heading.
 - Record tables. Each record set is one real table. On phones each row reflows into a slip with its column names printed beside the values; ARIA roles keep it a table. Ledger rows carry their event IDs as anchors, so `/investments/#ATR-P01` links to one row.
 - Timeline. One component draws it from the dates. Red marks the two fall maturities, as the copy says. The SVG hides below 768 px, and its list version is always present.
@@ -56,14 +57,14 @@ All three are OFL, self-hosted, Latin subsets, about 60 KB together. Fallback fa
 ## Motion and details
 
 - One authored moment: on the home page the red "out of" drops into register with the olive sheet over 0.9 s. Reduced motion skips it.
-- Printer's crop marks sit at the corners of each poster sheet.
 - On phones, a "Tell the Treasurer" bar appears once the first screen has scrolled away. It uses a CSS scroll timeline, needs no JavaScript, and appears without sliding under reduced motion.
-- Links underline in red ink. Focus is a 3 px outline with a ring of the opposite ink, visible on every ground.
+- Links underline in the ink of their ground: olive on paper, screened paper on olive, ink on red. Only links that carry the ask (anything pointing to Take action, the Treasury phone number and the Treasury's contact pages) underline in red. Focus is a 3 px outline with a ring of the opposite ink, visible on every ground, including ink buttons on red.
+- Scrollbars and text selection are themed from the inks.
 
 ## Constraints kept
 
 - Copy word for word, checked by a test against 557 facts and 772 text blocks from the old pages.
 - Images only from the old media library. Evidence crops are served as AVIF and WebP at the sizes used, and link to the original files.
 - No requests leave the site. No analytics, embeds or font services.
-- Works without JavaScript. The copy buttons are the only feature that needs it, and they stay hidden without it.
-- Forced colours, print (disclosures open, link URLs printed) and reduced motion are handled.
+- Works without JavaScript. The copy buttons are the only feature that needs it, and they stay hidden without it. The script ships as its own file, because the Content-Security-Policy allows scripts only from the site.
+- Forced colours (the fall dates keep a hollow mark; the headline animation is off), print (black on white, disclosures and hashes printed, link and document URLs printed) and reduced motion are handled.
