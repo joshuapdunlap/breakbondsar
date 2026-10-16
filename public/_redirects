@@ -1,0 +1,73 @@
+# Old WordPress URLs. Static rules first, then the dynamic catch-alls.
+
+# The page that WordPress served at /home/ is the front page.
+/home/  /  301
+/home  /  301
+
+# Every file in the WordPress media library, at its new path.
+/wp-content/uploads/2026/09/about-sharing-1200x630-1.png  /media/about-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/apers-bny-holdings-2026-09-07.pdf  /media/apers-bny-holdings-2026-09-07.pdf  301
+/wp-content/uploads/2026/09/apers-holdings-2026-09-07.png  /media/apers-holdings-2026-09-07.png  301
+/wp-content/uploads/2026/09/apers-purchase-amount.png  /media/apers-purchase-amount.png  301
+/wp-content/uploads/2026/09/apers-purchase-date.png  /media/apers-purchase-date.png  301
+/wp-content/uploads/2026/09/apers-purchase-threads-2025-11-06-redacted.pdf  /media/apers-purchase-threads-2025-11-06-redacted.pdf  301
+/wp-content/uploads/2026/09/atrs-december-funding.png  /media/atrs-december-funding.png  301
+/wp-content/uploads/2026/09/atrs-funding-completed-2026-01-02.png  /media/atrs-funding-completed-2026-01-02.png  301
+/wp-content/uploads/2026/09/atrs-israel-bond-2026-02-15-redacted.pdf  /media/atrs-israel-bond-2026-02-15-redacted.pdf  301
+/wp-content/uploads/2026/09/atrs-israel-bond-2026-02-15.png  /media/atrs-israel-bond-2026-02-15.png  301
+/wp-content/uploads/2026/09/atrs-liquidity-email-2025-12-29.pdf  /media/atrs-liquidity-email-2025-12-29.pdf  301
+/wp-content/uploads/2026/09/atrs-reams-funding-2026-01-02-redacted.pdf  /media/atrs-reams-funding-2026-01-02-redacted.pdf  301
+/wp-content/uploads/2026/09/atrs-reams-holdings-2026-07-31.pdf  /media/atrs-reams-holdings-2026-07-31.pdf  301
+/wp-content/uploads/2026/09/atrs-reams-strategy-q2-2026.pdf  /media/atrs-reams-strategy-q2-2026.pdf  301
+/wp-content/uploads/2026/09/break-the-bonds-arkansas-campaign-brief-2026-09-28.pdf  /media/break-the-bonds-arkansas-campaign-brief-2026-09-28.pdf  301
+/wp-content/uploads/2026/09/break-the-bonds-arkansas-campaign-brief-draft.pdf  /media/break-the-bonds-arkansas-campaign-brief-draft.pdf  301
+/wp-content/uploads/2026/09/campaign-site-icon-512.png  /media/campaign-site-icon-512.png  301
+/wp-content/uploads/2026/09/evidence-sharing-1200x630-1.png  /media/evidence-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/home-sharing-1200x630-1.png  /media/home-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/how-we-win-sharing-1200x630-1.png  /media/how-we-win-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/investment-events-2026-09-07.xlsx  /media/investment-events-2026-09-07.xlsx  301
+/wp-content/uploads/2026/09/investment-events-2026-09-28.xlsx  /media/investment-events-2026-09-28.xlsx  301
+/wp-content/uploads/2026/09/investments-sharing-1200x630-1.png  /media/investments-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/investments-sharing-v2-1200x630-1.png  /media/investments-sharing-v2-1200x630-1.png  301
+/wp-content/uploads/2026/09/policy-sharing-1200x630-1.png  /media/policy-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/privacy-sharing-1200x630-1.png  /media/privacy-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/progress-sharing-1200x630-1.png  /media/progress-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/take-action-sharing-1200x630-1.png  /media/take-action-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/the-issue-sharing-1200x630-1.png  /media/the-issue-sharing-1200x630-1.png  301
+/wp-content/uploads/2026/09/the-issue-sharing-v2-1200x630-1.png  /media/the-issue-sharing-v2-1200x630-1.png  301
+/wp-content/uploads/2026/09/treasury-february-2026-cashflow-redacted.pdf  /media/treasury-february-2026-cashflow-redacted.pdf  301
+/wp-content/uploads/2026/09/treasury-holdings-2025-06-30.png  /media/treasury-holdings-2025-06-30.png  301
+/wp-content/uploads/2026/09/treasury-statement-2025-06-30-redacted.pdf  /media/treasury-statement-2025-06-30-redacted.pdf  301
+
+# Resized copies of the site icon that WordPress linked from every page.
+/wp-content/uploads/2026/09/campaign-site-icon-512-150x150.png  /media/campaign-site-icon-512.png  301
+/wp-content/uploads/2026/09/campaign-site-icon-512-300x300.png  /media/campaign-site-icon-512.png  301
+
+# Feeds, sitemaps and WordPress machinery.
+/feed/  /  301
+/feed  /  301
+/comments/feed/  /  301
+/comments/feed  /  301
+/sitemap.xml  /sitemap-index.xml  301
+/wp-sitemap.xml  /sitemap-index.xml  301
+/wp-login.php  /  301
+/xmlrpc.php  /  301
+/wp-signup.php  /  301
+/wp-cron.php  /  301
+
+# Dynamic rules (100 at most).
+/:page/feed/  /:page/  301
+/:page/feed  /:page/  301
+/wp-admin/*  /  301
+/wp-json/*  /  301
+/wp-content/*  /  301
+/wp-includes/*  /  301
+/author/*  /  301
+/category/*  /  301
+/tag/*  /  301
+/comments/*  /  301
+/page/*  /  301
+/2026/*  /  301
+/2025/*  /  301
+/feed/*  /  301
+/_static/*  /  301

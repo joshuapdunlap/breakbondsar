@@ -1,0 +1,20 @@
+# Cloudflare Workers static assets reads this file from dist/ and does not serve it.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+
+# Hashed build output never changes under the same name.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Keep every host except breakbondsar.org out of search results: the workers.dev
+# preview, version preview URLs, and www if it is ever attached to the Worker.
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex
+
+https://www.breakbondsar.org/*
+  X-Robots-Tag: noindex
