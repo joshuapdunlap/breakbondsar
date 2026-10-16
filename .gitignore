@@ -1,0 +1,27 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# test and audit output
+test-results/
+playwright-report/
+.lighthouseci/
+
+# Cloudflare
+.wrangler/
+.dev.vars
+
+# impeccable session state (the surface brief and design system files are kept)
+.impeccable/questions/
+.impeccable/review/
+.impeccable/live/
+
+# logs and editors
+npm-debug.log*
+*.log
+.DS_Store
+.vscode/
+.idea/
