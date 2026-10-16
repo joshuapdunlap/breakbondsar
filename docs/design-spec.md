@@ -32,7 +32,7 @@ The seed also dealt six outside systems to test the direction against. None beat
 | `--paper` | `#eff1e9` | Ground for the record; type knocked out of olive | ink on paper 15.9:1 |
 | `--ink` | `#141710` | Text on paper and on red | ink on red 5.9:1 |
 | `--red` | `#ff5b4f` | The campaign mark's red. Fields, and display type on olive | 4.2:1 on olive, large type only |
-| `--red-deep` | `#c42b22` | Red text on paper | 5.0:1 |
+| `--red-deep` | `#c42b22` | Red text on paper | 4.96:1 |
 | `--olive-screen` | `#b9c49a` | Paper ink screened over olive: second lines of titles, breadcrumbs | 7.0:1 on olive |
 
 Tints are halftone screens of olive dots, and secondary text on paper is set in olive ink.
