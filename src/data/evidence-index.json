@@ -1,0 +1,62 @@
+[
+  {
+    "id": "SRC-TRE-001",
+    "record": "Treasury bondholder statement, June 30, 2025",
+    "docDate": "2025-06-30",
+    "response": "2026-02-19"
+  },
+  {
+    "id": "SRC-APE-001",
+    "record": "APERS purchase email threads and bondholder advice",
+    "docDate": "2025-11-06",
+    "response": "2026-02-27"
+  },
+  {
+    "id": "SRC-ATR-001",
+    "record": "ATRS Board Update-Liquidity",
+    "docDate": "2025-12-29",
+    "response": "2026-03-03"
+  },
+  {
+    "id": "SRC-TRE-002",
+    "record": "February 2026 projected cashflow and inventory adjustment",
+    "docDate": "2026-02-02",
+    "response": "2026-02-19"
+  },
+  {
+    "id": "SRC-ATR-002",
+    "record": "ATRS Board authorization, June 2, 2025",
+    "docDate": "2025-06-02",
+    "response": "Official publication; checked 2026-09-07"
+  },
+  {
+    "id": "SRC-APE-002",
+    "record": "APERS custody holdings report, September 7, 2026",
+    "docDate": "2026-09-07",
+    "response": "2026-09-09"
+  },
+  {
+    "id": "SRC-ATR-003",
+    "record": "ATRS transfer of $50 million to the Reams account, January 2, 2026",
+    "docDate": "2026-01-02",
+    "response": "2026-09-11"
+  },
+  {
+    "id": "SRC-ATR-004",
+    "record": "Israel Bonds purchase confirmation for ATRS, issue date February 15, 2026",
+    "docDate": "2026-02-15",
+    "response": "2026-09-11"
+  },
+  {
+    "id": "SRC-ATR-005",
+    "record": "Reams account holdings for ATRS, July 31, 2026",
+    "docDate": "2026-07-31",
+    "response": "2026-09-11"
+  },
+  {
+    "id": "SRC-ATR-006",
+    "record": "Reams second-quarter 2026 report: portfolio strategy",
+    "docDate": "2026-06-30",
+    "response": "2026-09-11"
+  }
+]

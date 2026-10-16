@@ -1,0 +1,358 @@
+{
+  "treasury": {
+    "heading": "Treasury",
+    "caption": "Treasury dated event records",
+    "rows": [
+      {
+        "id": "TRE-H01",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$10,000,000",
+        "security": "46513JHA2",
+        "terms": [
+          "Coupon 2.83%",
+          "Maturity 2030-01-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 1"
+        }
+      },
+      {
+        "id": "TRE-H02",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$10,000,000",
+        "security": "46514X2P3",
+        "terms": [
+          "Coupon 4.66%",
+          "Maturity 2028-05-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 2"
+        }
+      },
+      {
+        "id": "TRE-H03",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$10,000,000",
+        "security": "46514X3P2",
+        "terms": [
+          "Coupon 5.17%",
+          "Maturity 2030-05-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 3"
+        }
+      },
+      {
+        "id": "TRE-H04",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$10,000,000",
+        "security": "46514AM22",
+        "terms": [
+          "Coupon 5.40%",
+          "Maturity 2026-11-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 4"
+        }
+      },
+      {
+        "id": "TRE-H05",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$5,000,000",
+        "security": "46514TZG6",
+        "terms": [
+          "Coupon 1.35%",
+          "Maturity 2026-02-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 5"
+        }
+      },
+      {
+        "id": "TRE-H06",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$5,000,000",
+        "security": "46514TQN1",
+        "terms": [
+          "Coupon 1.92%",
+          "Maturity 2026-10-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 6"
+        }
+      },
+      {
+        "id": "TRE-H07",
+        "date": "2025-06-30",
+        "event": "Holding snapshot",
+        "amount": "$5,000,000",
+        "security": "46514TZZ4",
+        "terms": [
+          "Coupon 2.07%",
+          "Maturity 2026-10-01"
+        ],
+        "establishes": "Historical statement; excludes transactions pending settlement. Not a current balance.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 7"
+        }
+      },
+      {
+        "id": "TRE-M04",
+        "date": "2025-06-30",
+        "event": "Scheduled maturity",
+        "amount": "$10,000,000",
+        "security": "46514AM22",
+        "terms": [
+          "Coupon 5.40%",
+          "Maturity 2026-11-01"
+        ],
+        "establishes": "Scheduled in historical statement. Not evidence of receipt, continued ownership, reinvestment, or campaign impact.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 4"
+        }
+      },
+      {
+        "id": "TRE-M05",
+        "date": "2025-06-30",
+        "event": "Scheduled maturity",
+        "amount": "$5,000,000",
+        "security": "46514TZG6",
+        "terms": [
+          "Coupon 1.35%",
+          "Maturity 2026-02-01"
+        ],
+        "establishes": "Scheduled in historical statement. Not evidence of receipt, continued ownership, reinvestment, or campaign impact.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 5"
+        }
+      },
+      {
+        "id": "TRE-M06",
+        "date": "2025-06-30",
+        "event": "Scheduled maturity",
+        "amount": "$5,000,000",
+        "security": "46514TQN1",
+        "terms": [
+          "Coupon 1.92%",
+          "Maturity 2026-10-01"
+        ],
+        "establishes": "Scheduled in historical statement. Not evidence of receipt, continued ownership, reinvestment, or campaign impact.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 6"
+        }
+      },
+      {
+        "id": "TRE-M07",
+        "date": "2025-06-30",
+        "event": "Scheduled maturity",
+        "amount": "$5,000,000",
+        "security": "46514TZZ4",
+        "terms": [
+          "Coupon 2.07%",
+          "Maturity 2026-10-01"
+        ],
+        "establishes": "Scheduled in historical statement. Not evidence of receipt, continued ownership, reinvestment, or campaign impact.",
+        "cite": {
+          "id": "SRC-TRE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-001",
+          "note": "Original PDF page 1, row 7"
+        }
+      },
+      {
+        "id": "TRE-IA01",
+        "date": "2026-02-02",
+        "event": "Inventory adjustment",
+        "amount": "$5,000,000",
+        "security": "46514TZG6",
+        "terms": [
+          "Coupon 1.35%",
+          "Maturity 2026-02-01"
+        ],
+        "establishes": "Projected-cashflow sheet labels Final Maturity and a $5 million inventory adjustment; posting date February 2 differs from contractual February 1 maturity. Independent principal receipt not established here.",
+        "cite": {
+          "id": "SRC-TRE-002",
+          "href": "https://breakbondsar.org/evidence/#SRC-TRE-002",
+          "note": "Sheet1 rows 14 and 17-18"
+        }
+      }
+    ]
+  },
+  "apers": {
+    "heading": "APERS",
+    "caption": "APERS dated event records",
+    "rows": [
+      {
+        "id": "APE-P01",
+        "date": "2025-10-15",
+        "event": "Purchase",
+        "amount": "$15,000,000",
+        "security": "46514X2A6",
+        "terms": [
+          "Coupon 4.06%",
+          "Maturity 2027-10-01"
+        ],
+        "establishes": "Purchase documented by email, transfer and attached bondholder advice. Same investment as APE-H01; do not add them.",
+        "cite": {
+          "id": "SRC-APE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-APE-001",
+          "note": "Original PDF pages 6924-6925, 6929-6931"
+        }
+      },
+      {
+        "id": "APE-H01",
+        "date": "2025-10-20",
+        "event": "Holding snapshot",
+        "amount": "$15,000,000",
+        "security": "46514X2A6",
+        "terms": [
+          "Coupon 4.06%",
+          "Maturity 2027-10-01"
+        ],
+        "establishes": "Dated bondholder advice excludes pending settlement. Same investment as APE-P01, not an additional $15 million.",
+        "cite": {
+          "id": "SRC-APE-001",
+          "href": "https://breakbondsar.org/evidence/#SRC-APE-001",
+          "note": "Original PDF page 6931, account-information table"
+        }
+      },
+      {
+        "id": "APE-H02",
+        "date": "2026-09-07",
+        "event": "Holding snapshot",
+        "amount": "$10,000,000",
+        "security": "46515DRC8",
+        "terms": [
+          "Coupon 4.67%",
+          "Maturity 2028-08-01"
+        ],
+        "establishes": "Preliminary BNY custody report produced by APERS. A second bond, separate from the October 2025 purchase. The report shows “DD 08/15/26” for this bond; this production includes no trade confirmation, so no purchase date is stated here.",
+        "cite": {
+          "id": "SRC-APE-002",
+          "href": "https://breakbondsar.org/evidence/#SRC-APE-002",
+          "note": "Page 1, Israel Bonds row 1"
+        }
+      },
+      {
+        "id": "APE-H03",
+        "date": "2026-09-07",
+        "event": "Holding snapshot",
+        "amount": "$15,000,000",
+        "security": "46514X2A6",
+        "terms": [
+          "Coupon 4.06%",
+          "Maturity 2027-10-01"
+        ],
+        "establishes": "Same investment as APE-P01 and APE-H01, still held on this report. With APE-H02, the report’s Israel Bonds subtotal is $25 million.",
+        "cite": {
+          "id": "SRC-APE-002",
+          "href": "https://breakbondsar.org/evidence/#SRC-APE-002",
+          "note": "Page 1, Israel Bonds row 2"
+        }
+      }
+    ]
+  },
+  "atrs": {
+    "heading": "ATRS",
+    "caption": "ATRS dated event records",
+    "rows": [
+      {
+        "id": "ATR-A01",
+        "date": "2025-06-02",
+        "event": "Authorization ceiling",
+        "amount": "$50,000,000",
+        "security": "Not identified",
+        "terms": [
+          "Maturity not identified"
+        ],
+        "establishes": "Authorization ceiling of up to $50 million through Scout/Reams; not a purchase or an additional $50 million beside mandate funding.",
+        "cite": {
+          "id": "SRC-ATR-002",
+          "href": "https://breakbondsar.org/evidence/#SRC-ATR-002",
+          "note": "Official June 2, 2025 Board minutes, page 4, Resolution 2025-22"
+        }
+      },
+      {
+        "id": "ATR-F01",
+        "date": "2026-01-02",
+        "event": "Mandate funding",
+        "amount": "$50,000,000",
+        "security": "Not identified",
+        "terms": [
+          "Maturity not identified"
+        ],
+        "establishes": "Completed internal transfer from the ATRS liquidity account to the Reams account, settlement date January 2, 2026. Correction (September 28, 2026): earlier versions dated this funding December 2025 from the December 29, 2025 trustee update (SRC-ATR-001). Funding is not the same as bonds bought; see ATR-P01.",
+        "cite": {
+          "id": "SRC-ATR-003",
+          "href": "https://breakbondsar.org/evidence/#SRC-ATR-003",
+          "note": "Original PDF page 3, Activity Report"
+        }
+      },
+      {
+        "id": "ATR-P01",
+        "date": "2026-02-15",
+        "event": "Purchase",
+        "amount": "$9,900,000",
+        "security": "46515DSQ6",
+        "terms": [
+          "Coupon 4.93%",
+          "Maturity 2031-02-01"
+        ],
+        "establishes": "Israel Bond bought inside the $50 million Reams account (ATR-F01), not in addition to it. Issue date February 15, 2026 on the confirmation; the manager’s trade record shows trade and settlement February 17. A February 1 issuance of the same amount at 4.86% was cancelled; count this purchase once.",
+        "cite": {
+          "id": "SRC-ATR-004",
+          "href": "https://breakbondsar.org/evidence/#SRC-ATR-004",
+          "note": "Original PDF page 1, issue table"
+        }
+      },
+      {
+        "id": "ATR-H01",
+        "date": "2026-07-31",
+        "event": "Holding snapshot",
+        "amount": "$9,900,000",
+        "security": "Redacted in this record",
+        "terms": [
+          "Coupon 4.93%",
+          "Maturity 2031-02-01"
+        ],
+        "establishes": "Same bond as ATR-P01; the agency redacted its security ID in this worksheet. The only Israel Bond in the account on this report, 19.71% of $50.4 million market value; the rest was U.S. Treasury notes and cash. The manager states a long-term objective of a laddered Israel Bonds portfolio, buying no more than $10 million a year (SRC-ATR-006).",
+        "cite": {
+          "id": "SRC-ATR-005",
+          "href": "https://breakbondsar.org/evidence/#SRC-ATR-005",
+          "note": "Worksheet row 9 (Govt Related)"
+        }
+      }
+    ]
+  }
+}

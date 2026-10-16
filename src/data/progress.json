@@ -1,0 +1,86 @@
+{
+  "institutions": [
+    "State Treasury",
+    "APERS",
+    "ATRS"
+  ],
+  "checks": [
+    "Commitment",
+    "Implementation",
+    "Receipt",
+    "Continued exclusion",
+    "Campaign contribution"
+  ],
+  "cells": {
+    "Commitment": {
+      "State Treasury": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "APERS": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "ATRS": {
+        "text": "Not established",
+        "kind": "no"
+      }
+    },
+    "Implementation": {
+      "State Treasury": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "APERS": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "ATRS": {
+        "text": "Not established",
+        "kind": "no"
+      }
+    },
+    "Receipt": {
+      "State Treasury": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "APERS": {
+        "text": "No maturity yet",
+        "kind": "na"
+      },
+      "ATRS": {
+        "text": "No maturity yet",
+        "kind": "na"
+      }
+    },
+    "Continued exclusion": {
+      "State Treasury": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "APERS": {
+        "text": "Second bond added",
+        "kind": "against"
+      },
+      "ATRS": {
+        "text": "$9.9 million bond bought",
+        "kind": "against"
+      }
+    },
+    "Campaign contribution": {
+      "State Treasury": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "APERS": {
+        "text": "Not established",
+        "kind": "no"
+      },
+      "ATRS": {
+        "text": "Not established",
+        "kind": "no"
+      }
+    }
+  }
+}
