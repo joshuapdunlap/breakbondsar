@@ -1,0 +1,513 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import Icon from "../components/Icon.astro";
+import RecordFigure from "../components/RecordFigure.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+import treasuryHoldings from "../assets/evidence/treasury-holdings-2025-06-30.png";
+import apersHoldings from "../assets/evidence/apers-holdings-2026-09-07.png";
+import atrsBond from "../assets/evidence/atrs-israel-bond-2026-02-15.png";
+
+const contents = [
+  ["#witness", "Marwa’s story"],
+  ["#responsibility", "Israel’s assault on Gaza"],
+  ["#palestinian-call", "The Palestinian call"],
+  ["#arkansas", "Arkansas’s choices"],
+  ["#treasury", "State Treasury"],
+  ["#public-employees", "Public employees"],
+  ["#teachers", "Teachers’ retirement"],
+];
+---
+
+<Base path="/the-issue/">
+  <PosterBand crumb="The issue">
+    <Fragment slot="title">Palestinian life.<br /><em>Palestinian freedom.</em></Fragment>
+    <p slot="intro">
+      A future in which people can learn, heal, raise their families, and live freely. That is what our solidarity is for.
+    </p>
+    <nav class="onpage" aria-label="On this page">
+      <p class="onpage__label">On this page</p>
+      <ol>{contents.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ol>
+    </nav>
+  </PosterBand>
+
+  <div class="wrap issue">
+    <section class="margin-grid chapter" id="witness" aria-labelledby="witness-title">
+      <h2 id="witness-title">To study. To heal.<br /><em>To live.</em></h2>
+      <p class="dateline">Marwa · Gaza · March 2024</p>
+      <div class="prose">
+        <p>
+          Marwa was in her fourth year at Al-Azhar University in Gaza. She and her sister tried to find a little escape in
+          novels. Her brothers fetched water; her father bought food. Her diary describes the daily work of keeping a family
+          going.
+        </p>
+        <p>
+          She recalled being forced to leave a shelter in Khan Younis and reaching Rafah on her fourth displacement. The family
+          eventually built a tent on the beach, exposed to wind and cold.
+        </p>
+        <p>
+          She wanted to finish her education, bring her family to safety, and rebuild their life. Those hopes run through her
+          account alongside fear, grief, and anger.
+        </p>
+        <a class="go" href="https://www.unicef.org/stories/day-gaza-marwas-diary"
+          >Read and listen to her diary at UNICEF <Icon name="external" /></a
+        >
+      </div>
+    </section>
+
+    <section class="margin-grid chapter" id="responsibility" aria-labelledby="responsibility-title">
+      <h2 id="responsibility-title">Israel is destroying<br /><em>the conditions of life.</em></h2>
+      <p class="dateline">Israel’s assault on Gaza</p>
+      <div class="prose">
+        <p>
+          The Israeli government and military have destroyed Palestinian homes, attacked hospitals, and forcibly displaced
+          people in Gaza. Al-Haq’s January 2025 report documents the systematic assault on healthcare, including attacks on
+          medical facilities and the denial of lifesaving care, as a pattern of genocide.
+        </p>
+        <p>
+          In July 2025, the Israeli human rights organization B’Tselem concluded that Israel was committing genocide against
+          Palestinians in Gaza. Its report describes killing, displacement, destruction of civilian life, and the policies
+          enabling them.
+        </p>
+        <p class="statement">Arkansas must end its financial support for Israel’s genocide and apartheid.</p>
+        <div class="stack">
+          <a class="go" href="https://www.alhaq.org/publications/25846.html"
+            >Read Al-Haq’s healthcare report <Icon name="external" /></a
+          >
+          <a class="go" href="https://www.btselem.org/sites/default/files/publications/202507_our_genocide_eng.pdf"
+            >Read B’Tselem’s Our Genocide (PDF) <Icon name="external" /></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="margin-grid chapter" id="palestinian-call" aria-labelledby="call-title">
+      <h2 id="call-title">Freedom. Equality.<br /><em>Return.</em></h2>
+      <p class="dateline">The Palestinian call · July 2005</p>
+      <div class="prose">
+        <p>
+          Palestinian unions, women’s organizations, refugee groups, and other civil society organizations called on people
+          around the world to:
+        </p>
+        <blockquote class="call-quote">
+          <p>“impose broad boycotts and implement divestment initiatives against Israel”</p>
+        </blockquote>
+        <p>Their call for boycott, divestment, and sanctions sets out three demands:</p>
+        <ul class="demands">
+          <li>End Israel’s occupation and colonization of Arab lands and dismantle the Wall.</li>
+          <li>Ensure full equality for Palestinian citizens of Israel.</li>
+          <li>Uphold Palestinian refugees’ right to return to their homes and properties.</li>
+        </ul>
+        <p>We can answer that call here by organizing to end Arkansas’s financial support for the Israeli state.</p>
+        <a class="go" href="https://bdsmovement.net/call"
+          >Read the full call and its Palestinian signatories <Icon name="external" /></a
+        >
+      </div>
+    </section>
+
+    <section class="margin-grid chapter" id="arkansas" aria-labelledby="arkansas-title">
+      <h2 id="arkansas-title">Public money.<br /><em>Direct state support.</em></h2>
+      <p class="dateline">The Arkansas connection</p>
+      <div class="prose">
+        <p>
+          Buying an Israel Bond means lending money to the State of Israel. The issuer says the government can use the
+          proceeds for purposes it determines.
+        </p>
+        <p>
+          Arkansas’s Treasury and retirement systems have made choices to hold, purchase, or fund Israel Bonds investments.
+          The records below establish those choices. They give our demand a local target.
+        </p>
+        <details class="disclosure">
+          <summary>How Israel Bonds finance the state <Icon name="plus" /></summary>
+          <div class="panel">
+            <p>
+              Israel Bonds describes these securities as direct obligations of the State of Israel, with proceeds available for
+              government-determined purposes. This establishes state financing; it does not trace a particular Arkansas dollar
+              to a particular military attack.
+            </p>
+            <a class="go" href="https://israelbonds.com/knowledge-base/about-israel-bonds/"
+              >Read the issuer’s explanation <Icon name="external" /></a
+            >
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="margin-grid institution" id="treasury" aria-labelledby="treasury-title">
+      <h2 id="treasury-title">$55 million<br /><em>held in Israel Bonds.</em></h2>
+      <p class="dateline">Arkansas State Treasury</p>
+      <p class="provenance">Bondholder statement · June 30, 2025</p>
+      <div class="prose">
+        <p>
+          The Treasury’s statement lists seven Israel Bonds positions totaling $55 million, with individual maturity dates.
+          Among them: $10 million scheduled to mature in October 2026 and another $10 million in November 2026.
+        </p>
+        <p>The demand is to stop new purchases and prevent money returning to Israel Bonds when existing investments mature.</p>
+      </div>
+      <div class="wide">
+        <RecordFigure
+          image={treasuryHoldings}
+          href="/media/treasury-holdings-2025-06-30.png"
+          label="Source record"
+          alt="Scanned table headed “State of Israel – Bondholder Statement 30 Jun 2025”, account information excluding transactions pending settlement. Seven Israel Bonds are listed with interest rate, issue date, amount, maturity date and CUSIP; maturities run from 01 Feb 2026 to 01 May 2030, including two $5,000,000 bonds due 01 Oct 2026 and a $10,000,000 bond due 01 Nov 2026."
+        >
+          State of Israel bondholder statement for the Arkansas Treasury, June 30, 2025. Produced in the Treasury’s February 19,
+          2026 public-records response. A literal crop of the dated holdings table. Select the image to open it at full size. <a
+            href="/evidence/#SRC-TRE-001">Source notes</a
+          >.
+        </RecordFigure>
+      </div>
+      <div class="prose">
+        <details class="disclosure">
+          <summary>See the holdings and maturity record <Icon name="plus" /></summary>
+          <div class="panel">
+            <p>
+              State of Israel bondholder statement, June 30, 2025. Produced in the Treasury’s February 19, 2026 public-records
+              response, PDF page 1. The linked image is a literal crop of the dated holdings table.
+            </p>
+            <a class="go" href="/media/treasury-holdings-2025-06-30.png">Open the dated holdings table <Icon name="external" /></a>
+            <p class="provenance">
+              The statement is historical. A later Treasury inventory adjustment records a $5 million February 2026 maturity.
+              The $55 million figure above is not presented as today’s balance.
+            </p>
+            <p>
+              <a href="/evidence/#SRC-TRE-001">Read the fuller source and publication notes</a> · <a href="/investments/"
+                >View the dated ledger</a
+              >
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="margin-grid institution" id="public-employees" aria-labelledby="apers-title">
+      <h2 id="apers-title">$25 million<br /><em>held.</em></h2>
+      <p class="dateline">Arkansas Public Employees Retirement System</p>
+      <p class="provenance">Preliminary custody report · September 7, 2026</p>
+      <div class="prose">
+        <p>
+          APERS used retirement-system money to buy $15 million in Israel Bonds on October 15, 2025. A custody report APERS
+          produced, dated September 7, 2026 and marked preliminary, lists that bond and a second $10 million Israel Bond: $25
+          million on that report.
+        </p>
+        <p>
+          Public employees and retirees have a reason to demand that their retirement system stop financing the Israeli
+          government.
+        </p>
+      </div>
+      <div class="wide">
+        <RecordFigure
+          image={apersHoldings}
+          href="/media/apers-holdings-2026-09-07.png"
+          label="Source record"
+          alt="BNY “Asset and Accrual Detail – By Asset type” report dated 09/07/2026, status preliminary, with most rows blacked out. Under “Israel”: 10,000,000 of 46515DRC8, 4.670% maturing 08/01/2028, and 15,000,000 of 46514X2A6, 4.060% maturing 10/01/2027. Subtotal Israel: 25,000,000.00."
+        >
+          BNY custody report for APERS dated September 7, 2026 and marked preliminary. Produced in APERS’s September 9, 2026
+          public-records response. A literal crop; the black boxes are the agency’s redactions. Select the image to open it at
+          full size. <a href="/evidence/#SRC-APE-002">Source notes</a>.
+        </RecordFigure>
+      </div>
+      <div class="prose">
+        <details class="disclosure">
+          <summary>See the holdings and purchase records <Icon name="plus" /></summary>
+          <div class="panel">
+            <p>
+              APERS public-records response, September 9, 2026: a BNY Asset and Accrual Detail report dated September 7, 2026
+              and marked preliminary, page 1. The linked image is a literal crop of its heading and Israel Bonds rows.
+            </p>
+            <a class="go" href="/media/apers-holdings-2026-09-07.png"
+              >Open the $25 million holdings excerpt <Icon name="external" /></a
+            >
+            <p>
+              APERS public-records response, February 27, 2026, PDF pages 6925 and 6929. These literal source crops show the
+              transfer amount and the email identifying the initial purchase date.
+            </p>
+            <div class="stack">
+              <a class="go" href="/media/apers-purchase-amount.png"
+                >Open the $15 million transaction excerpt <Icon name="external" /></a
+              >
+              <a class="go" href="/media/apers-purchase-date.png">Open the purchase-date email excerpt <Icon name="external" /></a>
+            </div>
+            <p>
+              <a href="/evidence/#SRC-APE-002">Holdings report notes</a> · <a href="/evidence/#SRC-APE-001"
+                >Purchase record notes</a
+              > · <a href="/investments/#apers">View the dated ledger</a>
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="margin-grid institution" id="teachers" aria-labelledby="atrs-title">
+      <h2 id="atrs-title">$50 million funded.<br /><em>$9.9 million bought.</em></h2>
+      <p class="dateline">Arkansas Teacher Retirement System</p>
+      <p class="provenance">Funding · January 2, 2026 · Purchase · February 2026</p>
+      <div class="prose">
+        <p>
+          On January 2, 2026, ATRS moved $50 million into the Scout/Reams account set up for its Israel Bonds mandate. In
+          February the manager bought a $9.9 million Israel Bond, issued February 15. The account report for July 31, 2026
+          shows that bond still held, with most of the remaining money in U.S. Treasury notes.
+        </p>
+        <p>
+          The manager’s second-quarter report states a long-term objective of a laddered Israel Bonds portfolio, buying no
+          more than $10 million in a calendar year, and says it bought a ladder of U.S. Treasury notes so their maturities
+          would line up with those future purchases. The earliest matures January 15, 2027.
+        </p>
+        <p>
+          Teachers and retirees can demand that ATRS stop the next purchase and end this mandate’s support for the Israeli
+          government.
+        </p>
+      </div>
+      <div class="wide steps">
+        <h3 class="steps__title">How the ATRS money moved</h3>
+        <ol>
+          <li>
+            <span class="steps__date">June 2, 2025</span>
+            <span class="steps__state">Authorized</span>
+            <span class="steps__amt">Up to $50 million</span>
+            <span class="steps__note">Board approval for Israel Bonds managed through Scout/Reams</span>
+          </li>
+          <li>
+            <span class="steps__date">January 2, 2026</span>
+            <span class="steps__state">Funded</span>
+            <span class="steps__amt">$50 million</span>
+            <span class="steps__note">Moved into the Reams account</span>
+          </li>
+          <li>
+            <span class="steps__date">February 2026</span>
+            <span class="steps__state">Bought</span>
+            <span class="steps__amt">$9.9 million</span>
+            <span class="steps__note">One Israel Bond, issued February 15</span>
+          </li>
+          <li>
+            <span class="steps__date">July 31, 2026</span>
+            <span class="steps__state">Held</span>
+            <span class="steps__amt">$9.9 million</span>
+            <span class="steps__note"
+              >19.71% of the account’s $50.4 million market value; the rest was U.S. Treasury notes and cash</span
+            >
+            <span class="steps__bar" aria-hidden="true"><span></span></span>
+          </li>
+        </ol>
+        <p class="steps__foot">
+          The manager’s second-quarter report states a long-term objective of a laddered Israel Bonds portfolio, buying no more
+          than $10 million in a calendar year. <a href="/investments/#atrs">See the ATRS records</a>.
+        </p>
+      </div>
+      <div class="wide">
+        <RecordFigure
+          image={atrsBond}
+          href="/media/atrs-israel-bond-2026-02-15.png"
+          label="Source record"
+          alt="Israel Bonds purchase confirmation addressed to the Arkansas Teachers Retirement System: “An Israel bond has been purchased in your name.” Issue 13th Institutional Jubilee Fix 5Y 4.93 2031/02/01, CUSIP 46515DSQ6: issue date 15 Feb 2026, principal 9,900,000.00, maturity 01 Feb 2031, interest rate 4.93%."
+        >
+          Israel Bonds purchase confirmation for ATRS, issue date February 15, 2026. Produced in ATRS’s September 11, 2026
+          public-records response. A literal crop. The black boxes cover a name or mailing line, bank-account digits and the
+          report number, which we removed, and the fiscal-agent account number, which the agency redacted. Select the image to
+          open it at full size. <a href="/evidence/#SRC-ATR-004">Source notes</a>.
+        </RecordFigure>
+      </div>
+      <div class="prose">
+        <details class="disclosure">
+          <summary>See the funding and purchase records <Icon name="plus" /></summary>
+          <div class="panel">
+            <p>
+              ATRS public-records response, September 11, 2026: the State Street activity report for the January 2 transfer,
+              the Israel Bonds purchase confirmation, the manager’s July 31 holdings worksheet, and its second-quarter report.
+              The linked images are literal crops.
+            </p>
+            <div class="stack">
+              <a class="go" href="/media/atrs-funding-completed-2026-01-02.png"
+                >Open the $50 million transfer excerpt <Icon name="external" /></a
+              >
+              <a class="go" href="/media/atrs-israel-bond-2026-02-15.png"
+                >Open the $9.9 million purchase excerpt <Icon name="external" /></a
+              >
+            </div>
+            <p class="provenance">
+              Correction, September 28, 2026: we previously dated this funding to December 2025, from a December 29, 2025
+              update to trustees that listed it among December payments. The transfer records show it was completed January
+              2, 2026. <a href="/media/atrs-december-funding.png">The December excerpt remains available</a>.
+            </p>
+            <p>
+              Source notes: <a href="/evidence/#SRC-ATR-003">transfer</a> · <a href="/evidence/#SRC-ATR-004">purchase</a> · <a
+                href="/evidence/#SRC-ATR-005">holdings</a
+              > · <a href="/evidence/#SRC-ATR-006">manager’s report</a> · <a href="/investments/#atrs">View the dated ledger</a>
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="margin-grid chapter demand-note" aria-labelledby="demand-title">
+      <h2 id="demand-title">End the support.<br /><em>Bring the money home.</em></h2>
+      <p class="dateline">The demand</p>
+      <div class="prose">
+        <p>No new Israel Bonds. No renewals. No reinvestment. Organize now to end the financial relationship and keep the money out.</p>
+        <a class="go" href="/how-we-win/">How we win <Icon name="arrow-right" /></a>
+      </div>
+    </section>
+  </div>
+
+  <CloseStrip />
+</Base>
+
+<style>
+  .onpage {
+    margin-top: var(--s-6) !important;
+    padding-top: var(--s-4);
+    border-top: 2px solid var(--olive-screen);
+  }
+  .onpage__label {
+    font-weight: 700;
+    color: var(--olive-screen);
+    font-size: var(--step--1);
+  }
+  .onpage ol {
+    list-style: none;
+    margin: var(--s-2) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--s-5);
+  }
+  .onpage a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    font-weight: 600;
+  }
+  .issue {
+    padding-block: var(--s-6) var(--s-8);
+  }
+  .chapter,
+  .institution {
+    padding-block: var(--s-8) 0;
+  }
+  .chapter > h2,
+  .institution > h2 {
+    font-size: var(--step-3);
+  }
+  .margin-grid > .prose {
+    margin-top: var(--s-4);
+  }
+  .institution {
+    margin-top: var(--s-7);
+    border-top: 0.75rem solid var(--olive);
+    padding-top: var(--s-6);
+  }
+  .institution > h2 {
+    font-size: var(--step-4);
+  }
+  .institution > .provenance {
+    font-size: var(--step-0);
+    font-weight: 600;
+  }
+  .wide {
+    max-width: 62rem;
+  }
+  @media (min-width: 60rem) {
+    .margin-grid > .wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .statement {
+    font-family: var(--display);
+    font-size: var(--step-2);
+    line-height: 1.05;
+    color: var(--red-deep);
+    margin-block: var(--s-5) !important;
+  }
+  .call-quote {
+    margin: var(--s-5) 0;
+    padding: var(--s-4) 0;
+    border-block: 2px solid var(--rule);
+    font-size: var(--step-2);
+    line-height: 1.12;
+    font-weight: 600;
+  }
+  .demands {
+    list-style: none;
+    padding: 0 !important;
+  }
+  .demands li {
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-weight: 600;
+  }
+  .demands li + li {
+    margin-top: 0 !important;
+  }
+
+  /* How the ATRS money moved: four dated states in order, never summed. */
+  .steps {
+    margin-top: var(--s-6);
+  }
+  .steps__title {
+    font-size: var(--step-1);
+  }
+  .steps ol {
+    list-style: none;
+    margin: var(--s-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 3px solid var(--rule);
+  }
+  .steps li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+    padding: var(--s-4) 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: var(--step--1);
+    line-height: 1.3;
+  }
+  .steps__date {
+    font-weight: 700;
+  }
+  .steps__state {
+    color: var(--olive-ink);
+    font-weight: 600;
+  }
+  .steps__amt {
+    font-family: var(--display);
+    font-size: var(--step-2);
+    line-height: 1.05;
+  }
+  .steps__bar {
+    display: block;
+    height: 0.75rem;
+    margin-top: var(--s-2);
+    background: var(--screen), var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .steps__bar span {
+    display: block;
+    width: 19.71%;
+    height: 100%;
+    background: var(--olive);
+  }
+  @media (min-width: 48rem) {
+    .steps ol {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .steps li {
+      padding-right: var(--s-4);
+      border-bottom: 0;
+    }
+    .steps li + li {
+      padding-left: var(--s-4);
+      border-left: 1px solid var(--rule-soft);
+    }
+  }
+  .steps__foot {
+    margin-top: var(--s-3);
+    font-size: var(--step--1);
+    max-width: 44em;
+  }
+  .demand-note {
+    border-top: 2px solid var(--rule);
+    margin-top: var(--s-8);
+  }
+</style>

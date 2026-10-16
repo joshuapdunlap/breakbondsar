@@ -1,0 +1,405 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import ResearchNav from "../components/ResearchNav.astro";
+import RecordFigure from "../components/RecordFigure.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+import Icon from "../components/Icon.astro";
+import index from "../data/evidence-index.json";
+import treasuryHoldings from "../assets/evidence/treasury-holdings-2025-06-30.png";
+import apersHoldings from "../assets/evidence/apers-holdings-2026-09-07.png";
+import atrsFunding from "../assets/evidence/atrs-funding-completed-2026-01-02.png";
+import atrsBond from "../assets/evidence/atrs-israel-bond-2026-02-15.png";
+import type { ImageMetadata } from "astro";
+
+type Source = {
+  id: string;
+  title: string;
+  dated: string;
+  about: string[];
+  location: string;
+  /** Extra paragraph after the location, as HTML (a correction note). */
+  correction?: string;
+  pdf: string;
+  redactions: string;
+  hash: string;
+  figure?: { image: ImageMetadata; href: string; alt: string; caption: string };
+};
+
+const sources: Source[] = [
+  {
+    id: "SRC-TRE-001",
+    title: "Treasury bondholder statement, June 30, 2025",
+    dated: "Arkansas Treasury · Document: 2025-06-30 · Response recorded: 2026-02-19",
+    about: [
+      "Complete statement face extracted from a compilation of statements and advices. The reverse privacy notice referenced on the face is not the next page in the supplied compilation and is not included. This is not the full agency response.",
+    ],
+    location: "Original PDF page 1 of 10",
+    pdf: "/media/treasury-statement-2025-06-30-redacted.pdf",
+    redactions:
+      "Mailing/account header and bottom processing identifiers removed. All seven financial rows and the dated heading retained. Agency redactions remain intact.",
+    hash: "c1fee73d741980e2196d3c421269ed11c6cc6b1bdcdee5e8bb96f108aae42894",
+    figure: {
+      image: treasuryHoldings,
+      href: "/media/treasury-holdings-2025-06-30.png",
+      alt: "Scanned table headed “State of Israel – Bondholder Statement 30 Jun 2025”, account information excluding transactions pending settlement. Seven Israel Bonds are listed with interest rate, issue date, amount, maturity date and CUSIP; maturities run from 01 Feb 2026 to 01 May 2030, including two $5,000,000 bonds due 01 Oct 2026 and a $10,000,000 bond due 01 Nov 2026.",
+      caption:
+        "State of Israel bondholder statement for the Arkansas Treasury, June 30, 2025. Produced in the Treasury’s February 19, 2026 public-records response. A literal crop of the dated holdings table. Select the image to open it at full size.",
+    },
+  },
+  {
+    id: "SRC-APE-001",
+    title: "APERS purchase email threads and bondholder advice",
+    dated: "APERS · Document: 2025-11-06 · Response recorded: 2026-02-27",
+    about: [
+      "Two complete produced email threads and the two-page statement attachment following Email 514. The messages refer to a term sheet; that separate attachment is not included in this selected span. This is not the full agency response.",
+    ],
+    location: "Original PDF pages 6921-6932 of 8648; Email 513 and Email 514; advice at page 6931",
+    pdf: "/media/apers-purchase-threads-2025-11-06-redacted.pdf",
+    redactions:
+      "Correspondent names, email addresses, telephone/address details, transaction/account identifiers and routing lines removed. Dates, subjects, agency context, amount, CUSIP and bond terms retained. The PDF shows the redacted pages as images.",
+    hash: "50dc22a75ba2b571fffb8765eb4cf700c842741f477ebdc03ea131590000afad",
+  },
+  {
+    id: "SRC-ATR-001",
+    title: "ATRS Board Update-Liquidity",
+    dated: "Auditor production of ATRS correspondence · Document: 2025-12-29 · Response recorded: 2026-03-03",
+    about: [
+      "The full email message, including its discussion of liquidity and confidentiality notice. Sender: ATRS executive director; recipient: ATRS Board Distribution List; copy: ATRS leadership. Personal addresses and transport headers are not published.",
+    ],
+    location: "Original email, December 29, 2025, 11:23:15 AM CST; complete body; no attachments",
+    correction:
+      'Correction, September 28, 2026: this email lists the $50 million among December payments. ATRS’s transfer records show the funding was completed January 2, 2026; see <a href="/evidence/#SRC-ATR-003">SRC-ATR-003</a>.',
+    pdf: "/media/atrs-liquidity-email-2025-12-29.pdf",
+    redactions: "The full message is preserved in a PDF. Personal email addresses and delivery details are omitted.",
+    hash: "c82988a11247bd266e349f233ed6e8adbbeb4467a63a6cdeec516f195760cb78",
+  },
+  {
+    id: "SRC-TRE-002",
+    title: "February 2026 projected cashflow and inventory adjustment",
+    dated: "Arkansas Treasury · Document: 2026-02-02 · Response recorded: 2026-02-19",
+    about: [
+      "Complete populated worksheet rendered from the original XLSX. Its projected-cashflow label and inventory-adjustment entry are retained. This is not independent confirmation of receipt in a bank account.",
+    ],
+    location: "Sheet1, full populated worksheet; final-maturity row 14 and inventory adjustment rows 17-18",
+    pdf: "/media/treasury-february-2026-cashflow-redacted.pdf",
+    redactions:
+      "Internal account labels and accounting-code reference removed. Financial values, security identifier, dates and original worksheet layout retained.",
+    hash: "e59ec31324e0b8313869875053b3b1b8c8912cd947c82456fa14b1e4a5912ab5",
+  },
+  {
+    id: "SRC-ATR-002",
+    title: "ATRS Board authorization, June 2, 2025",
+    dated: "ATRS official website · Document: 2025-06-02 · Response recorded: Official publication; checked 2026-09-07",
+    about: [
+      "Full official eight-page Board minutes, linked directly from ATRS. The resolution authorizes up to $50 million through Scout/Reams; authorization is not proof of settlement.",
+    ],
+    location: "Official minutes, page 4, Resolution 2025-22",
+    pdf: "https://www.artrs.gov/board/documents/CY2025/2025-06-02/BOT_Minutes.pdf",
+    redactions: "This link opens the official document on the ATRS website.",
+    hash: "166b51cbd63cbf0f3fc9e30ba1c124b4f39a3788522dfaf2d8eb07f33bd3d073",
+  },
+  {
+    id: "SRC-APE-002",
+    title: "APERS custody holdings report, September 7, 2026",
+    dated: "APERS · Document: 2026-09-07 · Response recorded: 2026-09-09",
+    about: [
+      "BNY custody report produced by APERS, marked preliminary and dated September 7, 2026. It lists two State of Israel bonds totaling $25 million. The Customer Investment Request produced with it is not included.",
+    ],
+    location: "Complete two-page produced file; Israel Bonds rows and subtotal on page 1",
+    pdf: "/media/apers-bny-holdings-2026-09-07.pdf",
+    redactions: "Agency redactions retained. No campaign redactions were needed. Image-only copy with no text layer or links.",
+    hash: "95c69629966b321f982ec81693c5fee309c4931f892bd95016035ae081e0f99e",
+    figure: {
+      image: apersHoldings,
+      href: "/media/apers-holdings-2026-09-07.png",
+      alt: "BNY “Asset and Accrual Detail – By Asset type” report dated 09/07/2026, status preliminary, with most rows blacked out. Under “Israel”: 10,000,000 of 46515DRC8, 4.670% maturing 08/01/2028, and 15,000,000 of 46514X2A6, 4.060% maturing 10/01/2027. Subtotal Israel: 25,000,000.00.",
+      caption:
+        "BNY custody report for APERS dated September 7, 2026 and marked preliminary. Produced in APERS’s September 9, 2026 public-records response. A literal crop; the black boxes are the agency’s redactions. Select the image to open it at full size.",
+    },
+  },
+  {
+    id: "SRC-ATR-003",
+    title: "ATRS transfer of $50 million to the Reams account, January 2, 2026",
+    dated: "ATRS · Document: 2026-01-02 · Response recorded: 2026-09-11",
+    about: [
+      "State Street activity report for ATRS’s $50 million internal transfer to its Reams account, status completed, settlement date January 2, 2026. One page of a twelve-page funding file; the authorizing memo and approval emails are not included.",
+    ],
+    location: "Original PDF page 3 of 12 (State Street Activity Report)",
+    pdf: "/media/atrs-reams-funding-2026-01-02-redacted.pdf",
+    redactions:
+      "Reference number, submitter name and internal fund codes removed. Status, trust, account names, amount, settlement date and cash-flow tables retained.",
+    hash: "cd8a811d794c1fa94016cfc73106223ca7883c428e6765206d602502c64f3b3c",
+    figure: {
+      image: atrsFunding,
+      href: "/media/atrs-funding-completed-2026-01-02.png",
+      alt: "State Street activity record with status “Completed”: trust Arkansas Teacher Retirement System; transfer from the liquidity account to Reams Asset Management of 50,000,000.00; settlement date 01/02/2026. Reference number and submitter are redacted.",
+      caption:
+        "State Street activity report for the ATRS transfer to the Reams account, settlement date January 2, 2026. Produced in ATRS’s September 11, 2026 public-records response. A literal crop; the reference number, submitter and internal fund codes are redacted. Select the image to open it at full size.",
+    },
+  },
+  {
+    id: "SRC-ATR-004",
+    title: "Israel Bonds purchase confirmation for ATRS, issue date February 15, 2026",
+    dated: "ATRS · Document: 2026-02-15 · Response recorded: 2026-09-11",
+    about: [
+      "Development Corporation for Israel confirmation that a $9.9 million Israel Bond was purchased for ATRS, issue date February 15, 2026, maturing February 1, 2031 at 4.93%. First page of three. A February 1 issuance of the same amount at 4.86% was cancelled.",
+    ],
+    location: "Original PDF page 1 of 3; issue table",
+    pdf: "/media/atrs-israel-bond-2026-02-15-redacted.pdf",
+    redactions:
+      "Staff name, mailing and processing codes, bank account digits and report number removed. Agency redaction of the fiscal-agent account retained. Issue, CUSIP, dates, principal and rate retained.",
+    hash: "5ba81195be209dde783164db84625da33fe04347b31a4bbefdacada1129c4973",
+    figure: {
+      image: atrsBond,
+      href: "/media/atrs-israel-bond-2026-02-15.png",
+      alt: "Israel Bonds purchase confirmation addressed to the Arkansas Teachers Retirement System: “An Israel bond has been purchased in your name.” Issue 13th Institutional Jubilee Fix 5Y 4.93 2031/02/01, CUSIP 46515DSQ6: issue date 15 Feb 2026, principal 9,900,000.00, maturity 01 Feb 2031, interest rate 4.93%.",
+      caption:
+        "Israel Bonds purchase confirmation for ATRS, issue date February 15, 2026. Produced in ATRS’s September 11, 2026 public-records response. A literal crop. The black boxes cover a name or mailing line, bank-account digits and the report number, which we removed, and the fiscal-agent account number, which the agency redacted. Select the image to open it at full size.",
+    },
+  },
+  {
+    id: "SRC-ATR-005",
+    title: "Reams account holdings for ATRS, July 31, 2026",
+    dated: "ATRS · Document: 2026-07-31 · Response recorded: 2026-09-11",
+    about: [
+      "Reams holdings worksheet for the ATRS account, produced as a file dated July 31, 2026, rendered from the original spreadsheet. It lists the $9.9 million Israel Bond, four U.S. Treasury notes and cash. The worksheet itself has no date cell, and a ratings-agency disclaimer row is not reproduced.",
+    ],
+    location: "Worksheet MasterGridXLS, rows 1-14 (row 9: State of Israel 4.930% 02/01/2031)",
+    pdf: "/media/atrs-reams-holdings-2026-07-31.pdf",
+    redactions: "Agency redactions of CUSIP, ISIN and SEDOL retained. No campaign redactions.",
+    hash: "ece702b77728c015e68705c4325eac1a53fb1e96ada78e957529af103a792c2a",
+  },
+  {
+    id: "SRC-ATR-006",
+    title: "Reams second-quarter 2026 report: portfolio strategy",
+    dated: "ATRS · Document: 2026-06-30 · Response recorded: 2026-09-11",
+    about: [
+      "Cover and Portfolio Strategy page from Reams’s report on the ATRS Israel account for the quarter ending June 30, 2026. It states a long-term objective of a laddered Israel Bonds portfolio, with no more than $10 million bought in a calendar year.",
+    ],
+    location: "Original PDF pages 1 and 7 of 10",
+    pdf: "/media/atrs-reams-strategy-q2-2026.pdf",
+    redactions: "None needed.",
+    hash: "9228228a5312dcc4d6e26c2b8d0fa96a1b85582db8ccb40f02f5befaa376e199",
+  },
+];
+---
+
+<Base path="/evidence/">
+  <PosterBand crumb="Evidence & progress">
+    <Fragment slot="title">Follow the records.<br /><em>Hold them to account.</em></Fragment>
+    <p slot="intro">
+      Our solidarity calls us to act. The records let us examine Arkansas’s choices and check whether officials change them.
+    </p>
+    <ResearchNav path="/evidence/" />
+  </PosterBand>
+
+  <div class="wrap evidence">
+    <section class="margin-grid opening" aria-labelledby="claim-title">
+      <h2 id="claim-title">Start with the claim</h2>
+      <div class="prose">
+        <p>
+          This archive provides fuller documents behind the financial findings on The issue page. Read the <a
+            href="/investments/">dated investment ledger</a
+          >, examine <a href="/policy/">each institution’s route to change</a>, and follow the <a href="/progress/"
+            >progress record</a
+          >.
+        </p>
+        <p>
+          These are selected documents, not a complete release of every agency production. The response dates below come from
+          our research records. Agency cover letters are not included.
+        </p>
+      </div>
+    </section>
+
+    <section class="index">
+      <h2 id="evidence-index-title">Index of documents</h2>
+      <p>Ten records, in the order they appear below. Each ID matches the citations in the investment ledger.</p>
+      <div class="table-region reflow">
+        <table role="table" aria-labelledby="evidence-index-title">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th scope="col" role="columnheader">ID</th>
+              <th scope="col" role="columnheader">Record</th>
+              <th scope="col" role="columnheader">Document date</th>
+              <th scope="col" role="columnheader">Response recorded</th>
+            </tr>
+          </thead>
+          <tbody role="rowgroup">
+            {
+              index.map((row) => (
+                <tr role="row">
+                  <th scope="row" role="rowheader">
+                    <a class="data idlink" href={`#${row.id}`}>
+                      {row.id}
+                    </a>
+                  </th>
+                  <td role="cell" data-label="Record">{row.record}</td>
+                  <td role="cell" data-label="Document date">
+                    <span class="data">{row.docDate}</span>
+                  </td>
+                  <td role="cell" data-label="Response recorded">{/^\d{4}-\d{2}-\d{2}$/.test(row.response) ? <span class="data">{row.response}</span> : row.response}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {
+      sources.map((s) => (
+        <section class="margin-grid source" id={s.id} aria-labelledby={`${s.id}-title`}>
+          <h2 id={`${s.id}-title`}>{s.title}</h2>
+          <p class="margin srcid">
+            <span class="data">{s.id}</span>
+          </p>
+          <p class="provenance dated">{s.dated}</p>
+          <div class="prose">
+            {s.about.map((p) => (
+              <p>{p}</p>
+            ))}
+            <p>
+              <strong>Source location:</strong> {s.location}
+            </p>
+            {s.correction && <p class="provenance" set:html={s.correction} />}
+            <p>
+              <a class="go doc" href={s.pdf}>
+                {s.pdf.startsWith("http") ? <Icon name="external" /> : <Icon name="download" />}Read the document (PDF)
+              </a>
+            </p>
+            <details class="disclosure">
+              <summary>
+                Redactions and provenance <Icon name="plus" />
+              </summary>
+              <div class="panel">
+                <p>{s.redactions}</p>
+                <p>
+                  Public-copy SHA-256: <code class="hash">{s.hash}</code>
+                </p>
+              </div>
+            </details>
+          </div>
+          {s.figure && (
+            <div class="wide">
+              <RecordFigure image={s.figure.image} href={s.figure.href} alt={s.figure.alt} label="Excerpt">
+                {s.figure.caption}
+              </RecordFigure>
+            </div>
+          )}
+        </section>
+      ))
+    }
+
+    <section class="margin-grid opening" aria-labelledby="text-title">
+      <h2 id="text-title">Read the financial evidence in text</h2>
+      <div class="prose">
+        <p>
+          The redacted PDFs show the original document pages as images. You can also read their financial findings in the <a
+            href="/investments/">investment ledger</a
+          >, including dates, amounts, interest rates, maturities and source locations. The ATRS email is also readable
+          directly as text.
+        </p>
+        <p>
+          APERS’s November 6 correspondence identifies an initial purchase on October 15, asks for the term sheet, and
+          discusses statement frequency and accounting setup. The attached advice records a $15 million initial subscription
+          and a $15 million holding on October 20. Its 4.06% coupon and October 1, 2027 maturity describe the bond, not a
+          comparison with other investments.
+        </p>
+        <p>
+          The BNY report for APERS, dated September 7, 2026 and marked preliminary, lists two State of Israel bonds: $10 million
+          at 4.67% maturing August 1, 2028, and the $15 million bond at 4.06% maturing October 1, 2027. Its Israel Bonds
+          subtotal is $25 million at cost and at market value.
+        </p>
+        <p>
+          ATRS’s activity report shows its $50 million internal transfer to the Reams account completed with a January 2, 2026
+          settlement date. The purchase confirmation shows a $9.9 million State of Israel bond, CUSIP 46515DSQ6, issued
+          February 15, 2026 at 4.93% and maturing February 1, 2031. The July 31 worksheet lists that bond at $9.9 million par
+          beside U.S. Treasury notes and cash. The manager’s second-quarter report states a long-term objective of a laddered
+          Israel Bonds portfolio, buying no more than $10 million in a calendar year.
+        </p>
+        <p>
+          The Treasury cashflow sheet labels its period January 29, 2026 to January 28, 2027. It records a February 2 coupon of
+          $17,013.6986 in the workbook (displayed rounded to $17,013.70), a $5 million final-maturity entry, and a $5 million
+          inventory adjustment. Its projected-cashflow heading remains visible; the sheet alone does not prove bank receipt.
+        </p>
+      </div>
+    </section>
+
+    <section class="margin-grid opening" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">About these documents</h2>
+      <div class="prose">
+        <p>
+          We preserve the original records and provide copies with sensitive details removed. Redactions remove personal
+          contact information, account details, and processing identifiers. We do not reconstruct missing material or add
+          highlights to source evidence. Any highlighting already present in an agency production remains part of that source.
+        </p>
+        <p>
+          A holding, purchase, authorization, and payment to an investment manager establish different things. We explain what
+          each document shows, what it leaves unanswered, and where we offer an interpretation.
+        </p>
+        <p><a href="/about/#corrections">Flag an error or request source context</a>.</p>
+      </div>
+    </section>
+  </div>
+
+  <CloseStrip />
+</Base>
+
+<style>
+  .evidence {
+    padding-block: var(--s-6) var(--s-8);
+  }
+  .opening {
+    padding-top: var(--s-7);
+  }
+  .opening .prose,
+  .source .prose {
+    margin-top: var(--s-4);
+  }
+  .index {
+    margin-top: var(--s-8);
+  }
+  .index > p {
+    margin-top: var(--s-3);
+    max-width: 40em;
+  }
+  .idlink {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    font-weight: 700;
+  }
+  .source {
+    margin-top: var(--s-8);
+    padding-top: var(--s-5);
+    border-top: 0.5rem solid var(--olive);
+  }
+  .source > h2 {
+    font-size: var(--step-2);
+  }
+  .srcid .data {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .dated {
+    font-weight: 600;
+  }
+  .doc .icon {
+    width: 1.1em;
+    height: 1.1em;
+  }
+  .hash {
+    word-break: break-all;
+    font-size: 0.82em;
+    display: inline;
+  }
+  .wide {
+    max-width: 62rem;
+  }
+  @media (min-width: 60rem) {
+    .margin-grid > .wide {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

@@ -1,0 +1,185 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import ResearchNav from "../components/ResearchNav.astro";
+import Timeline from "../components/Timeline.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+import matrix from "../data/progress.json";
+
+type Cell = { text: string; kind: string };
+const cells = matrix.cells as Record<string, Record<string, Cell>>;
+---
+
+<Base path="/progress/">
+  <PosterBand crumb="Progress" parent={{ href: "/evidence/", label: "Evidence & progress" }}>
+    <Fragment slot="title">A promise needs<br /><em>a record.</em></Fragment>
+    <p slot="intro">
+      We want Arkansas’s investment decisions to change. Here is how we distinguish a public commitment from instructions,
+      repayments, and an end to new purchases.
+    </p>
+    <ResearchNav path="/progress/" />
+  </PosterBand>
+
+  <div class="wrap progress">
+    <section class="margin-grid part" aria-labelledby="start-title">
+      <h2 id="start-title">The starting point</h2>
+      <div class="prose">
+        <p>
+          The records currently available show historical investments and funding. They do not establish an official
+          commitment to stop new purchases or a withdrawal resulting from the campaign.
+        </p>
+        <p class="provenance">
+          Last reviewed: September 28, 2026. We update this page when new documents establish a change. This date identifies
+          our review, not necessarily when an agency provided records.
+        </p>
+      </div>
+    </section>
+
+    <section class="margin-grid part" aria-labelledby="new-title">
+      <h2 id="new-title">New purchases on the record</h2>
+      <div class="prose">
+        <p>
+          Records received in September 2026 show Arkansas institutions adding to Israel Bonds, not stopping. A preliminary
+          custody report APERS produced for September 7, 2026 lists a second Israel Bond, $10 million, for $25 million on that
+          report. ATRS’s manager bought a $9.9 million Israel Bond in February 2026, and its second-quarter report sets a
+          long-term objective of more Israel Bonds, no more than $10 million a year.
+        </p>
+        <p>
+          <a href="/investments/#apers">See the APERS records</a>. <a href="/investments/#atrs">See the ATRS records</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="margin-grid part" aria-labelledby="check-title">
+      <h2 id="check-title">What we will check</h2>
+      <div class="prose">
+        <ol class="checks">
+          <li><strong>Commitment:</strong> an attributable written statement identifies the institution, scope and timetable.</li>
+          <li>
+            <strong>Implementation:</strong> a board resolution, policy change, or investment instruction puts the commitment into
+            effect.
+          </li>
+          <li><strong>Receipt:</strong> records show principal was actually received, with the amount and date.</li>
+          <li>
+            <strong>Continued exclusion:</strong> subsequent holdings and transaction records show whether new purchases, renewals
+            or reinvestments occurred.
+          </li>
+          <li>
+            <strong>Campaign contribution:</strong> correspondence or another attributable record supports a connection to the
+            campaign. An ordinary maturity alone does not establish that connection.
+          </li>
+        </ol>
+        <p>A new purchase after a commitment, a rejected demand, or a failure to implement belongs in this record when documented.</p>
+      </div>
+      <div class="wide matrix">
+        <h3 class="matrix__title" id="pm-title">Where each institution stands</h3>
+        <p class="matrix__scope">Status on each check at our September 28, 2026 review, using the definitions above.</p>
+        <div class="table-region reflow">
+          <table role="table" aria-labelledby="pm-title">
+            <thead role="rowgroup">
+              <tr role="row">
+                <th scope="col" role="columnheader">Check</th>
+                {matrix.institutions.map((i) => <th scope="col" role="columnheader">{i}</th>)}
+              </tr>
+            </thead>
+            <tbody role="rowgroup">
+              {
+                matrix.checks.map((check) => (
+                  <tr role="row">
+                    <th scope="row" role="rowheader">{check}</th>
+                    {matrix.institutions.map((inst) => (
+                      <td role="cell" data-label={inst}>
+                        <span class:list={["status", `status--${cells[check][inst].kind}`]}>{cells[check][inst].text}</span>
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="matrix__note">
+          “Second bond added” and “bought” come from the new purchases section above. “No maturity yet” means no bond in that
+          record has reached its maturity date.
+        </p>
+      </div>
+    </section>
+
+    <section class="margin-grid part" aria-labelledby="next-title">
+      <h2 id="next-title">October and November: check the next decision</h2>
+      <div class="prose">
+        <p>
+          The June 2025 Treasury statement scheduled two $5 million positions to mature on October 1, 2026 and one $10 million
+          position on November 1, 2026. We will compare those entries with a later inventory, actual receipts, and subsequent
+          investment activity before reporting a change.
+        </p>
+      </div>
+      <div class="wide">
+        <Timeline id="mt-progress" />
+        <p class="after">
+          <a href="/investments/#treasury">See the positions and their source</a>. <a href="/take-action/#officials"
+            >Ask the Treasury for a written commitment now</a
+          >.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <CloseStrip />
+</Base>
+
+<style>
+  .progress {
+    padding-block: var(--s-6) var(--s-8);
+  }
+  .part {
+    padding-top: var(--s-8);
+  }
+  .part .prose {
+    margin-top: var(--s-4);
+  }
+  .checks li {
+    padding-left: 0.2em;
+  }
+  .wide {
+    max-width: 62rem;
+  }
+  @media (min-width: 60rem) {
+    .margin-grid > .wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .matrix {
+    margin-top: var(--s-7);
+  }
+  .matrix__title {
+    font-size: var(--step-2);
+  }
+  .matrix__scope,
+  .matrix__note {
+    margin-top: var(--s-3);
+    font-size: var(--step--1);
+    color: var(--olive-ink);
+    max-width: 44em;
+  }
+  .matrix th[scope="row"] {
+    font-weight: 700;
+  }
+  /* Statuses print as words; weight and ink, not badges. */
+  .status--no {
+    color: var(--olive-ink);
+  }
+  .status--na {
+    color: var(--olive-ink);
+    font-style: normal;
+    text-decoration: underline dotted;
+    text-underline-offset: 0.2em;
+  }
+  .status--against {
+    font-weight: 700;
+    color: var(--red-deep);
+  }
+  .after {
+    margin-top: var(--s-5);
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import ResearchNav from "../components/ResearchNav.astro";
+import Timeline from "../components/Timeline.astro";
+import Ledger from "../components/Ledger.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<Base path="/investments/">
+  <PosterBand crumb="Investment ledger" parent={{ href: "/evidence/", label: "Evidence & progress" }}>
+    <Fragment slot="title">What the money<br /><em>record shows.</em></Fragment>
+    <p slot="intro">
+      Dated evidence of holdings, purchases, funding, and scheduled maturities. Each entry describes a specific event; this is
+      not a current statewide portfolio total.
+    </p>
+    <ResearchNav path="/investments/" />
+  </PosterBand>
+
+  <div class="wrap ledger-page">
+    <section class="margin-grid read-first" aria-labelledby="dates-title">
+      <h2 id="dates-title">Read the dates before the amounts</h2>
+      <div class="prose">
+        <p>
+          Coverage: Treasury holding snapshot, June 30, 2025, plus a February 2026 adjustment worksheet; APERS purchase,
+          October 15, 2025, and holding reports, October 20, 2025 and September 7, 2026; ATRS mandate funding, January 2, 2026,
+          Israel Bond purchase, February 2026, and account holdings, July 31, 2026. Reviewed September 28, 2026.
+        </p>
+        <p class="warning">
+          <strong>Do not add these rows together.</strong> The same investment can appear as a purchase, holding, and scheduled
+          maturity. Manager funding is not proof of bonds held. Empty spreadsheet fields mean the selected record does not
+          establish that value.
+        </p>
+        <p>
+          <a class="go" download href="/media/investment-events-2026-09-28.xlsx"
+            ><Icon name="download" />Download the complete event ledger (Excel .xlsx)</a
+          >. Coupons are contractual rates, not evidence of superior or inferior returns.
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-section">
+      <Timeline id="mt-ledger" level={2} />
+    </section>
+
+    <section class="institution" id="treasury" aria-labelledby="treasury-title">
+      <h2 id="treasury-title">Treasury</h2>
+      <Ledger institution="treasury" />
+    </section>
+
+    <section class="institution" id="apers" aria-labelledby="apers-title">
+      <h2 id="apers-title">APERS</h2>
+      <Ledger institution="apers" />
+    </section>
+
+    <section class="institution" id="atrs" aria-labelledby="atrs-title">
+      <h2 id="atrs-title">ATRS</h2>
+      <Ledger institution="atrs" />
+    </section>
+
+    <section class="margin-grid reconcile" aria-labelledby="reconcile-title">
+      <h2 id="reconcile-title">What still needs reconciliation</h2>
+      <div class="prose">
+        <p>
+          Current custody statements, principal receipts, and complete subsequent purchase activity are needed before
+          publishing an updated portfolio balance. The Treasury’s historically scheduled October and November 2026 maturities
+          total $10 million in each month. Later ownership and actual receipt must be checked.
+        </p>
+        <p>
+          APERS’s purchase and both holding entries for 46514X2A6 are the same $15 million investment; the preliminary
+          September 7 report adds a separate $10 million bond, for $25 million on that report. ATRS’s $9.9 million Israel Bond
+          was bought inside the $50 million account, not in addition to it, and the board authorization is not a second funded
+          amount. See the <a href="/policy/#atrs">ATRS brief</a>.
+        </p>
+        <p class="provenance">
+          <strong>Correction, September 28, 2026:</strong> this ledger previously dated ATRS’s $50 million funding to December
+          2025, based on a December 29, 2025 update to trustees. ATRS’s transfer records show the funding was completed January
+          2, 2026.
+        </p>
+        <p>
+          <a href="/progress/">Follow the verification steps</a> or <a href="/policy/#financial-comparison"
+            >read the investment-comparison method</a
+          >.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <CloseStrip />
+</Base>
+
+<style>
+  .ledger-page {
+    padding-block: var(--s-6) var(--s-8);
+  }
+  .read-first {
+    padding-top: var(--s-7);
+  }
+  .read-first .prose,
+  .reconcile .prose {
+    margin-top: var(--s-4);
+  }
+  .warning {
+    padding: var(--s-4);
+    background: var(--screen), var(--paper);
+    border: 2px solid var(--rule);
+  }
+  .warning strong {
+    color: var(--red-deep);
+  }
+  .read-first .go .icon {
+    width: 1.1em;
+    height: 1.1em;
+  }
+  .institution {
+    margin-top: var(--s-8);
+  }
+  .institution > h2 {
+    font-size: var(--step-3);
+    border-top: 0.75rem solid var(--olive);
+    padding-top: var(--s-4);
+  }
+  .reconcile {
+    margin-top: var(--s-8);
+    padding-top: var(--s-6);
+    border-top: 2px solid var(--rule);
+  }
+</style>

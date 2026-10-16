@@ -1,0 +1,390 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import ResearchNav from "../components/ResearchNav.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+import Icon from "../components/Icon.astro";
+
+const toc = [
+  ["#treasury", "State Treasury"],
+  ["#apers", "APERS"],
+  ["#atrs", "ATRS"],
+  ["#financial-comparison", "What the financial comparison needs"],
+  ["#legislative-options", "Possible legislative changes"],
+];
+---
+
+<Base path="/policy/">
+  <PosterBand crumb="Institutional routes" parent={{ href: "/evidence/", label: "Evidence & progress" }}>
+    <Fragment slot="title">Turn the demand<br /><em>into decisions.</em></Fragment>
+    <p slot="intro">The demand is statewide. The authority, investment duties, and steps to carry it out differ by institution.</p>
+    <ResearchNav path="/policy/" />
+  </PosterBand>
+
+  <div class="wrap policy">
+    <div class="prose lead">
+      <h2>How Arkansas can stop lending</h2>
+      <p>
+        Ending future investment takes decisions from the people who control each fund. Treasury, the Arkansas Public
+        Employees’ Retirement System (APERS), and the Arkansas Teacher Retirement System (ATRS) have different powers and
+        responsibilities. A campaign demand must become a lawful decision, a documented instruction, and a verifiable result.
+      </p>
+      <p>
+        This guide explains those routes and their limits. It does not claim that the campaign’s moral case, by itself,
+        satisfies pension investment law. The underlying transactions are on <a href="/evidence/">the evidence page</a>; the
+        amounts and dates are explained under <a href="/investments/">Arkansas investments</a>. Sources checked September 7,
+        2026; APERS and ATRS investment records updated September 28, 2026.
+      </p>
+      <nav class="toc" aria-label="Policy sections">
+        <p class="toc__title">On this page</p>
+        <ul>{toc.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul>
+      </nav>
+    </div>
+
+    <section class="route" aria-labelledby="treasury">
+      <h2 id="treasury">State Treasury: a choice about future purchases</h2>
+      <div class="route__grid">
+        <aside class="glance" aria-label="State Treasury at a glance">
+          <p class="glance__title">At a glance</p>
+          <dl>
+            <div><dt>Who decides</dt><dd>The Treasurer, within investment policy set by the State Board of Finance.</dd></div>
+            <div>
+              <dt>The law</dt><dd>Ark. Code § 19-3-323 permits these purchases. It does not command a purchase or prescribe automatic renewal.</dd>
+            </div>
+            <div>
+              <dt>What to ask for</dt><dd>A plan for no additional purchases and no reinvestment at maturity, with alternative investments and cash needs documented.</dd>
+            </div>
+          </dl>
+          <p class="glance__link"><a class="go" href="/investments/#treasury">Treasury records <Icon name="arrow-right" /></a></p>
+        </aside>
+        <div class="prose">
+          <p>
+            Arkansas Code § 19-3-323 permits the Treasurer to purchase Israel’s sovereign bonds using funds available for
+            investment. It does not command a purchase or prescribe automatic renewal. The State Board of Finance establishes
+            Treasury investment policy under § 19-3-504; the Treasurer implements investments within that policy. These are the
+            current section numbers following the 2025 recodification. <a
+              href="https://webftp.blr.arkansas.gov/Home/FTPDocument?path=ACTS%2F2025R%2FPublic%2FACT419.pdf#page=86"
+              >Act 419, pages 86–87 and 92–93</a
+            >.
+          </p>
+          <p>
+            The Treasury policy amended November 10, 2025 ranks safety, liquidity, and return in that order. It includes Israel
+            Bonds among eligible investments, requires prudent management, and assigns policy revisions to the Board of Finance.
+            Eligibility is permission to consider an investment; it does not settle whether a particular purchase serves the
+            portfolio. <a href="https://media.ark.org/artreasury/Investment-Policy-2025-11-10-FINAL-amended.pdf#page=3"
+              >Treasury investment policy</a
+            >.
+          </p>
+          <p>
+            A concrete administrative route is to ask the Treasurer and Board to examine a plan for no additional purchases and
+            no reinvestment at maturity, with alternative investments and cash needs documented. Ask them to identify the
+            official responsible for the next purchase decision, any approval needed to change policy, and the record that will
+            show what happened to each maturity payment. A continuing policy commitment should be recorded through the Board’s
+            policy process; an individual investment decision must remain within existing authority.
+          </p>
+          <p>
+            There is a source discrepancy to resolve. The live codified rule requires pre-trade analysis for all bond purchases
+            and sales and conditional competitive quotations. The November 2025 policy uses different language about when
+            analysis is appropriate and quotations for sales. We ask Treasury to identify the operative rule, amendment history,
+            and transaction requirements. This discrepancy alone does not establish a violation. <a
+              href="https://app.midpage.ai/laws/ar-car/t19/cIII/scA/p11/sp2/s11_204-80d33a?quote=%281%29+Pre-trade+analysis+shall+be+performed+for+all+bond+purchases+and+sales.+2."
+              >19 CAR § 11-204</a
+            >; <a href="https://media.ark.org/artreasury/Investment-Policy-2025-11-10-FINAL-amended.pdf#page=9"
+              >posted policy, pages 9–10</a
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="route" aria-labelledby="apers">
+      <h2 id="apers">APERS: protect retirement benefits and examine the next decision</h2>
+      <div class="route__grid">
+        <aside class="glance" aria-label="APERS at a glance">
+          <p class="glance__title">At a glance</p>
+          <dl>
+            <div>
+              <dt>Who decides</dt><dd>APERS trustees. The published policy text assigns substantial investment authority to the Investment Finance Subcommittee.</dd>
+            </div>
+            <div>
+              <dt>The law</dt><dd>§ 24-4-213 prohibits basing investment decisions on an investment’s location in Israel. § 24-2-804 limits pension fiduciaries to pecuniary factors.</dd>
+            </div>
+            <div>
+              <dt>What to ask for</dt><dd>The current mandate, maturity instructions, consultant analysis, and a recorded decision on future purchases.</dd>
+            </div>
+          </dl>
+          <p class="glance__link"><a class="go" href="/investments/#apers">APERS records <Icon name="arrow-right" /></a></p>
+        </aside>
+        <div class="prose">
+          <p>
+            APERS trustees control investment policy and oversee system assets. The published policy text assigns substantial
+            investment authority to the Investment Finance Subcommittee on recommendations from the executive director and chief
+            investment officer; staff implement delegated decisions. The Treasurer cannot unilaterally direct APERS to divest.
+            The 2025 governance manual affirms Board authority, but its downloadable copy omits the investment-policy annex
+            listed in its contents. The latest complete delegation and any subsequent amendments should therefore be confirmed
+            before presenting a motion. <a href="https://apers.org/wp-content/uploads/APERS-Board-of-Trustees-Manual_2025.pdf#page=14"
+              >APERS governance manual</a
+            >; <a href="https://apers.org/wp-content/uploads/2024/04/APERS_Public_Board_Packet_11-15-2023.pdf#page=100"
+              >published policy text, pages 100–102</a
+            >.
+          </p>
+          <p>
+            Arkansas Code § 24-4-213 expressly covers decisions to invest, not invest, or withdraw. It prohibits basing those
+            decisions on the investment’s location in Israel. Separately, § 24-2-804 requires pension fiduciaries to use only
+            pecuniary factors: material financial risks or opportunities evaluated under accepted investment principles. Calling
+            a decision “nonrenewal” does not remove those requirements. <a
+              href="https://webftp.blr.arkansas.gov/Home/FTPDocument?path=ACTS%2F2017R%2FPublic%2FACT770.pdf">Act 770 of 2017</a
+            >; <a href="https://webftp.blr.arkansas.gov/Home/FTPDocument?path=ACTS%2F2023R%2FPublic%2FACT498.pdf#page=3"
+              >Act 498 of 2023, pages 3–4</a
+            >.
+          </p>
+          <p>
+            The law also does not say that every bond must be replaced at maturity. Where a social or governance consideration
+            is evaluated as financial, § 24-2-804 requires comparison of diversification, liquidity, risk, and return against
+            alternatives serving a similar portfolio role, including whether an investment ranking poorly on that consideration
+            could earn more. The administrative route is that documented comparison, followed by the decision required under
+            APERS’s delegation. Request the current mandate, maturity instructions, consultant analysis, and recorded decision on
+            future purchases. Our <a href="/evidence/#SRC-APE-001">APERS evidence</a> establishes a $15 million purchase, and a
+            preliminary September 7, 2026 custody report shows $25 million in two Israel Bonds; neither settles whether another
+            investment would have been better. <a
+              href="https://webftp.blr.arkansas.gov/Home/FTPDocument?path=ACTS%2F2023R%2FPublic%2FACT498.pdf#page=4"
+              >Act 498, page 4</a
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="route" aria-labelledby="atrs">
+      <h2 id="atrs">ATRS: written advice and institutional approval</h2>
+      <div class="route__grid">
+        <aside class="glance" aria-label="ATRS at a glance">
+          <p class="glance__title">At a glance</p>
+          <dl>
+            <div>
+              <dt>Who decides</dt><dd>The Investment Committee and Board approve material changes; the policy allows delegated management within defined terms. Board Policy 4 requires written investment-consultant advice or recommendation before an investment.</dd>
+            </div>
+            <div>
+              <dt>The law</dt><dd>§ 24-7-105 contains the same Israel-location restriction for ATRS. § 24-2-804 limits pension fiduciaries to pecuniary factors.</dd>
+            </div>
+            <div>
+              <dt>What to ask for</dt><dd>A written comparison of renewing exposure, letting holdings mature, and reinvesting in suitable alternatives, with counsel’s view, plus the manager’s instructions.</dd>
+            </div>
+          </dl>
+          <p class="glance__link"><a class="go" href="/investments/#atrs">ATRS records <Icon name="arrow-right" /></a></p>
+        </aside>
+        <div class="prose">
+          <p>
+            On June 2, 2025, the ATRS Board approved the motion for Resolution 2025-22 concerning an investment of up to $50
+            million in Israel Bonds, managed by Scout Investments through its Reams Asset Management division. This records the
+            Board’s authorization; it does not establish settlement of individual bonds. <a
+              href="https://www.artrs.gov/board/documents/CY2025/2025-06-02/BOT_Minutes.pdf#page=4">Official Board minutes, page 4</a
+            >; <a href="/evidence/#SRC-ATR-002">authorization source</a>.
+          </p>
+          <p>
+            ATRS’s Board Policy 4, amended through December 1, 2025, requires written investment-consultant advice or
+            recommendation before an investment. Material changes to a direct investment require that advice, outside legal
+            counsel if needed, and subsequent written approval from the Investment Committee and Board. The policy also allows
+            delegated management within defined terms. The route depends on whether the proposed action changes the mandate or
+            implements it. <a href="https://www.artrs.gov/PolicyManual/BoardPolicy_04.pdf#page=1">ATRS Board Policy 4, pages 1–3</a
+            >.
+          </p>
+          <p>
+            Arkansas Code § 24-7-105 contains the same Israel-location restriction for ATRS and its alternate retirement plans.
+            ATRS also operates under the pecuniary standard in § 24-2-804. Its February 2026 Board packet restates both
+            restrictions. A trustee therefore needs more than an ethical objection to justify an investment decision under
+            existing law. Neither provision supplies a blanket instruction to keep making loans. <a
+              href="https://www.artrs.gov/board/documents/CY2026/2026-02-02/BOT_Packet.pdf#page=66"
+              >ATRS’s statutory summary, page 66</a
+            >.
+          </p>
+          <p>
+            A concrete request is for the Board to commission a written comparison of renewing exposure, allowing holdings to
+            mature, and reinvesting in suitable alternatives, with counsel explaining how each option fits current law. Ask for
+            the manager’s instructions, any required committee and Board approvals, and security-level confirmation of the
+            outcome. The <a href="/investments/#atrs">ATRS records</a> now show $50 million funded on January 2, 2026 and one $9.9
+            million Israel Bond bought in February; on July 31 the rest of the account was in U.S. Treasury notes and cash. The
+            manager’s second-quarter report states a long-term objective of more Israel Bonds, no more than $10 million a year, so
+            ask for the instructions that govern the next purchase.
+          </p>
+          <p>
+            For both pension systems, principal and interest received remain retirement-system assets for beneficiaries and
+            lawful expenses. Ending reinvestment changes future lending. It does not turn pension repayments into unrestricted
+            money for the state budget. Their governing materials preserve that beneficiary purpose. <a
+              href="https://apers.org/wp-content/uploads/APERS-Board-of-Trustees-Manual_2025.pdf#page=14">APERS</a
+            >; <a href="https://www.artrs.gov/PolicyManual/BoardPolicy_04.pdf#page=3">ATRS</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="route" aria-labelledby="financial-comparison">
+      <h2 id="financial-comparison">What a fair financial comparison needs</h2>
+      <div class="prose">
+        <p>
+          Development Corporation for Israel reports that Israel has made every principal and interest payment on its bonds
+          since DCI began underwriting them in 1951. That is the seller’s repayment-history claim, which we have not
+          independently audited across the full period. Its own statement also says past payment history does not guarantee
+          future performance. A fair assessment should acknowledge that history while examining the actual risks and terms of
+          the next loan. <a href="https://israelbonds.com/knowledge-base/about-israel-bonds/">DCI’s payment-history statement</a>.
+        </p>
+        <p>
+          A coupon is a contractual interest rate. It is not, on its own, a measure of comparative performance. APERS’s October
+          2025 bondholder advice records a 4.06% rate and an October 1, 2027 maturity for its $15 million purchase. Treasury’s
+          June 30, 2025 schedule records seven positions. These dated records help define what to compare; they do not
+          demonstrate that the bonds underperformed. <a href="/evidence/#SRC-APE-001">APERS purchase record</a>; <a
+            href="/evidence/#SRC-TRE-001">Treasury position schedule</a
+          >.
+        </p>
+        <p>
+          A fair comparison should identify the same valuation date and investment horizon, actual purchase price, coupon and
+          cash-flow dates, yield to maturity, duration, credit exposure, liquidity, fees, concentration, and the fund’s
+          benefit-payment or operating-cash needs. Alternatives must be legally eligible and capable of serving a similar
+          portfolio role. Comparing a short bond with a whole pension portfolio’s annual return would not answer that question.
+        </p>
+        <p>
+          The issuer’s August 2025 prospectus says the covered savings and Jubilee-series bonds have no secondary trading market
+          and restricted transferability. Early redemption and transfer provisions have conditions. Those terms must be matched
+          to the actual security; they should not be generalized to every Israeli sovereign instrument. The prospectus also
+          acknowledges that other Israeli debt may offer greater yields. That is a reason to compare actual offers, not proof of
+          loss on an Arkansas purchase. <a href="https://israelbonds.com/wp-content/uploads/2025/10/2025-Jubilee-Savings.pdf"
+            >Issuer prospectus and supplement</a
+          >.
+        </p>
+        <p>
+          We have not established a complete comparison of net returns, current executable prices, matched alternatives, or
+          transaction-specific fees for all three institutions. For Treasury, request contemporaneous trade analysis and the
+          cash-flow plan. For APERS, request the purchase-date alternatives and current renewal analysis. For ATRS, compare the
+          $9.9 million bond and any planned purchases with the Treasury notes already in the account. Any comparison should
+          state its assumptions and identify information that is still missing.
+        </p>
+      </div>
+    </section>
+
+    <section class="route" aria-labelledby="legislative-options">
+      <h2 id="legislative-options">Possible legislative changes</h2>
+      <div class="prose">
+        <p>
+          Administrative discretion has limits. Legislators could consider amending or repealing the separate APERS and ATRS
+          Israel-location provisions. Repealing them alone would leave the pecuniary standard in place. A broader proposal could
+          address that standard expressly while preserving benefit protections, sound investment management, and clear
+          implementation rules. These are possible legislative routes, not enacted permissions or an adopted campaign bill.
+        </p>
+        <p>
+          For Treasury, legislators could consider changing the specific purchase authority or imposing prospective limits. A
+          disclosure proposal could require security-level holdings, maturities, new commitments, fees, and the financial basis
+          for decisions, with sensitive account information protected. Any bill should distinguish new lending from existing
+          contractual rights, specify who approves and implements it, and address conflicts with other investment restrictions.
+          No legislative change described here has been verified as adopted.
+        </p>
+        <p>
+          The immediate public task is concrete: identify the decision-maker, obtain the governing record, ask for a recorded
+          decision, and verify the result. <a href="/take-action/">Take action with the campaign</a> to help make that scrutiny
+          sustained and public.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <CloseStrip />
+</Base>
+
+<style>
+  .policy {
+    padding-block: var(--s-7) var(--s-8);
+  }
+  .lead h2 {
+    font-size: var(--step-3);
+  }
+  .lead h2 + p {
+    margin-top: var(--s-4);
+  }
+  .toc {
+    margin-top: var(--s-6) !important;
+    border-top: 2px solid var(--rule);
+    padding-top: var(--s-3);
+  }
+  .toc__title {
+    font-weight: 700;
+    font-size: var(--step--1);
+    color: var(--olive-ink);
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0 !important;
+    margin: var(--s-2) 0 0;
+  }
+  .toc li + li {
+    margin-top: 0 !important;
+  }
+  .toc a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    font-weight: 600;
+  }
+  .route {
+    margin-top: var(--s-8);
+    padding-top: var(--s-5);
+    border-top: 0.75rem solid var(--olive);
+  }
+  .route > h2 {
+    font-size: var(--step-2);
+    max-width: 22ch;
+  }
+  .route > .prose,
+  .route__grid {
+    margin-top: var(--s-5);
+  }
+  .route__grid {
+    display: grid;
+    gap: var(--s-6) var(--s-7);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 60rem) {
+    .route__grid {
+      grid-template-columns: minmax(0, var(--measure)) minmax(0, 20rem);
+    }
+    .glance {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: var(--s-5);
+      align-self: start;
+    }
+    .route__grid > .prose {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+  /* "At a glance": a printed slip on a halftone screen */
+  .glance {
+    background: var(--screen), var(--paper);
+    border: 2px solid var(--rule);
+    border-top-width: 0.5rem;
+    padding: var(--s-4);
+    font-size: var(--step--1);
+    line-height: 1.35;
+  }
+  .glance__title {
+    font-family: var(--display);
+    font-size: 1.35rem;
+  }
+  .glance dl {
+    margin: var(--s-3) 0 0;
+  }
+  .glance dl > div + div {
+    margin-top: var(--s-3);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--rule-soft);
+  }
+  .glance dt {
+    font-weight: 700;
+  }
+  .glance dd {
+    margin: 0.15em 0 0;
+  }
+  .glance__link {
+    margin-top: var(--s-3);
+  }
+</style>
