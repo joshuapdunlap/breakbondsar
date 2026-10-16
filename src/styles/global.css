@@ -179,7 +179,6 @@ h3 em {
 
 p {
   margin: 0;
-  text-wrap: pretty;
 }
 p + p {
   margin-top: 0.8em;
