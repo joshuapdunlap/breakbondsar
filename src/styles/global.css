@@ -1,0 +1,661 @@
+/*
+  Break the Bonds | Arkansas
+  A silkscreen poster on top of every page, the record printed under it.
+  Three inks and paper: olive, mark red, black, on a cool lime-wash paper.
+*/
+
+@font-face {
+  font-family: "Lalezar";
+  src: url("../fonts/lalezar-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Markazi Text";
+  src: url("../fonts/markazi-text-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Mono";
+  src: url("../fonts/atkinson-hyperlegible-mono-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Fallbacks scaled to the web faces' widths and vertical metrics, so the swap barely moves text. */
+@font-face {
+  font-family: "Lalezar fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold");
+  size-adjust: 86.34%;
+  ascent-override: 113.38%;
+  descent-override: 68.1%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Markazi fallback";
+  src: local("Georgia"), local("Gelasio"), local("Times New Roman");
+  size-adjust: 75.92%;
+  ascent-override: 110.5%;
+  descent-override: 47.59%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Atkinson Mono fallback";
+  src: local("Courier New"), local("Liberation Mono");
+  size-adjust: 105.32%;
+  ascent-override: 93.43%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* Inks */
+  --paper: #eff1e9;
+  --olive: #2b3517;
+  --olive-screen: #b9c49a; /* paper ink screened over olive */
+  --red: #ff5b4f; /* the campaign mark's red: on olive, and as a printed field */
+  --red-deep: #c42b22; /* the same red printed dense enough to read on paper */
+  --ink: #141710;
+  --olive-ink: #2b3517; /* secondary text on paper is olive ink, never gray */
+  --rule: #2b3517;
+  --rule-soft: rgb(43 53 23 / 0.28);
+  --screen: radial-gradient(circle at 50% 50%, rgb(43 53 23 / 0.17) 0.95px, transparent 1.3px) 0 0 / 5px 5px;
+
+  /* Type */
+  --display: "Lalezar", "Lalezar fallback", "Arial Black", sans-serif;
+  --text: "Markazi Text", "Markazi fallback", Georgia, serif;
+  --data: "Atkinson Hyperlegible Mono", "Atkinson Mono fallback", ui-monospace, Consolas, monospace;
+
+  --step--1: 1.0625rem;
+  --step-0: clamp(1.3125rem, 1.2rem + 0.4vw, 1.4375rem);
+  --step-1: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  --step-2: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+  --step-3: clamp(2.25rem, 1.6rem + 3vw, 4.25rem);
+  --step-4: clamp(3rem, 1.4rem + 7.6vw, 6rem);
+
+  /* Space */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+  --s-9: 6.5rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --measure: 30em;
+  --wide: 78rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+  accent-color: var(--red-deep);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: var(--s-5);
+}
+/* On phones the ask rides at the bottom of the screen; keep focused and targeted
+   elements clear of it. */
+@media (max-width: 47.99rem) {
+  html {
+    scroll-padding-bottom: 5.5rem;
+  }
+}
+main:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: var(--step-0);
+  line-height: 1.45;
+  font-variant-numeric: lining-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--ink);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--step-3);
+}
+h2 {
+  font-size: var(--step-2);
+}
+h3 {
+  font-size: var(--step-1);
+  line-height: 1.05;
+}
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+/* Emphasis in a heading is a second ink, not a slant. */
+h1 em,
+h2 em,
+h3 em {
+  font-style: normal;
+  color: var(--olive-ink);
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+p + p {
+  margin-top: 0.8em;
+}
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: normal;
+  font-weight: 600;
+}
+code,
+.data {
+  font-family: var(--data);
+  font-size: 0.78em;
+  letter-spacing: 0;
+}
+.data {
+  white-space: nowrap;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.075em;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--red-deep);
+}
+a:hover {
+  color: var(--red-deep);
+  text-decoration-thickness: 0.12em;
+}
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--paper);
+}
+.on-olive :focus-visible,
+.on-red :focus-visible {
+  outline-color: var(--paper);
+  box-shadow: 0 0 0 6px var(--ink);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: -10rem;
+  z-index: 10;
+  background: var(--red);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  padding: var(--s-3) var(--s-4);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: var(--s-4);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Inks as surfaces */
+.on-olive {
+  background: var(--olive);
+  color: var(--paper);
+}
+.on-olive a {
+  text-decoration-color: var(--red);
+}
+.on-olive a:hover {
+  color: var(--paper);
+  text-decoration-color: var(--paper);
+}
+.on-olive h1 em,
+.on-olive h2 em,
+.on-olive h3 em {
+  color: var(--olive-screen);
+}
+.on-red {
+  background: var(--red);
+  color: var(--ink);
+}
+.on-red a {
+  text-decoration-color: var(--ink);
+}
+.on-red a:hover {
+  color: var(--ink);
+}
+.on-red h2 em,
+.on-red h3 em {
+  color: var(--ink);
+}
+.screen {
+  background: var(--screen), var(--paper);
+}
+
+/* Buttons are printed blocks of ink. The label is the action. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  min-height: 3rem;
+  padding: 0.55em 1.05em 0.45em;
+  font-family: var(--display);
+  font-size: 1.3125rem;
+  line-height: 1;
+  text-decoration: none;
+  background: var(--red);
+  color: var(--ink);
+  border: 2px solid var(--red);
+  transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+.button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.on-olive .button:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.button--ink {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.button--ink:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+.button--quiet {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+.button--quiet:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.button .icon {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+/* A text link that leads somewhere: words first, a drawn arrow after. */
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  min-height: 2.75rem;
+  font-weight: 600;
+  text-decoration-line: underline;
+}
+.go .icon {
+  width: 0.85em;
+  height: 0.85em;
+  flex: none;
+  transition: transform 180ms var(--ease-out);
+}
+.go:hover .icon {
+  transform: translateX(0.15em);
+}
+.go[href^="http"]:hover .icon {
+  transform: translate(0.12em, -0.12em);
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-1);
+}
+
+/* Disclosures: a printed tab that opens onto a screened panel. */
+details.disclosure {
+  border-top: 2px solid var(--rule);
+  margin-top: var(--s-5);
+}
+details.disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: 3rem;
+  padding: var(--s-3) 0;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+details.disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+details.disclosure > summary .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  transition: transform 200ms var(--ease-out);
+}
+details.disclosure[open] > summary .icon {
+  transform: rotate(45deg);
+}
+details.disclosure > .panel {
+  padding: var(--s-4) var(--s-4) var(--s-5);
+  background: var(--screen), var(--paper);
+  border-left: 1px solid var(--rule-soft);
+}
+details.disclosure > .panel > * + * {
+  margin-top: var(--s-3);
+}
+.on-olive details.disclosure {
+  border-top-color: var(--paper);
+}
+
+/* Provenance printed beside a figure: date and record. */
+.provenance {
+  font-size: var(--step--1);
+  line-height: 1.35;
+  color: var(--olive-ink);
+}
+.on-olive .provenance {
+  color: var(--olive-screen);
+}
+
+/* Tables are part of the record */
+.table-region {
+  overflow-x: auto;
+  margin-top: var(--s-5);
+  border-top: 3px solid var(--rule);
+}
+.table-region:focus-visible {
+  outline-offset: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  line-height: 1.35;
+}
+caption {
+  text-align: left;
+  font-weight: 700;
+  padding: var(--s-3) 0;
+}
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--s-3) var(--s-4) var(--s-3) 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+thead th {
+  font-weight: 700;
+  border-bottom: 2px solid var(--rule);
+  white-space: nowrap;
+}
+td .data,
+th .data {
+  font-size: 0.85em;
+}
+
+/* Record tables on phones: each row is set as a slip, its column names printed beside the
+   values. Explicit ARIA roles in the markup keep table semantics when display changes. */
+@media (max-width: 47.99rem) {
+  .reflow table,
+  .reflow tbody,
+  .reflow tr,
+  .reflow th,
+  .reflow td,
+  .reflow caption {
+    display: block;
+  }
+  .reflow thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .reflow tr {
+    padding: var(--s-3) 0 var(--s-4);
+    border-bottom: 2px solid var(--rule);
+  }
+  .reflow th,
+  .reflow td {
+    border: 0;
+    padding: var(--s-1) 0;
+  }
+  .reflow [data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.85em;
+    font-weight: 700;
+    color: var(--olive-ink);
+  }
+}
+
+/* Long-form reading column */
+.prose {
+  max-width: var(--measure);
+}
+.prose > * + * {
+  margin-top: 0.8em;
+}
+.prose h2 {
+  margin-top: var(--s-7);
+}
+.prose h2 + * {
+  margin-top: var(--s-4);
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.2em;
+}
+.prose li + li {
+  margin-top: 0.45em;
+}
+.prose li::marker {
+  color: var(--olive-ink);
+  font-weight: 700;
+}
+
+/* A margin system for Read pages: the dateline lives in the margin, the heading in the column. */
+.margin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-2) var(--s-7);
+}
+.margin-grid > .head {
+  grid-column: 1;
+}
+.dateline {
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--olive-ink);
+  line-height: 1.3;
+}
+@media (min-width: 60rem) {
+  .margin-grid {
+    grid-template-columns: 12rem minmax(0, var(--measure));
+  }
+  .margin-grid > * {
+    grid-column: 2;
+  }
+  .margin-grid > .dateline,
+  .margin-grid > .margin {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0.35em;
+    border-top: 2px solid var(--rule);
+  }
+}
+
+/* Crop marks: the printer's corner marks on every poster sheet. */
+.crop {
+  position: relative;
+}
+.crop::before,
+.crop::after {
+  content: "";
+  position: absolute;
+  width: 1.4rem;
+  height: 1.4rem;
+  pointer-events: none;
+  border-color: var(--olive-screen);
+  border-style: solid;
+  opacity: 0.55;
+}
+.crop::before {
+  top: var(--s-4);
+  left: calc(var(--gutter) * 0.45);
+  border-width: 1px 0 0 1px;
+}
+.band--foot.crop::after {
+  display: none;
+}
+.crop::after {
+  bottom: var(--s-4);
+  right: calc(var(--gutter) * 0.45);
+  border-width: 0 1px 1px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .button {
+    border: 2px solid ButtonText;
+  }
+  .crop::before,
+  .crop::after {
+    display: none;
+  }
+  details.disclosure > .panel {
+    border-left: 1px solid CanvasText;
+  }
+  .icon {
+    forced-color-adjust: auto;
+  }
+}
+
+@media print {
+  :root {
+    --paper: #fff;
+  }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11.5pt;
+  }
+  .on-olive,
+  .on-red,
+  .screen {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .on-olive h1 em,
+  .on-olive h2 em,
+  .on-olive .provenance {
+    color: #000 !important;
+  }
+  .no-print,
+  .skip-link,
+  .crop::before,
+  .crop::after {
+    display: none !important;
+  }
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+  details > .panel {
+    display: block !important;
+  }
+  .table-region {
+    overflow: visible;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  figure,
+  tr,
+  li {
+    break-inside: avoid;
+  }
+}
