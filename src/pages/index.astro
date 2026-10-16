@@ -5,19 +5,18 @@ import Timeline from "../components/Timeline.astro";
 ---
 
 <Base path="/">
-  <section class="poster on-olive crop" aria-labelledby="hero-title">
+  <section class="poster on-olive" aria-labelledby="hero-title">
     <div class="wrap poster__sheet">
       <h1 id="hero-title" class="poster__title">
         <span>Arkansas</span>
         <span class="poster__red">out of</span>
         <span>Israel Bonds.</span>
       </h1>
-      <p class="poster__tag">For Palestinian freedom</p>
-      <p class="poster__witness">
-        <em>Every life.<br /> Every future.</em>
-        <span>End our state’s financial support for Israel’s genocide and apartheid.</span>
-      </p>
       <div class="poster__foot">
+        <p class="poster__witness">
+          <em>Every life.<br /> Every future.</em>
+          <span>End our state’s financial support for Israel’s genocide and apartheid.</span>
+        </p>
         <p class="poster__lede">
           Palestinians deserve to live, learn, heal, and build their futures in freedom. Break the Bonds | Arkansas organizes
           to end Arkansas’s investment in the Israeli government through Israel Bonds.
@@ -27,13 +26,14 @@ import Timeline from "../components/Timeline.astro";
           <a class="go" href="/the-issue/">Why we must act <Icon name="arrow-right" /></a>
         </div>
       </div>
+      <p class="poster__tag">For Palestinian freedom</p>
     </div>
 
     <section class="due on-red" aria-label="Treasury maturity dates">
       <div class="wrap due__inner">
         <div class="due__head">
+          <h2 class="due__title" id="due-title">Two maturities this fall.</h2>
           <p class="due__label">State Treasury maturity dates</p>
-          <p class="due__title">Two maturities this fall.</p>
         </div>
         <ol class="due__stops">
           <li>
@@ -175,24 +175,26 @@ import Timeline from "../components/Timeline.astro";
 </Base>
 
 <style>
-  /* The poster sheet */
+  /* The poster sheet: one message, the title knocked out at full measure */
   .poster__sheet {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-4) var(--s-7);
-    padding-block: var(--s-6) var(--s-7);
+    gap: var(--s-5);
+    padding-block: var(--s-5) var(--s-5);
   }
   .poster__title {
-    font-size: clamp(3.25rem, 1.2rem + 7.4vw, 6rem);
-    line-height: 0.86;
+    /* Phones: three lines; the longest, "Israel Bonds.", fills the measure. */
+    font-size: clamp(3.5rem, calc((100vw - 2.25rem) / 5.6), 7.5rem);
+    line-height: 0.84;
     letter-spacing: -0.01em;
+    max-width: none;
   }
   .poster__title span {
     display: block;
   }
   .poster__red {
     color: var(--red);
-    animation: register 900ms var(--ease-out) 120ms both;
+    animation: register 900ms var(--ease-out) 120ms backwards;
   }
   /* The one authored moment: the red pass drops into register with the olive sheet. */
   @keyframes register {
@@ -203,14 +205,15 @@ import Timeline from "../components/Timeline.astro";
       transform: none;
     }
   }
-  .poster__tag {
-    font-family: var(--display);
-    font-size: var(--step-1);
-    color: var(--olive-screen);
+  .poster__foot {
+    display: grid;
+    gap: var(--s-4);
+    padding-top: var(--s-4);
+    border-top: 2px solid var(--olive-screen);
   }
   .poster__witness {
     display: grid;
-    gap: var(--s-3);
+    gap: var(--s-2);
     font-size: var(--step-1);
     line-height: 1.25;
     max-width: 22em;
@@ -218,14 +221,8 @@ import Timeline from "../components/Timeline.astro";
   .poster__witness em {
     font-family: var(--display);
     font-weight: 400;
-    font-size: var(--step-3);
+    font-size: var(--step-2);
     line-height: 0.95;
-  }
-  .poster__foot {
-    display: grid;
-    gap: var(--s-5);
-    padding-top: var(--s-5);
-    border-top: 2px solid var(--olive-screen);
   }
   .poster__lede {
     max-width: 32em;
@@ -236,35 +233,47 @@ import Timeline from "../components/Timeline.astro";
     align-items: center;
     gap: var(--s-3) var(--s-5);
   }
+  /* The poster's sign-off line, printed in the screened ink at the foot of the sheet. */
+  .poster__tag {
+    font-family: var(--display);
+    font-size: var(--step-1);
+    color: var(--olive-screen);
+    line-height: 1;
+  }
   @media (min-width: 60rem) {
-    .poster__sheet {
-      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-      padding-block: var(--s-7) var(--s-8);
-    }
     .poster__title {
-      grid-column: 1;
-      grid-row: 1 / span 2;
+      /* Two lines; "Arkansas out of" fills the measure. */
+      font-size: clamp(5rem, calc((100vw - 5.75rem) / 6.75), 11rem);
     }
-    .poster__tag {
-      grid-column: 2;
-      grid-row: 1;
-      align-self: end;
+    .poster__title span:nth-child(-n + 2) {
+      display: inline;
     }
-    .poster__witness {
-      grid-column: 2;
-      grid-row: 2;
-      align-self: start;
+    .poster__title span:nth-child(2)::before {
+      content: " ";
     }
     .poster__foot {
-      grid-column: 1 / -1;
-      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) auto;
+      align-items: start;
+      gap: var(--s-6);
+    }
+    .poster__actions {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
   /* The red strip at the sheet's foot: what is due now */
   .due {
     padding-block: var(--s-5);
+  }
+  @media (forced-colors: active) {
+    .poster__red {
+      animation: none;
+    }
+    .due__stops li,
+    .due__amount {
+      line-height: 1.3;
+    }
   }
   .due__inner {
     display: grid;
@@ -274,6 +283,7 @@ import Timeline from "../components/Timeline.astro";
   .due__label {
     font-weight: 700;
     font-size: var(--step--1);
+    margin-top: var(--s-2);
   }
   .due__title {
     font-family: var(--display);
@@ -460,7 +470,9 @@ import Timeline from "../components/Timeline.astro";
     color: inherit;
   }
   .record-row:hover strong {
-    color: var(--red-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.12em;
   }
   .record-row:hover :global(.record-row__go) {
     transform: translateX(0.3rem);
