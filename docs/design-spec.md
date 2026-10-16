@@ -47,11 +47,11 @@ All three are OFL, self-hosted, Latin subsets, about 60 KB together. Fallback fa
 
 ## Layout
 
-- Home poster. The title "Arkansas out of Israel Bonds." is sized from the font's measured widths so its longest line fills the measure: two lines on desktop (up to 11rem), three on phones. The witness line, the lede and the action share one row under it, and "For Palestinian freedom" signs off the sheet. The red strip with the two dates and "Tell the Treasurer" still lands inside a 1280 by 800 screen.
+- Home poster. The title "Arkansas out of Israel Bonds." is sized from the font's measured widths so its longest line fills the measure: two lines on desktop (up to 11rem), three on phones. The witness line, the lede and the action share one row under it, and "For Palestinian freedom" signs off the sheet. The red strip with the maturity dates and "Tell the Treasurer" still lands inside a 1280 by 800 screen.
 - Poster band. Every other page opens on an olive band with a breadcrumb, the title and the intro. Read pages set the title up to 5rem so the record starts higher; Take action and How we win use the full 6rem. The label that sat above each old page title is now the breadcrumb's last item, and the breadcrumb's structured data comes from the same map.
 - Margin system. On Read pages, datelines such as "Marwa · Gaza · March 2024" and record IDs sit in a 12rem left margin beside the heading on desktop, and under it on phones. Nothing is printed above a heading.
 - Record tables. Each record set is one real table. On phones each row reflows into a slip with its column names printed beside the values; ARIA roles keep it a table. Ledger rows carry their event IDs as anchors, so `/investments/#ATR-P01` links to one row.
-- Timeline. One component draws it from the dates. Red marks the two fall maturities, as the copy says. The SVG hides below 768 px, and its list version is always present.
+- Timeline. One component draws it from the dates. Red marks the next Treasury maturity, as the copy says; a date that has passed stays olive. The SVG hides below 768 px, and its list version is always present.
 - Red strip. Where a page asks for something now (the fall maturities, "Put the demand to Thurston"), the ask is printed on a red field.
 
 ## Motion and details

@@ -209,7 +209,7 @@ Three inks and a paper. The olive sheet is the voice, mark red is the ask, and b
 - **Second Pull** (#b9c49a): Paper ink screened over olive. Used only on the olive sheet, for the second line of a heading, breadcrumbs, "Arkansas" in the wordmark, provenance on olive, link underlines on olive, the poster's sign-off line and the rule under the poster title. Contrast on olive is 7.03:1.
 
 ### Secondary
-- **Mark Red** (#ff5b4f): The campaign mark's red. It prints as a field (the due strip, the close strip, the action band, the join panel), as the primary button, as the red "out of" in the home title, as the take-action step numerals, as timeline marks for the two fall maturities, and as the underline on ask links over olive. Ink on red is 5.92:1. Red on olive is 4.22:1, so as text it only ever appears at display scale.
+- **Mark Red** (#ff5b4f): The campaign mark's red. It prints as a field (the due strip, the close strip, the action band, the join panel), as the primary button, as the red "out of" in the home title, as the take-action step numerals, as the timeline mark for the next Treasury maturity, and as the underline on ask links over olive. Ink on red is 5.92:1. Red on olive is 4.22:1, so as text it only ever appears at display scale.
 - **Dense Mark Red** (#c42b22): The same red printed dense enough to read on paper (4.96:1). It sets the demand line "No new Israel Bonds.", the first win row on How we win, the demand statement on The issue, and the fall dates in the timeline list. It also underlines ask links on paper and is the form `accent-color`.
 
 ### Neutral
@@ -317,7 +317,7 @@ A text link that leads somewhere: words first, then a drawn arrow. Markazi 600, 
 - **Footer:** Sits on paper under the 0.75rem olive bar. It has a Lalezar wordmark at 2.25rem, page links in two columns with the record links set off by a 1px hairline, and a bottom row on a 2px rule.
 
 ### Red Strip
-A Mark Red field printed where a page asks for something now, in ink type with an ink button. On the home sheet it is the due strip: "Two maturities this fall." with two dated amounts, each under a 3px ink rule, and "Tell the Treasurer". On other pages it is the close strip "Put the demand to Thurston." in Headline type, or a slim strip of maturities at the foot of the Take action band.
+A Mark Red field printed where a page asks for something now, in ink type with an ink button. On the home sheet it is the due strip: "Next maturity: November 1." with the dated amounts, the next one under a 3px ink rule and a passed one set back under a 1px rule at a smaller size, and "Tell the Treasurer". On other pages it is the close strip "Put the demand to Thurston." in Headline type, or a slim strip of maturities at the foot of the Take action band.
 
 ### Tell Bar
 For phones only: a sticky olive strip at the foot of `<main>` with a full-width primary button, "Tell the Treasurer". A CSS scroll timeline keeps it hidden until the first 90vh has scrolled past, with no JavaScript. Under reduced motion it appears without sliding. It never covers the footer, and Take action does not show it.
@@ -329,7 +329,7 @@ Each record set is one real table under a 3px rule. Headers are 700 with a 2px r
 A literal crop of a source document on a halftone mount: 0.75rem padding, a 2px olive border, and the image on white. It links to the original file. On hover the border turns ink with an extra 1px outline. The caption opens with a Lalezar label in olive ink ("Source record", "Excerpt").
 
 ### Maturity Timeline
-Maturity dates drawn to scale on one time axis, with one lane per institution, so distance on the line is distance in time. Lanes are 2px olive, gridlines are hairlines, and the years are set in Data. Marks are olive squares. The two fall maturities are Mark Red squares with an ink stroke. The list version is always present. The drawing hides below 48rem. Under forced colours the due marks become hollow, heavy-stroked squares.
+Maturity dates drawn to scale on one time axis, with one lane per institution, so distance on the line is distance in time. Lanes are 2px olive, gridlines are hairlines, and the years are set in Data. Marks are olive squares. The next Treasury maturity is a Mark Red square with an ink stroke; dates that have passed stay olive. The list version is always present. The drawing hides below 48rem. Under forced colours the due marks become hollow, heavy-stroked squares.
 
 ### Ask Steps
 The three steps on Take action print across the sheet in three columns at 60rem and above, separated by paper hairlines. Each numeral is set in Lalezar Mark Red at up to 5rem. The numerals carry information, the order of the ask, and they are aria-hidden.
