@@ -1,0 +1,147 @@
+---
+import Icon from "./Icon.astro";
+import { NAV, SITE } from "../data/site";
+
+interface Props {
+  path: string;
+}
+const { path } = Astro.props;
+const isCurrent = (item: (typeof NAV)[number]) =>
+  item.href === path || ("section" in item && (item.section as readonly string[]).includes(path));
+---
+
+<header class="masthead on-olive" id="top">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="/">
+      <img class="brand__mark" src={SITE.mark} alt="" width="44" height="44" />
+      <span class="brand__words">
+        <span class="brand__name">Break the Bonds</span>{" "}
+        <span class="brand__place">Arkansas</span><span class="visually-hidden">, home</span>
+      </span>
+    </a>
+    <nav class="mainnav" aria-label="Main navigation">
+      <ul>
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.href === path ? "page" : isCurrent(item) ? "true" : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="mainnav__act">
+          <a class="button" href="/take-action/" aria-current={path === "/take-action/" ? "page" : undefined}>
+            Take action <Icon name="arrow-right" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .masthead {
+    position: relative;
+    z-index: 2;
+  }
+  .masthead__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-3) var(--s-6);
+    padding-block: var(--s-4) var(--s-3);
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-3);
+    text-decoration: none;
+    min-height: 2.75rem;
+  }
+  .brand:hover {
+    color: inherit;
+  }
+  .brand__mark {
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: none;
+  }
+  .brand__words {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.95;
+  }
+  .brand__name {
+    font-family: var(--display);
+    font-size: 1.5rem;
+  }
+  .brand__place {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--olive-screen);
+    letter-spacing: 0.02em;
+  }
+  .mainnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--s-1);
+  }
+  .mainnav a:not(.button) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0 var(--s-3);
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+  }
+  .mainnav a:not(.button):hover {
+    border-bottom-color: var(--paper);
+  }
+  .mainnav a[aria-current]:not(.button) {
+    border-bottom-color: var(--red);
+  }
+  .mainnav__act {
+    margin-left: var(--s-3);
+  }
+  .mainnav .button {
+    min-height: 2.75rem;
+    font-size: 1.2rem;
+  }
+  .mainnav .button[aria-current="page"] {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--ink);
+  }
+  @media (max-width: 47.99rem) {
+    .masthead__inner {
+      padding-block: var(--s-3) var(--s-2);
+      gap: var(--s-2);
+    }
+    .mainnav {
+      width: 100%;
+      border-top: 1px solid rgb(239 241 233 / 0.25);
+      padding-top: var(--s-1);
+    }
+    .mainnav ul {
+      gap: 0;
+    }
+    .mainnav a:not(.button) {
+      padding: 0 var(--s-2);
+      font-size: 1.15rem;
+    }
+    .mainnav li:first-child a:not(.button) {
+      padding-left: 0;
+    }
+    .mainnav__act {
+      margin-left: auto;
+    }
+  }
+</style>

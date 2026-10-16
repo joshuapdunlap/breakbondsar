@@ -1,0 +1,128 @@
+---
+import Icon from "./Icon.astro";
+import { SITE } from "../data/site";
+
+const pages = [
+  { href: "/the-issue/", label: "The issue" },
+  { href: "/how-we-win/", label: "How we win" },
+  { href: "/take-action/", label: "Take action" },
+  { href: "/about/", label: "About" },
+  { href: "/evidence/", label: "Evidence & progress" },
+];
+const record = [
+  { href: "/investments/", label: "Investment ledger" },
+  { href: "/policy/", label: "Institutional routes" },
+  { href: "/progress/", label: "Progress" },
+];
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="footer__word" href="/">
+          <span class="footer__name">Break the Bonds</span>{" "}
+          <span class="footer__place">Arkansas</span><span class="visually-hidden">, home</span>
+        </a>
+        <p class="footer__line">Palestinian freedom.<br />Solidarity we can act on here.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul>
+          {pages.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+        </ul>
+        <ul class="footer__record">
+          {record.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+        </ul>
+      </nav>
+      <ul class="footer__contact">
+        <li>
+          <a class="go" href={SITE.instagram}>Instagram <Icon name="external" /></a>
+        </li>
+        <li>
+          <a class="go" href={`mailto:${SITE.email}`}><Icon name="mail" /> Campaign contact</a>
+        </li>
+        <li><a class="go" href="/about/#corrections">Corrections</a></li>
+      </ul>
+    </div>
+    <div class="footer__bottom">
+      <span>Break the Bonds | Arkansas</span>
+      <a href="/privacy/">Privacy</a>
+      <a class="go" href="#top">Back to top <Icon name="arrow-up" /></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 0.75rem solid var(--olive);
+    padding-block: var(--s-7) var(--s-5);
+    font-size: 1.1875rem;
+  }
+  .footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer__top {
+    display: grid;
+    gap: var(--s-6);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 48rem) {
+    .footer__top {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr) minmax(0, 1fr);
+    }
+  }
+  .footer__word {
+    display: inline-flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 0.95;
+  }
+  .footer__name {
+    font-family: var(--display);
+    font-size: 2.25rem;
+  }
+  .footer__place {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    color: var(--red-deep);
+  }
+  .footer__line {
+    margin-top: var(--s-4);
+    font-size: var(--step-1);
+    line-height: 1.15;
+    font-weight: 600;
+    color: var(--olive-ink);
+  }
+  .footer__nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-4);
+  }
+  .footer__nav a,
+  .footer__bottom > a:not(.go) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+  .footer__record {
+    border-left: 1px solid var(--rule-soft);
+    padding-left: var(--s-4) !important;
+  }
+  .footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-2) var(--s-5);
+    margin-top: var(--s-7);
+    padding-top: var(--s-3);
+    border-top: 2px solid var(--rule);
+    font-size: var(--step--1);
+  }
+  .footer__bottom span {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    margin-right: auto;
+  }
+</style>

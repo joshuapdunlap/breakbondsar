@@ -1,0 +1,72 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<div class="tellbar no-print">
+  <a class="button" href="/take-action/#officials">Tell the Treasurer <Icon name="arrow-right" /></a>
+</div>
+
+<style>
+  /* Phones only: the ask stays under the thumb while reading. It rides at the foot of
+     <main>, so it never covers the footer. */
+  .tellbar {
+    display: none;
+  }
+  @media (max-width: 47.99rem) {
+    .tellbar {
+      display: block;
+      position: sticky;
+      bottom: 0;
+      z-index: 3;
+      padding: var(--s-2) var(--gutter) calc(var(--s-2) + env(safe-area-inset-bottom));
+      background: var(--olive);
+    }
+    .tellbar .button {
+      width: 100%;
+      justify-content: center;
+    }
+    /* Hidden over the first screen, where the page's own action is in view. */
+    @supports (animation-timeline: scroll()) {
+      .tellbar {
+        animation-name: tellbar-in;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+      }
+      /* Kept in its own rule: a minifier that folds the timeline into the animation
+         shorthand produces a declaration browsers reject. */
+      .tellbar:where(*) {
+        animation-timeline: scroll(root);
+        animation-range: 0 90vh;
+      }
+      @keyframes tellbar-in {
+        0%,
+        85% {
+          transform: translateY(110%);
+          visibility: hidden;
+        }
+        100% {
+          transform: none;
+          visibility: visible;
+        }
+      }
+    }
+  }
+  /* Without motion the bar still waits for the first screen to pass; it appears, it does not slide. */
+  @media (prefers-reduced-motion: reduce) and (max-width: 47.99rem) {
+    @supports (animation-timeline: scroll()) {
+      .tellbar {
+        animation-name: tellbar-show !important;
+        animation-duration: auto !important;
+      }
+      @keyframes tellbar-show {
+        0%,
+        85% {
+          visibility: hidden;
+        }
+        100% {
+          visibility: visible;
+        }
+      }
+    }
+  }
+</style>

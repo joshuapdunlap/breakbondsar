@@ -1,0 +1,53 @@
+---
+import { RESEARCH } from "../data/site";
+interface Props {
+  path: string;
+}
+const { path } = Astro.props;
+---
+
+<nav class="research" aria-label="Evidence and progress">
+  <ul>
+    {
+      RESEARCH.map((r) => (
+        <li>
+          <a href={r.href} aria-current={r.href === path ? "page" : undefined}>
+            {r.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .research {
+    margin-top: var(--s-6) !important;
+  }
+  .research ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+  }
+  .research a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.35em 0.9em 0.25em;
+    border: 2px solid var(--olive-screen);
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+  }
+  .research a:hover {
+    border-color: var(--paper);
+  }
+  .research a[aria-current="page"] {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--ink);
+  }
+</style>

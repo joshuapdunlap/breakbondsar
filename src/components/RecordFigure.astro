@@ -1,0 +1,67 @@
+---
+// A literal crop of a source record. Shown optimized, linked to the original file at full size.
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  /** The original file, opened when the image is selected. */
+  href: string;
+  /** The label printed at the head of the caption ("Source record", "Excerpt"). */
+  label: string;
+  wide?: boolean;
+}
+const { image, alt, href, label, wide = false } = Astro.props;
+// Never upscale; the largest rendition is the crop's own width.
+const widths = [...[480, 800, 1200].filter((w) => w < image.width), Math.min(image.width, 1600)];
+---
+
+<figure class:list={["record", { "record--wide": wide }]}>
+  <a class="record__image" href={href}>
+    <Picture
+      src={image}
+      alt={alt}
+      formats={["avif", "webp"]}
+      widths={widths}
+      sizes="(min-width: 75rem) 62rem, (min-width: 60rem) 80vw, calc(100vw - 2rem)"
+      quality={74}
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
+  <figcaption><span class="record__label">{label}</span><slot /></figcaption>
+</figure>
+
+<style>
+  .record {
+    margin: var(--s-6) 0 0;
+  }
+  .record__image {
+    display: block;
+    background: var(--screen), var(--paper);
+    padding: var(--s-3);
+    border: 2px solid var(--rule);
+  }
+  .record__image:hover {
+    border-color: var(--red-deep);
+  }
+  .record__image :global(img) {
+    width: 100%;
+    height: auto;
+    background: #fff;
+  }
+  figcaption {
+    margin-top: var(--s-3);
+    font-size: var(--step--1);
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 44em;
+  }
+  .record__label {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    margin-right: 0.5em;
+    color: var(--olive-ink);
+  }
+</style>

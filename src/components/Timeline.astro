@@ -1,0 +1,297 @@
+---
+// Maturity dates on one time axis. Positions are computed from the dates, so distance
+// on the line is distance in time. Red marks the two Treasury dates the copy calls "this fall".
+interface Props {
+  id: string;
+  /** Heading level for the title; the ledger uses h2, other pages h3. */
+  level?: 2 | 3;
+}
+const { id, level = 3 } = Astro.props;
+const Title = `h${level}` as "h2" | "h3";
+
+type Entry = { date: string; long: string; label: string; inst: string; amount: string; short: string; record: string; due?: boolean; row: "high" | "low"; anchor?: "end" };
+const entries: Entry[] = [
+  { date: "2026-10-01", long: "October 1, 2026", label: "Oct 1, 2026", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, two $5 million positions · June 30, 2025 statement", due: true, row: "high" },
+  { date: "2026-11-01", long: "November 1, 2026", label: "Nov 1, 2026", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", due: true, row: "low" },
+  { date: "2027-10-01", long: "October 1, 2027", label: "Oct 1, 2027", inst: "APERS", amount: "$15 million", short: "$15M", record: "one position · preliminary report, September 7, 2026", row: "high" },
+  { date: "2028-05-01", long: "May 1, 2028", label: "May 1, 2028", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", row: "low" },
+  { date: "2028-08-01", long: "August 1, 2028", label: "Aug 1, 2028", inst: "APERS", amount: "$10 million", short: "$10M", record: "one position · preliminary report, September 7, 2026", row: "low" },
+  { date: "2030-01-01", long: "January 1, 2030", label: "Jan 1, 2030", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", row: "high" },
+  { date: "2030-05-01", long: "May 1, 2030", label: "May 1, 2030", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", row: "low" },
+  { date: "2031-02-01", long: "February 1, 2031", label: "Feb 1, 2031", inst: "ATRS", amount: "$9.9 million", short: "$9.9M", record: "one position · July 31, 2026 worksheet", row: "low", anchor: "end" },
+];
+const lanes = [
+  { inst: "State Treasury", rec: ["June 30, 2025", "statement"], y: 104 },
+  { inst: "APERS", rec: ["Preliminary report,", "Sept 7, 2026"], y: 216 },
+  { inst: "ATRS", rec: ["July 31, 2026", "worksheet"], y: 328 },
+];
+const W = 820;
+const X0 = 196;
+const X1 = 806;
+const start = Date.UTC(2026, 6, 1);
+const end = Date.UTC(2031, 6, 1);
+const x = (iso: string) => {
+  const [y, m, d] = iso.split("-").map(Number);
+  return +(X0 + ((Date.UTC(y, m - 1, d) - start) / (end - start)) * (X1 - X0)).toFixed(1);
+};
+const years = [2027, 2028, 2029, 2030, 2031].map((y) => ({ y, x: x(`${y}-01-01`) }));
+const laneOf = (inst: string) => lanes.find((l) => l.inst === inst)!;
+---
+
+<figure class="timeline" id={id} aria-labelledby={`${id}-title`}>
+  <div class="timeline__head">
+    <Title class="timeline__title" id={`${id}-title`}>When the bonds come due</Title>
+    <p class="timeline__label">Maturity dates</p>
+    <p class="timeline__scope">
+      Each date comes from the record named beside it. The Treasury dates are maturities scheduled on its June 30, 2025
+      statement; later ownership and receipt are not established. The amounts come from different record dates, so they
+      are not added together. Red marks the two dates this fall. Reviewed September 28, 2026. <a href="/investments/"
+        >See every record in the ledger</a
+      >.
+    </p>
+  </div>
+  <svg class="timeline__chart" viewBox={`0 0 ${W} 392`} width={W} height="392" role="img" aria-labelledby={`${id}-desc`} focusable="false">
+    <desc id={`${id}-desc`}>
+      Maturity dates on a time line from mid-2026 to mid-2031: State Treasury, October 1 and November 1, 2026, May 1, 2028,
+      January 1 and May 1, 2030; APERS, October 1, 2027 and August 1, 2028; ATRS, February 1, 2031. The list below gives each
+      amount and record.
+    </desc>
+    {
+      years.map((g) => (
+        <>
+          <line class="tl-grid" x1={g.x} y1="30" x2={g.x} y2="352" />
+          <text class="tl-year" x={g.x} y="378" text-anchor="middle">
+            {g.y}
+          </text>
+        </>
+      ))
+    }
+    {
+      lanes.map((l) => (
+        <>
+          <line class="tl-lane" x1={X0 - 8} y1={l.y} x2={X1} y2={l.y} />
+          <text class="tl-inst" x="0" y={l.y - 12}>
+            {l.inst}
+          </text>
+          <text class="tl-rec" x="0" y={l.y + 12}>
+            {l.rec[0]}
+          </text>
+          <text class="tl-rec" x="0" y={l.y + 31}>
+            {l.rec[1]}
+          </text>
+        </>
+      ))
+    }
+    {
+      entries.map((e) => {
+        const ly = laneOf(e.inst).y;
+        const cx = x(e.date);
+        const ty = e.row === "high" ? ly - 52 : ly - 22;
+        const tx = e.anchor === "end" ? cx + 7 : cx - 7;
+        return (
+          <>
+            {e.row === "high" && <line class="tl-leader" x1={cx} y1={ly - 9} x2={cx} y2={ly - 44} />}
+            <rect class:list={["tl-mark", { "tl-due": e.due }]} x={cx - 7} y={ly - 7} width="14" height="14" />
+            <text class="tl-label" x={tx} y={ty} text-anchor={e.anchor ?? "start"}>
+              <tspan class="tl-amt">{e.short}</tspan> <tspan class="tl-date">{e.label}</tspan>
+            </text>
+          </>
+        );
+      })
+    }
+  </svg>
+  <figcaption class="timeline__list">
+    <p class="timeline__listlabel">The dates as a list</p>
+    <ol>
+      {
+        entries.map((e) => (
+          <li class:list={{ due: e.due }}>
+            <time datetime={e.date}>{e.long}</time>
+            <span class="tl-li-inst">{e.inst}</span>
+            <span class="tl-li-amt">{e.amount}</span>
+            <span class="tl-li-rec">{e.record}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </figcaption>
+</figure>
+
+<style>
+  .timeline {
+    margin: var(--s-7) 0 0;
+    border-top: 3px solid var(--rule);
+    padding-top: var(--s-4);
+  }
+  .timeline__head {
+    display: grid;
+    gap: var(--s-2) var(--s-7);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .timeline__title {
+    font-size: var(--step-2);
+  }
+  .timeline__label {
+    font-weight: 700;
+    color: var(--olive-ink);
+    font-size: var(--step--1);
+  }
+  .timeline__scope {
+    font-size: var(--step--1);
+    max-width: 44em;
+    color: var(--olive-ink);
+  }
+  @media (min-width: 60rem) {
+    .timeline__head {
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+    }
+    .timeline__title {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .timeline__label {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .timeline__scope {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+  .timeline__chart {
+    width: 100%;
+    height: auto;
+    margin-top: var(--s-5);
+    overflow: visible;
+  }
+  .tl-grid {
+    stroke: var(--rule-soft);
+    stroke-width: 1;
+  }
+  .tl-lane {
+    stroke: var(--olive);
+    stroke-width: 2;
+  }
+  .tl-leader {
+    stroke: var(--olive);
+    stroke-width: 1;
+  }
+  .tl-mark {
+    fill: var(--olive);
+  }
+  .tl-mark.tl-due {
+    fill: var(--red);
+    stroke: var(--ink);
+    stroke-width: 1.5;
+  }
+  .tl-year {
+    font-family: var(--data);
+    font-size: 15px;
+    fill: var(--olive-ink);
+  }
+  .tl-inst {
+    font-family: var(--display);
+    font-size: 21px;
+    fill: var(--ink);
+  }
+  .tl-rec {
+    font-family: var(--text);
+    font-size: 17px;
+    fill: var(--olive-ink);
+  }
+  .tl-label {
+    font-family: var(--text);
+    font-size: 17px;
+    fill: var(--ink);
+  }
+  .tl-amt {
+    font-family: var(--display);
+    font-size: 20px;
+  }
+  .timeline__list {
+    margin-top: var(--s-5);
+  }
+  .timeline__listlabel {
+    font-weight: 700;
+    font-size: var(--step--1);
+    padding-bottom: var(--s-2);
+    border-bottom: 2px solid var(--rule);
+  }
+  .timeline__list ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0 var(--s-6);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 60rem) {
+    .timeline__list ol {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .timeline__list li {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr) auto;
+    gap: 0 var(--s-3);
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: var(--step--1);
+    line-height: 1.3;
+  }
+  .timeline__list li::before {
+    content: "";
+    grid-row: 1 / span 2;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-top: 0.35em;
+    background: var(--olive);
+  }
+  .timeline__list li.due::before {
+    background: var(--red);
+    outline: 1.5px solid var(--ink);
+  }
+  .timeline__list time {
+    font-weight: 700;
+  }
+  .timeline__list li.due time {
+    color: var(--red-deep);
+  }
+  .tl-li-inst {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    font-weight: 600;
+  }
+  .tl-li-amt {
+    grid-column: 2;
+    font-family: var(--display);
+    font-size: 1.3rem;
+  }
+  .tl-li-rec {
+    grid-column: 2 / span 2;
+    color: var(--olive-ink);
+  }
+  @media (max-width: 47.99rem) {
+    .timeline__chart {
+      display: none;
+    }
+  }
+  @media (forced-colors: active) {
+    .timeline__chart text {
+      fill: CanvasText;
+    }
+    .tl-grid,
+    .tl-lane,
+    .tl-leader {
+      stroke: CanvasText;
+    }
+    .tl-mark,
+    .tl-mark.tl-due {
+      fill: CanvasText;
+    }
+    .timeline__list li::before {
+      background: CanvasText;
+    }
+  }
+</style>

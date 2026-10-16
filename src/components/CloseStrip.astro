@@ -1,0 +1,28 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<section class="close on-red" aria-label="Take action">
+  <div class="wrap close__inner">
+    <p class="close__line">Put the demand to Thurston.</p>
+    <a class="button button--ink" href="/take-action/#officials">Write or call the Treasury <Icon name="arrow-right" /></a>
+  </div>
+</section>
+
+<style>
+  .close {
+    padding-block: var(--s-6);
+  }
+  .close__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4) var(--s-6);
+  }
+  .close__line {
+    font-family: var(--display);
+    font-size: var(--step-3);
+    line-height: 0.95;
+  }
+</style>

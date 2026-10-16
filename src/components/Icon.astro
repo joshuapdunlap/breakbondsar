@@ -1,0 +1,33 @@
+---
+// One drawn icon set: 24-unit grid, 2-unit stroke, square ends, mitred corners.
+// Icons never carry meaning alone; the text beside them does.
+interface Props {
+  name: "arrow-right" | "arrow-down" | "arrow-up" | "external" | "plus" | "phone" | "mail" | "copy" | "download";
+  class?: string;
+}
+const { name, class: className } = Astro.props;
+const paths: Record<Props["name"], string> = {
+  "arrow-right": "M3.5 12h15.5M13 5.5 19.5 12 13 18.5",
+  "arrow-down": "M12 3.5V19M5.5 13l6.5 6.5 6.5-6.5",
+  "arrow-up": "M12 20.5V5M5.5 11 12 4.5 18.5 11",
+  external: "M6 18 17.5 6.5M8.5 6h9.5v9.5",
+  plus: "M12 4v16M4 12h16",
+  phone: "M7.5 2.5h9v19h-9zM11 18h2",
+  mail: "M3 5.5h18v13H3zM3.5 6.5l8.5 6.5 8.5-6.5",
+  copy: "M8.5 8.5h12v12h-12zM15.5 8.5v-5h-12v12h5",
+  download: "M12 3.5V16M6 10.5l6 6 6-6M4 20.5h16",
+};
+---
+
+<svg
+  class:list={["icon", className]}
+  aria-hidden="true"
+  focusable="false"
+  viewBox="0 0 24 24"
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"><path d={paths[name]}></path></svg>

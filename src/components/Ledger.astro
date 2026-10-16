@@ -1,0 +1,82 @@
+---
+// One institution's dated event records. A single table: on phones each row is set as a
+// slip with its column names printed beside the values (explicit roles keep it a table).
+import ledger from "../data/ledger.json";
+import { local } from "../data/site";
+
+interface Props {
+  institution: "treasury" | "apers" | "atrs";
+}
+const { institution } = Astro.props;
+const section = ledger[institution];
+const cols = ["Record date", "Event / principal", "Security / terms", "What the record establishes"];
+---
+
+<div class="ledger table-region reflow">
+  <table role="table">
+    <caption>{section.caption}</caption>
+    <thead role="rowgroup">
+      <tr role="row">{cols.map((c) => <th scope="col" role="columnheader">{c}</th>)}</tr>
+    </thead>
+    <tbody role="rowgroup">
+      {
+        section.rows.map((r) => (
+          <tr role="row" id={r.id}>
+            <th scope="row" role="rowheader" data-label={cols[0]}>
+              <span class="data">{r.date}</span>
+            </th>
+            <td role="cell" data-label={cols[1]}>
+              {r.event}
+              <br />
+              <strong class="amount">{r.amount}</strong>
+            </td>
+            <td role="cell" data-label={cols[2]}>
+              <span class="data">{r.security}</span>
+              {r.terms.map((t) => (
+                <>
+                  <br />
+                  {t}
+                </>
+              ))}
+            </td>
+            <td role="cell" data-label={cols[3]}>
+              {r.establishes}
+              <br />
+              <span class="cite">
+                <a href={local(r.cite.href)}>{r.cite.id}</a> · {r.cite.note}
+              </span>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .ledger table {
+    min-width: 0;
+  }
+  .ledger th[scope="row"] {
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .ledger .amount {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+  .ledger td:nth-child(4) {
+    max-width: 30em;
+  }
+  .ledger .cite {
+    display: inline-block;
+    margin-top: var(--s-2);
+    color: var(--olive-ink);
+  }
+  .ledger tr:target {
+    background: var(--screen), var(--paper);
+    outline: 2px solid var(--red-deep);
+  }
+</style>
