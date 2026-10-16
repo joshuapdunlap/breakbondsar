@@ -62,6 +62,8 @@
   --olive-ink: #2b3517; /* secondary text on paper is olive ink, never gray */
   --rule: #2b3517;
   --rule-soft: rgb(43 53 23 / 0.28);
+  --letter: #fbfcf8; /* the suggested letter's sheet */
+  --paper-25: rgb(239 241 233 / 0.25); /* hairlines on the olive sheet */
   --screen: radial-gradient(circle at 50% 50%, rgb(43 53 23 / 0.17) 0.95px, transparent 1.3px) 0 0 / 5px 5px;
 
   /* Type */
@@ -94,6 +96,7 @@
 
   color-scheme: light;
   accent-color: var(--red-deep);
+  scrollbar-color: var(--olive) var(--paper);
 }
 
 *,
@@ -165,16 +168,13 @@ h3 {
   font-size: var(--step-1);
   line-height: 1.05;
 }
-h4 {
-  font-size: 1.25rem;
-  line-height: 1.1;
-}
-/* Emphasis in a heading is a second ink, not a slant. */
+/* On paper a heading prints in one ink. On the olive sheet its emphasis is the second pull
+   (paper screened over olive); on red it stays ink. Never a slant. */
 h1 em,
 h2 em,
 h3 em {
   font-style: normal;
-  color: var(--olive-ink);
+  color: inherit;
 }
 
 p {
@@ -200,16 +200,22 @@ code,
   white-space: nowrap;
 }
 
+/* Links underline in the ink they sit on. Red is kept for links that carry the ask. */
 a {
   color: inherit;
   text-decoration-line: underline;
   text-decoration-thickness: 0.075em;
   text-underline-offset: 0.18em;
-  text-decoration-color: var(--red-deep);
+  text-decoration-color: rgb(43 53 23 / 0.6);
 }
 a:hover {
-  color: var(--red-deep);
-  text-decoration-thickness: 0.12em;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 0.14em;
+}
+a[href^="/take-action/"]:not(.button),
+a[href^="tel:"],
+a[href^="https://artreasury.gov/"]:not(.button) {
+  text-decoration-color: var(--red-deep);
 }
 :focus-visible {
   outline: 3px solid var(--ink);
@@ -220,6 +226,11 @@ a:hover {
 .on-red :focus-visible {
   outline-color: var(--paper);
   box-shadow: 0 0 0 6px var(--ink);
+}
+/* An ink button on red: paper next to the button, ink against the red. */
+.on-red .button--ink:focus-visible {
+  outline-color: var(--ink);
+  box-shadow: 0 0 0 6px var(--paper);
 }
 
 .visually-hidden {
@@ -239,7 +250,7 @@ a:hover {
   left: var(--s-4);
   top: -10rem;
   z-index: 10;
-  background: var(--red);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--display);
   font-size: 1.25rem;
@@ -263,11 +274,15 @@ a:hover {
   color: var(--paper);
 }
 .on-olive a {
-  text-decoration-color: var(--red);
+  text-decoration-color: var(--olive-screen);
 }
 .on-olive a:hover {
-  color: var(--paper);
   text-decoration-color: var(--paper);
+}
+.on-olive a[href^="/take-action/"]:not(.button),
+.on-olive a[href^="tel:"],
+.on-olive a[href^="https://artreasury.gov/"]:not(.button) {
+  text-decoration-color: var(--red);
 }
 .on-olive h1 em,
 .on-olive h2 em,
@@ -278,11 +293,9 @@ a:hover {
   background: var(--red);
   color: var(--ink);
 }
-.on-red a {
+.on-red a,
+.on-red a[href] {
   text-decoration-color: var(--ink);
-}
-.on-red a:hover {
-  color: var(--ink);
 }
 .on-red h2 em,
 .on-red h3 em {
@@ -364,6 +377,21 @@ a:hover {
 .go[href^="http"]:hover .icon {
   transform: translate(0.12em, -0.12em);
 }
+/* Inside running text a link stays in the sentence. */
+.go--inline {
+  display: inline;
+  min-height: 0;
+}
+.go--inline .icon {
+  display: inline-block;
+  vertical-align: -0.1em;
+  margin-inline: 0.15em;
+}
+/* A short link that is a paragraph on its own still gets a 44 px target. */
+.solo {
+  display: inline-block;
+  padding-block: 0.4em;
+}
 .stack {
   display: flex;
   flex-direction: column;
@@ -427,9 +455,6 @@ details.disclosure > .panel > * + * {
   margin-top: var(--s-5);
   border-top: 3px solid var(--rule);
 }
-.table-region:focus-visible {
-  outline-offset: 0;
-}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -487,6 +512,8 @@ th .data {
   }
   .reflow [data-label]::before {
     content: attr(data-label);
+    /* Screen readers already hear the column header; hide the printed copy from them. */
+    content: attr(data-label) / "";
     display: block;
     font-size: 0.85em;
     font-weight: 700;
@@ -550,34 +577,6 @@ th .data {
   }
 }
 
-/* Crop marks: the printer's corner marks on every poster sheet. */
-.crop {
-  position: relative;
-}
-.crop::before,
-.crop::after {
-  content: "";
-  position: absolute;
-  width: 1.4rem;
-  height: 1.4rem;
-  pointer-events: none;
-  border-color: var(--olive-screen);
-  border-style: solid;
-  opacity: 0.55;
-}
-.crop::before {
-  top: var(--s-4);
-  left: calc(var(--gutter) * 0.45);
-  border-width: 1px 0 0 1px;
-}
-.band--foot.crop::after {
-  display: none;
-}
-.crop::after {
-  bottom: var(--s-4);
-  right: calc(var(--gutter) * 0.45);
-  border-width: 0 1px 1px 0;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -594,9 +593,8 @@ th .data {
   .button {
     border: 2px solid ButtonText;
   }
-  .crop::before,
-  .crop::after {
-    display: none;
+  .steps__bar span {
+    background: CanvasText !important;
   }
   details.disclosure > .panel {
     border-left: 1px solid CanvasText;
@@ -628,9 +626,27 @@ th .data {
   }
   .no-print,
   .skip-link,
-  .crop::before,
-  .crop::after {
+  .copy-tools,
+  .shortcuts,
+  .tellbar {
     display: none !important;
+  }
+  /* Inks the printer won't lay down: everything prints black on white. */
+  .on-olive *,
+  .on-red * {
+    color: #000 !important;
+  }
+  .button,
+  .button--ink,
+  .button--quiet {
+    background: none !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+  }
+  main a[href^="/media/"]::after {
+    content: " (breakbondsar.org" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
   }
   a {
     color: #000;
