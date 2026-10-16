@@ -14,11 +14,12 @@ interface Props {
 }
 const { image, alt, href, label, wide = false } = Astro.props;
 // Never upscale; the largest rendition is the crop's own width.
+const noteId = `opens-${href.split("/").pop()!.replace(/\W+/g, "-")}`;
 const widths = [...[480, 800, 1200].filter((w) => w < image.width), Math.min(image.width, 1600)];
 ---
 
 <figure class:list={["record", { "record--wide": wide }]}>
-  <a class="record__image" href={href}>
+  <a class="record__image" href={href} aria-describedby={noteId}>
     <Picture
       src={image}
       alt={alt}
@@ -30,6 +31,7 @@ const widths = [...[480, 800, 1200].filter((w) => w < image.width), Math.min(ima
       decoding="async"
     />
   </a>
+  <span class="visually-hidden" id={noteId}>Opens the full-size image.</span>
   <figcaption><span class="record__label">{label}</span><slot /></figcaption>
 </figure>
 
@@ -44,7 +46,8 @@ const widths = [...[480, 800, 1200].filter((w) => w < image.width), Math.min(ima
     border: 2px solid var(--rule);
   }
   .record__image:hover {
-    border-color: var(--red-deep);
+    border-color: var(--ink);
+    outline: 1px solid var(--ink);
   }
   .record__image :global(img) {
     width: 100%;

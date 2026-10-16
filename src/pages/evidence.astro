@@ -14,8 +14,8 @@ import type { ImageMetadata } from "astro";
 
 type Source = {
   id: string;
-  title: string;
-  dated: string;
+  /** Who produced the record. Title and dates come from the evidence index. */
+  agency: string;
   about: string[];
   location: string;
   /** Extra paragraph after the location, as HTML (a correction note). */
@@ -29,8 +29,7 @@ type Source = {
 const sources: Source[] = [
   {
     id: "SRC-TRE-001",
-    title: "Treasury bondholder statement, June 30, 2025",
-    dated: "Arkansas Treasury · Document: 2025-06-30 · Response recorded: 2026-02-19",
+    agency: "Arkansas Treasury",
     about: [
       "Complete statement face extracted from a compilation of statements and advices. The reverse privacy notice referenced on the face is not the next page in the supplied compilation and is not included. This is not the full agency response.",
     ],
@@ -49,8 +48,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-APE-001",
-    title: "APERS purchase email threads and bondholder advice",
-    dated: "APERS · Document: 2025-11-06 · Response recorded: 2026-02-27",
+    agency: "APERS",
     about: [
       "Two complete produced email threads and the two-page statement attachment following Email 514. The messages refer to a term sheet; that separate attachment is not included in this selected span. This is not the full agency response.",
     ],
@@ -62,8 +60,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-ATR-001",
-    title: "ATRS Board Update-Liquidity",
-    dated: "Auditor production of ATRS correspondence · Document: 2025-12-29 · Response recorded: 2026-03-03",
+    agency: "Auditor production of ATRS correspondence",
     about: [
       "The full email message, including its discussion of liquidity and confidentiality notice. Sender: ATRS executive director; recipient: ATRS Board Distribution List; copy: ATRS leadership. Personal addresses and transport headers are not published.",
     ],
@@ -76,8 +73,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-TRE-002",
-    title: "February 2026 projected cashflow and inventory adjustment",
-    dated: "Arkansas Treasury · Document: 2026-02-02 · Response recorded: 2026-02-19",
+    agency: "Arkansas Treasury",
     about: [
       "Complete populated worksheet rendered from the original XLSX. Its projected-cashflow label and inventory-adjustment entry are retained. This is not independent confirmation of receipt in a bank account.",
     ],
@@ -89,8 +85,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-ATR-002",
-    title: "ATRS Board authorization, June 2, 2025",
-    dated: "ATRS official website · Document: 2025-06-02 · Response recorded: Official publication; checked 2026-09-07",
+    agency: "ATRS official website",
     about: [
       "Full official eight-page Board minutes, linked directly from ATRS. The resolution authorizes up to $50 million through Scout/Reams; authorization is not proof of settlement.",
     ],
@@ -101,8 +96,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-APE-002",
-    title: "APERS custody holdings report, September 7, 2026",
-    dated: "APERS · Document: 2026-09-07 · Response recorded: 2026-09-09",
+    agency: "APERS",
     about: [
       "BNY custody report produced by APERS, marked preliminary and dated September 7, 2026. It lists two State of Israel bonds totaling $25 million. The Customer Investment Request produced with it is not included.",
     ],
@@ -120,8 +114,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-ATR-003",
-    title: "ATRS transfer of $50 million to the Reams account, January 2, 2026",
-    dated: "ATRS · Document: 2026-01-02 · Response recorded: 2026-09-11",
+    agency: "ATRS",
     about: [
       "State Street activity report for ATRS’s $50 million internal transfer to its Reams account, status completed, settlement date January 2, 2026. One page of a twelve-page funding file; the authorizing memo and approval emails are not included.",
     ],
@@ -140,8 +133,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-ATR-004",
-    title: "Israel Bonds purchase confirmation for ATRS, issue date February 15, 2026",
-    dated: "ATRS · Document: 2026-02-15 · Response recorded: 2026-09-11",
+    agency: "ATRS",
     about: [
       "Development Corporation for Israel confirmation that a $9.9 million Israel Bond was purchased for ATRS, issue date February 15, 2026, maturing February 1, 2031 at 4.93%. First page of three. A February 1 issuance of the same amount at 4.86% was cancelled.",
     ],
@@ -160,8 +152,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-ATR-005",
-    title: "Reams account holdings for ATRS, July 31, 2026",
-    dated: "ATRS · Document: 2026-07-31 · Response recorded: 2026-09-11",
+    agency: "ATRS",
     about: [
       "Reams holdings worksheet for the ATRS account, produced as a file dated July 31, 2026, rendered from the original spreadsheet. It lists the $9.9 million Israel Bond, four U.S. Treasury notes and cash. The worksheet itself has no date cell, and a ratings-agency disclaimer row is not reproduced.",
     ],
@@ -172,8 +163,7 @@ const sources: Source[] = [
   },
   {
     id: "SRC-ATR-006",
-    title: "Reams second-quarter 2026 report: portfolio strategy",
-    dated: "ATRS · Document: 2026-06-30 · Response recorded: 2026-09-11",
+    agency: "ATRS",
     about: [
       "Cover and Portfolio Strategy page from Reams’s report on the ATRS Israel account for the quarter ending June 30, 2026. It states a long-term objective of a laddered Israel Bonds portfolio, with no more than $10 million bought in a calendar year.",
     ],
@@ -183,10 +173,13 @@ const sources: Source[] = [
     hash: "9228228a5312dcc4d6e26c2b8d0fa96a1b85582db8ccb40f02f5befaa376e199",
   },
 ];
+const byId = Object.fromEntries(index.map((r) => [r.id, r]));
+const title = (s: Source) => byId[s.id].record;
+const dated = (s: Source) => `${s.agency} · Document: ${byId[s.id].docDate} · Response recorded: ${byId[s.id].response}`;
 ---
 
 <Base path="/evidence/">
-  <PosterBand crumb="Evidence & progress">
+  <PosterBand path="/evidence/">
     <Fragment slot="title">Follow the records.<br /><em>Hold them to account.</em></Fragment>
     <p slot="intro">
       Our solidarity calls us to act. The records let us examine Arkansas’s choices and check whether officials change them.
@@ -250,11 +243,11 @@ const sources: Source[] = [
     {
       sources.map((s) => (
         <section class="margin-grid source" id={s.id} aria-labelledby={`${s.id}-title`}>
-          <h2 id={`${s.id}-title`}>{s.title}</h2>
+          <h2 id={`${s.id}-title`}>{title(s)}</h2>
           <p class="margin srcid">
             <span class="data">{s.id}</span>
           </p>
-          <p class="provenance dated">{s.dated}</p>
+          <p class="provenance dated">{dated(s)}</p>
           <div class="prose">
             {s.about.map((p) => (
               <p>{p}</p>
@@ -265,7 +258,9 @@ const sources: Source[] = [
             {s.correction && <p class="provenance" set:html={s.correction} />}
             <p>
               <a class="go doc" href={s.pdf}>
-                {s.pdf.startsWith("http") ? <Icon name="external" /> : <Icon name="download" />}Read the document (PDF)
+                {s.pdf.startsWith("http") ? <Icon name="external" /> : <Icon name="download" />}Read the document (PDF)<span
+                  class="visually-hidden">, {s.id}</span
+                >
               </a>
             </p>
             <details class="disclosure">
@@ -338,7 +333,7 @@ const sources: Source[] = [
           A holding, purchase, authorization, and payment to an investment manager establish different things. We explain what
           each document shows, what it leaves unanswered, and where we offer an interpretation.
         </p>
-        <p><a href="/about/#corrections">Flag an error or request source context</a>.</p>
+        <p><a class="solo" href="/about/#corrections">Flag an error or request source context</a>.</p>
       </div>
     </section>
   </div>
