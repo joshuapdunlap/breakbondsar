@@ -32,14 +32,14 @@ import Timeline from "../components/Timeline.astro";
     <section class="due on-red" aria-label="Treasury maturity dates">
       <div class="wrap due__inner">
         <div class="due__head">
-          <h2 class="due__title" id="due-title">Two maturities this fall.</h2>
+          <h2 class="due__title" id="due-title">Next maturity: November&nbsp;1.</h2>
           <p class="due__label">State Treasury maturity dates</p>
         </div>
         <ol class="due__stops">
-          <li>
+          <li class="is-past">
             <time datetime="2026-10-01">October 1, 2026</time>
             <span class="due__amount">$10 million</span>
-            <span class="due__note">Two $5 million positions</span>
+            <span class="due__note">Two $5 million positions. Date passed; receipt not established.</span>
           </li>
           <li>
             <time datetime="2026-11-01">November 1, 2026</time>
@@ -307,6 +307,14 @@ import Timeline from "../components/Timeline.astro";
   }
   .due__note {
     font-size: var(--step--1);
+  }
+  /* A date that has passed stays on the strip for the record, set back behind the next one. */
+  .due__stops li.is-past {
+    border-top-width: 1px;
+    padding-top: calc(var(--s-2) + 2px);
+  }
+  .due__stops li.is-past .due__amount {
+    font-size: var(--step-1);
   }
   .due__act {
     display: grid;
