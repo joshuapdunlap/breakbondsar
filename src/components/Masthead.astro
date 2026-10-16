@@ -30,13 +30,11 @@ const isCurrent = (item: (typeof NAV)[number]) =>
             </li>
           ))
         }
-        <li class="mainnav__act">
-          <a class="button" href="/take-action/" aria-current={path === "/take-action/" ? "page" : undefined}>
-            Take action <Icon name="arrow-right" />
-          </a>
-        </li>
       </ul>
     </nav>
+    <a class="button masthead__act" href="/take-action/" aria-current={path === "/take-action/" ? "page" : undefined}>
+      Take action <Icon name="arrow-right" />
+    </a>
   </div>
 </header>
 
@@ -47,10 +45,8 @@ const isCurrent = (item: (typeof NAV)[number]) =>
   }
   .masthead__inner {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--s-3) var(--s-6);
+    gap: var(--s-3) var(--s-5);
     padding-block: var(--s-4) var(--s-3);
   }
   .brand {
@@ -59,9 +55,7 @@ const isCurrent = (item: (typeof NAV)[number]) =>
     gap: var(--s-3);
     text-decoration: none;
     min-height: 2.75rem;
-  }
-  .brand:hover {
-    color: inherit;
+    margin-right: auto;
   }
   .brand__mark {
     width: 2.75rem;
@@ -90,58 +84,86 @@ const isCurrent = (item: (typeof NAV)[number]) =>
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0 var(--s-1);
+    gap: 0 var(--s-4);
   }
-  .mainnav a:not(.button) {
+  .mainnav a {
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
-    padding: 0 var(--s-3);
     font-weight: 600;
     font-size: 1.25rem;
     text-decoration: none;
     border-bottom: 3px solid transparent;
   }
-  .mainnav a:not(.button):hover {
+  .mainnav a:hover {
+    border-bottom-color: var(--olive-screen);
+  }
+  .mainnav a[aria-current] {
     border-bottom-color: var(--paper);
   }
-  .mainnav a[aria-current]:not(.button) {
-    border-bottom-color: var(--red);
-  }
-  .mainnav__act {
-    margin-left: var(--s-3);
-  }
-  .mainnav .button {
+  .masthead__act {
     min-height: 2.75rem;
     font-size: 1.2rem;
+    flex: none;
   }
-  .mainnav .button[aria-current="page"] {
+  .masthead__act[aria-current="page"] {
     background: var(--paper);
     border-color: var(--paper);
     color: var(--ink);
   }
-  @media (max-width: 47.99rem) {
+  @media (max-width: 63.99rem) {
     .masthead__inner {
-      padding-block: var(--s-3) var(--s-2);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "brand act"
+        "nav nav";
+      padding-block: var(--s-3) var(--s-1);
+      gap: var(--s-2) var(--s-3);
+    }
+    .brand {
+      grid-area: brand;
+    }
+    .masthead__act {
+      grid-area: act;
+      font-size: 1.05rem;
+      padding-inline: 0.75em;
+      gap: 0.4em;
+    }
+    .brand {
       gap: var(--s-2);
     }
+    .brand__mark {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    .brand__name {
+      font-size: 1.3rem;
+      white-space: nowrap;
+    }
     .mainnav {
-      width: 100%;
-      border-top: 1px solid rgb(239 241 233 / 0.25);
-      padding-top: var(--s-1);
+      grid-area: nav;
+      border-top: 1px solid var(--paper-25);
     }
     .mainnav ul {
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 var(--s-4);
     }
-    .mainnav a:not(.button) {
-      padding: 0 var(--s-2);
+    .mainnav a {
       font-size: 1.15rem;
     }
-    .mainnav li:first-child a:not(.button) {
-      padding-left: 0;
+  }
+  /* Narrowest phones: the name may wrap rather than run under the button. */
+  @media (max-width: 23rem) {
+    .brand__name {
+      white-space: normal;
     }
-    .mainnav__act {
-      margin-left: auto;
+  }
+  @media (min-width: 48rem) and (max-width: 63.99rem) {
+    .mainnav ul {
+      display: flex;
+      gap: 0 var(--s-5);
     }
   }
 </style>
