@@ -6,13 +6,16 @@ interface Props {
   crumb: string;
   /** A section the page belongs to, shown between Home and the page. */
   parent?: { href: string; label: string };
+  /** "poster" sets the title at full poster scale (Persuade pages); "read" keeps it smaller
+      so the record starts higher on Read pages. */
+  scale?: "poster" | "read";
   class?: string;
 }
-const { crumb, parent, class: className } = Astro.props;
+const { crumb, parent, scale = "read", class: className } = Astro.props;
 const hasFoot = Astro.slots.has("foot");
 ---
 
-<section class:list={["band on-olive crop", { "band--foot": hasFoot }, className]} aria-labelledby="page-title">
+<section class:list={["band on-olive crop", `band--${scale}`, { "band--foot": hasFoot }, className]} aria-labelledby="page-title">
   <div class="wrap band__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
@@ -67,10 +70,14 @@ const hasFoot = Astro.slots.has("foot");
     font-weight: 600;
   }
   .band h1 {
-    font-size: var(--step-4);
-    max-width: 14ch;
+    font-size: clamp(2.75rem, 1.3rem + 5.4vw, 5rem);
+    max-width: 16ch;
     line-height: 0.95;
     margin-top: var(--s-4);
+  }
+  .band--poster h1 {
+    font-size: var(--step-4);
+    max-width: 14ch;
   }
   .band__intro {
     max-width: 30em;
