@@ -8,5 +8,10 @@
     "directory": "./dist",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
-  }
+  },
+  // The apex is a Workers custom domain. www is not attached: a Cloudflare Redirect Rule
+  // sends www.breakbondsar.org/* to https://breakbondsar.org/ with the path and query.
+  // The workers.dev address stays on as a noindex preview (see public/_headers).
+  "routes": [{ "pattern": "breakbondsar.org", "custom_domain": true }],
+  "workers_dev": true
 }

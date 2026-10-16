@@ -86,7 +86,7 @@ npm run check:live -- https://breakbondsar.<subdomain>.workers.dev   # any other
 
 It checks every page, the security headers, HSTS and the www redirect on the real domain, a sample of the old WordPress redirects, the 404, and the script's cache headers.
 
-The custom domain is attached in the Cloudflare dashboard (Workers & Pages, the `breakbondsar` Worker, Settings, Domains & Routes). To roll back, pick an earlier version under Deployments and choose Rollback.
+breakbondsar.org is attached to the Worker as a custom domain by the `routes` entry in `wrangler.jsonc`, so every deploy keeps it. `www.breakbondsar.org` is not attached: a Redirect Rule on the Cloudflare zone sends it to the apex with the path and query. Always Use HTTPS is on for the zone. To roll back, pick an earlier version under Deployments in the Cloudflare dashboard and choose Rollback.
 
 ## Updating content
 
