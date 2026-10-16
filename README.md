@@ -77,6 +77,15 @@ npm run deploy         # builds, then wrangler deploy
 
 Wrangler prints the `workers.dev` address. That address, and any address other than breakbondsar.org, is served with `X-Robots-Tag: noindex` (see `public/_headers`).
 
+After a deploy, check the deployed copy over the network:
+
+```sh
+npm run check:live                                        # breakbondsar.org: must be indexable
+npm run check:live -- https://breakbondsar.<subdomain>.workers.dev   # any other host: must be noindex
+```
+
+It checks every page, the security headers, HSTS and the www redirect on the real domain, a sample of the old WordPress redirects, the 404, and the script's cache headers.
+
 The custom domain is attached in the Cloudflare dashboard (Workers & Pages, the `breakbondsar` Worker, Settings, Domains & Routes). To roll back, pick an earlier version under Deployments and choose Rollback.
 
 ## Updating content

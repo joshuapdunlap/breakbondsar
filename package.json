@@ -18,7 +18,8 @@
     "test:worker": "playwright test --project=worker",
     "lhci": "npm run build && node scripts/lhci.mjs",
     "deploy": "npm run build && wrangler deploy",
-    "deploy:dry": "npm run build && wrangler deploy --dry-run"
+    "deploy:dry": "npm run build && wrangler deploy --dry-run",
+    "check:live": "node scripts/check-live.mjs"
   },
   "dependencies": {
     "astro": "~7.3.8"
