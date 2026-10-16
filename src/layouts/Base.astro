@@ -5,7 +5,7 @@ import markazi from "../fonts/markazi-text-latin.woff2?url";
 import Masthead from "../components/Masthead.astro";
 import Footer from "../components/Footer.astro";
 import TellBar from "../components/TellBar.astro";
-import { PAGES, SITE } from "../data/site";
+import { CRUMBS, PAGES, SITE } from "../data/site";
 
 interface Props {
   /** The page's URL path, e.g. "/the-issue/". */
@@ -37,13 +37,16 @@ if (path === "/") {
     },
     { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: SITE.name, url: `${SITE.origin}/`, publisher: { "@id": `${SITE.origin}/#organization` } },
   );
-} else if (meta?.breadcrumb) {
+} else if (CRUMBS[path]) {
+  const { name, parent } = CRUMBS[path];
+  const trail = [
+    { name: "Home", item: `${SITE.origin}/` },
+    ...(parent ? [{ name: parent.label, item: new URL(parent.href, SITE.origin).href }] : []),
+    { name, item: canonical },
+  ];
   graph.push({
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.origin}/` },
-      { "@type": "ListItem", position: 2, name: meta.breadcrumb, item: canonical },
-    ],
+    itemListElement: trail.map((t, i) => ({ "@type": "ListItem", position: i + 1, ...t })),
   });
 }
 const jsonld = graph.length ? JSON.stringify({ "@context": "https://schema.org", "@graph": graph }) : null;
@@ -56,8 +59,7 @@ const jsonld = graph.length ? JSON.stringify({ "@context": "https://schema.org",
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <meta name="theme-color" content="#2b3517" />
     <link rel="preload" href={lalezar} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={markazi} as="font" type="font/woff2" crossorigin />
@@ -68,7 +70,7 @@ const jsonld = graph.length ? JSON.stringify({ "@context": "https://schema.org",
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content={canonical} />
+    {!noindex && <meta property="og:url" content={canonical} />}
     <meta property="og:title" content={meta?.ogTitle ?? title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />

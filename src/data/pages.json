@@ -6,9 +6,7 @@
     "ogImage": "/media/home-sharing-1200x630-1.png",
     "ogImageAlt": "Arkansas out of Israel Bonds. Every life. Every future. Break the Bonds Arkansas, for Palestinian freedom.",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Home",
-    "breadcrumb": null
+    "ogImageHeight": "630"
   },
   "/the-issue/": {
     "title": "The issue | Break the Bonds | Arkansas",
@@ -17,9 +15,7 @@
     "ogImage": "/media/the-issue-sharing-v2-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas: Palestinian life. Palestinian freedom. Arkansas's Treasury and retirement systems have made choices to hold, purchase, or fund Israel Bonds investments. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "The issue",
-    "breadcrumb": "The issue"
+    "ogImageHeight": "630"
   },
   "/how-we-win/": {
     "title": "How we win | Break the Bonds | Arkansas",
@@ -28,9 +24,7 @@
     "ogImage": "/media/how-we-win-sharing-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas: End the support. Keep the money out. No new Israel Bonds. No renewals. No reinvestment. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "How we win",
-    "breadcrumb": "How we win"
+    "ogImageHeight": "630"
   },
   "/evidence/": {
     "title": "Evidence & progress | Break the Bonds | Arkansas",
@@ -39,9 +33,7 @@
     "ogImage": "/media/evidence-sharing-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas, source documents: Follow the records. Hold them to account. Ten public records, each with its date and source. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Evidence & progress",
-    "breadcrumb": "Evidence & progress"
+    "ogImageHeight": "630"
   },
   "/take-action/": {
     "title": "Take action | Break the Bonds | Arkansas",
@@ -50,9 +42,7 @@
     "ogImage": "/media/take-action-sharing-1200x630-1.png",
     "ogImageAlt": "Turn solidarity into pressure. No new Israel Bonds. No renewals. No reinvestment. Break the Bonds Arkansas, for Palestinian freedom.",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Take action",
-    "breadcrumb": "Take action"
+    "ogImageHeight": "630"
   },
   "/about/": {
     "title": "About the campaign | Break the Bonds | Arkansas",
@@ -61,9 +51,7 @@
     "ogImage": "/media/about-sharing-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas. We organize for Palestinian freedom and an end to Arkansas's investment in Israel Bonds. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "About",
-    "breadcrumb": "About"
+    "ogImageHeight": "630"
   },
   "/investments/": {
     "title": "Investment ledger | Break the Bonds | Arkansas",
@@ -72,9 +60,7 @@
     "ogImage": "/media/investments-sharing-v2-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas, investment ledger: What the money record shows. A timeline of scheduled maturity dates by institution, each from its own dated record: State Treasury (June 30, 2025 statement) with October 1 and November 1, 2026 marked in red, then 2028 and 2030; APERS (preliminary report, September 7, 2026) in 2027 and 2028; ATRS (July 31, 2026 worksheet) in 2031. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Investment ledger",
-    "breadcrumb": "Investment ledger"
+    "ogImageHeight": "630"
   },
   "/progress/": {
     "title": "Progress | Break the Bonds | Arkansas",
@@ -83,9 +69,7 @@
     "ogImage": "/media/progress-sharing-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas, progress: A promise needs a record. How we tell a public commitment from an end to new purchases. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Progress",
-    "breadcrumb": "Progress"
+    "ogImageHeight": "630"
   },
   "/policy/": {
     "title": "Institutional routes | Break the Bonds | Arkansas",
@@ -94,9 +78,7 @@
     "ogImage": "/media/policy-sharing-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas, institutional routes: Turn the demand into decisions. Who decides at the Treasury, APERS and ATRS. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Institutional routes",
-    "breadcrumb": "Institutional routes"
+    "ogImageHeight": "630"
   },
   "/privacy/": {
     "title": "Privacy | Break the Bonds | Arkansas",
@@ -105,8 +87,6 @@
     "ogImage": "/media/privacy-sharing-1200x630-1.png",
     "ogImageAlt": "Break the Bonds Arkansas, privacy: Your information. Your choices. How this website and its campaign contact links handle your information. breakbondsar.org",
     "ogImageWidth": "1200",
-    "ogImageHeight": "630",
-    "twitterTitle": "Privacy",
-    "breadcrumb": "Privacy"
+    "ogImageHeight": "630"
   }
 }

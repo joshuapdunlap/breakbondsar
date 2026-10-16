@@ -26,6 +26,21 @@ export const RESEARCH = [
   { href: "/progress/", label: "Progress" },
 ] as const;
 
+const RECORD = { href: "/evidence/", label: "Evidence & progress" };
+
+/** Each inner page's place in the site: the visible breadcrumb and its structured data. */
+export const CRUMBS: Record<string, { name: string; parent?: { href: string; label: string } }> = {
+  "/the-issue/": { name: "The issue" },
+  "/how-we-win/": { name: "How we win" },
+  "/evidence/": { name: "Evidence & progress" },
+  "/take-action/": { name: "Take action" },
+  "/about/": { name: "About the campaign" },
+  "/investments/": { name: "Investment ledger", parent: RECORD },
+  "/progress/": { name: "Progress", parent: RECORD },
+  "/policy/": { name: "Institutional routes", parent: RECORD },
+  "/privacy/": { name: "Privacy" },
+};
+
 /** Old absolute links become site-relative; WordPress upload paths become /media/ paths. */
 export function local(href: string): string {
   return href

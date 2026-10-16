@@ -1,21 +1,22 @@
 ---
 // The poster sheet that opens every page after the home page: olive ink, the title
-// knocked out in paper, crop marks at the corners. Wayfinding rides on the sheet.
+// knocked out in paper. Wayfinding rides on the sheet.
+import { CRUMBS } from "../data/site";
+
 interface Props {
-  /** The current page's name in the breadcrumb. */
-  crumb: string;
-  /** A section the page belongs to, shown between Home and the page. */
-  parent?: { href: string; label: string };
+  /** The page's path; its breadcrumb comes from CRUMBS in src/data/site.ts. */
+  path: string;
   /** "poster" sets the title at full poster scale (Persuade pages); "read" keeps it smaller
       so the record starts higher on Read pages. */
   scale?: "poster" | "read";
   class?: string;
 }
-const { crumb, parent, scale = "read", class: className } = Astro.props;
+const { path, scale = "read", class: className } = Astro.props;
+const { name: crumb, parent } = CRUMBS[path];
 const hasFoot = Astro.slots.has("foot");
 ---
 
-<section class:list={["band on-olive crop", `band--${scale}`, { "band--foot": hasFoot }, className]} aria-labelledby="page-title">
+<section class:list={["band on-olive", `band--${scale}`, { "band--foot": hasFoot }, className]} aria-labelledby="page-title">
   <div class="wrap band__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
