@@ -2768,22 +2768,17 @@
   {
    "path": "/privacy/",
    "type": "date",
-   "value": "September 7, 2026"
+   "value": "October 16, 2026"
   },
   {
    "path": "/privacy/",
    "type": "agency",
-   "value": "Automattic"
-  },
-  {
-   "path": "/privacy/",
-   "type": "agency",
-   "value": "WordPress.com"
+   "value": "Cloudflare"
   },
   {
    "path": "/privacy/",
    "type": "citation",
-   "value": "https://automattic.com/privacy-notice/"
+   "value": "https://www.cloudflare.com/privacypolicy/"
   }
  ],
  "blocks": {
@@ -3560,10 +3555,10 @@
    "Your information. Your choices.",
    "This notice covers the Break the Bonds | Arkansas website and its campaign contact links.",
    "Website hosting",
-   "WordPress.com hosts this site. Its provider, Automattic, processes technical information such as IP addresses, browser details, referring pages, and access times to provide its services. Its services may also use cookies and similar technologies.",
-   "Read Automattic’s privacy notice for visitors to hosted sites for details about collection, use, sharing, and retention.",
-   "Read Automattic’s privacy notice for visitors to hosted sites",
-   "WordPress.com statistics resources load during visits to this site. Automattic describes using technical information, including IP addresses, to provide site statistics. Its linked notice explains the provider’s uses and retention practices. Reading a page or downloading a document does not require sending the campaign your name or email address.",
+   "Cloudflare hosts this site. It processes requests for the site’s pages and files in order to serve them. Some browsers may also send Cloudflare a report when a request to the site fails or returns an error. This site does not set cookies.",
+   "Read Cloudflare’s privacy policy for details about collection, use, sharing, and retention.",
+   "Read Cloudflare’s privacy policy",
+   "No statistics, analytics, or tracking resources load during visits to this site, and no resources load from any other website. Reading a page or downloading a document does not require sending the campaign your name or email address.",
    "Contacting the campaign",
    "Campaign contact links open your email application. The website does not send an email for you. If you choose to write, the campaign receives your email address and the information you include.",
    "To ask about information you have shared with the campaign, or request a correction or deletion, email breakbondsar@proton.me .",
@@ -3573,7 +3568,7 @@
    "Links to public offices, source documents, Instagram, and other websites take you to those services. Their own privacy practices apply. The campaign’s font files are served from this website.",
    "Updates",
    "This notice will be updated if the website’s features or information practices change.",
-   "Last reviewed: September 7, 2026.",
+   "Last reviewed: October 16, 2026.",
    "Records and contact choices",
    "You can read the records and download the ledger without submitting information to the campaign. Email is optional. Avoid including banking details, identity documents, or other sensitive information when reporting an error or asking to join.",
    "Campaign correspondence is used to respond to the message and discuss the next step you request. Questions about access, correction, deletion, or how your correspondence is handled can be sent to the campaign contact above.",
