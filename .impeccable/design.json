@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T18:47:47.506Z",
+  "title": "Design System: Break the Bonds | Arkansas",
+  "extensions": {
+    "colorMeta": {
+      "olive": {
+        "role": "primary",
+        "displayName": "Sheet Olive",
+        "canonical": "#2b3517",
+        "oklch": "oklch(31.1% 0.051 124.4)",
+        "tonalRamp": [
+          "#070e00",
+          "#1f280a",
+          "#3a4426",
+          "#576343",
+          "#798665",
+          "#9dab88",
+          "#c3d1ad",
+          "#e7f5d0"
+        ]
+      },
+      "olive-screen": {
+        "role": "primary",
+        "displayName": "Second Pull",
+        "canonical": "#b9c49a",
+        "oklch": "oklch(80.1% 0.058 119.6)",
+        "tonalRamp": [
+          "#090d00",
+          "#212802",
+          "#3c441f",
+          "#59633c",
+          "#7c865e",
+          "#a0aa81",
+          "#c5d1a6",
+          "#e9f5c9"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Mark Red",
+        "canonical": "#ff5b4f",
+        "oklch": "oklch(68.8% 0.201 27.8)",
+        "tonalRamp": [
+          "#200000",
+          "#4c0001",
+          "#7d0005",
+          "#b2010d",
+          "#df3b34",
+          "#ff7365",
+          "#ffb5ab",
+          "#fee9e6"
+        ]
+      },
+      "red-deep": {
+        "role": "secondary",
+        "displayName": "Dense Mark Red",
+        "canonical": "#c42b22",
+        "oklch": "oklch(53.7% 0.190 28.8)",
+        "tonalRamp": [
+          "#210000",
+          "#4c0000",
+          "#7d0001",
+          "#b00d0b",
+          "#db4336",
+          "#ff7362",
+          "#feb6ab",
+          "#ffe9e5"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Lime-Wash Paper",
+        "canonical": "#eff1e9",
+        "oklch": "oklch(95.4% 0.011 118.0)",
+        "tonalRamp": [
+          "#0b0c07",
+          "#23251f",
+          "#3f413a",
+          "#5d5e58",
+          "#7f817a",
+          "#a4a69e",
+          "#caccc4",
+          "#eef0e8"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "#141710",
+        "oklch": "oklch(19.9% 0.014 126.5)",
+        "tonalRamp": [
+          "#0a0c06",
+          "#22251e",
+          "#3e4139",
+          "#5b5f57",
+          "#7e8279",
+          "#a2a69d",
+          "#c8ccc2",
+          "#ecf0e6"
+        ]
+      },
+      "letter": {
+        "role": "neutral",
+        "displayName": "Letter White",
+        "canonical": "#fbfcf8",
+        "oklch": "oklch(98.9% 0.005 117.9)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#242421",
+          "#3f403d",
+          "#5d5e5b",
+          "#80817d",
+          "#a4a5a1",
+          "#cacbc7",
+          "#eeefeb"
+        ]
+      },
+      "rule-soft": {
+        "role": "neutral",
+        "displayName": "Soft Olive Hairline",
+        "canonical": "rgb(43 53 23 / 0.28)",
+        "oklch": "oklch(31.1% 0.051 124.4 / 0.28)",
+        "tonalRamp": [
+          "#070e0047",
+          "#1f280a47",
+          "#3a442647",
+          "#57634347",
+          "#79866547",
+          "#9dab8847",
+          "#c3d1ad47",
+          "#e7f5d047"
+        ]
+      },
+      "paper-25": {
+        "role": "neutral",
+        "displayName": "Paper Hairline",
+        "canonical": "rgb(239 241 233 / 0.25)",
+        "oklch": "oklch(95.4% 0.011 118.0 / 0.25)",
+        "tonalRamp": [
+          "#0b0c0740",
+          "#23251f40",
+          "#3f413a40",
+          "#5d5e5840",
+          "#7f817a40",
+          "#a4a69e40",
+          "#caccc440",
+          "#eef0e840"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "poster": {
+        "displayName": "Poster",
+        "purpose": "The home title only, sized from Lalezar's measured widths so the longest line fills the measure; three lines on phones at clamp(3.5rem, calc((100vw - 2.25rem) / 5.6), 7.5rem), two from 60rem."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Poster-band titles on Persuade pages, institution headings, the 404 title. 14ch max."
+      },
+      "display-read": {
+        "displayName": "Display Read",
+        "purpose": "Poster-band titles on Read pages, smaller so the record starts higher. 16ch max."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings set as poster lines: splits, chapters, win rows, the close-strip line."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Default h2, source headings, timeline and due-strip titles. Lalezar also sets every money figure."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "h3 and step titles."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Button labels: printed blocks of ink."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Poster-band intros, 30em max."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading copy at a 30em measure, lining numerals."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Masthead navigation links."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Provenance, tables, captions, scope notes; olive ink."
+      },
+      "dateline": {
+        "displayName": "Dateline",
+        "purpose": "Datelines and margin labels; in the 12rem margin on Read pages, under the heading on phones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Table headers, captions, list labels."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Record IDs, CUSIPs, ISO dates, hashes, the timeline year axis. Never a costume."
+      }
+    },
+    "shadows": [
+      {
+        "name": "focus-ring-on-paper",
+        "value": "0 0 0 6px var(--paper)",
+        "purpose": "Second ring around the 3px ink focus outline (offset 3px) on paper. The only box-shadow; marks focus, never depth."
+      },
+      {
+        "name": "focus-ring-on-ink-grounds",
+        "value": "0 0 0 6px var(--ink)",
+        "purpose": "On olive and red the inks swap: paper outline, ink ring. An ink button on red keeps an ink outline with a paper ring."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing for every transition and the register moment."
+      },
+      {
+        "name": "register",
+        "value": "translate(0.06em, -0.035em) to none, 900ms ease-out, 120ms delay, backwards fill",
+        "purpose": "The one authored moment: the red \"out of\" in the home title drops into register with the olive sheet. Off under forced colours; 1ms under reduced motion."
+      },
+      {
+        "name": "state-color",
+        "value": "160ms ease-out on background-color and color",
+        "purpose": "Button fills."
+      },
+      {
+        "name": "state-nudge",
+        "value": "180-200ms ease-out on transform",
+        "purpose": "Go-link arrows (0.15em), record-row arrows (0.3rem), disclosure plus (45deg)."
+      },
+      {
+        "name": "tellbar-scroll",
+        "value": "animation-timeline: scroll(root); animation-range: 0 90vh; linear",
+        "purpose": "Phone Tell bar stays hidden over the first screen, then slides in; appears without sliding under reduced motion. No JavaScript."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrowest",
+        "value": "23rem",
+        "purpose": "Wordmark may wrap below this."
+      },
+      {
+        "name": "phone-max",
+        "value": "47.99rem",
+        "purpose": "Tables reflow into slips, Tell bar shows, timeline drawing hides."
+      },
+      {
+        "name": "tablet",
+        "value": "48rem",
+        "purpose": "Footer goes three columns, the ATRS money steps go four across, masthead nav runs as one row up to 64rem."
+      },
+      {
+        "name": "desktop",
+        "value": "60rem",
+        "purpose": "Margin grid, splits, two-line poster title, multi-column rows."
+      },
+      {
+        "name": "masthead",
+        "value": "64rem",
+        "purpose": "Masthead is a single row from here; below, a brand/action grid with nav beneath."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Mark red block, ink label: the one action on the sheet and in the masthead. Turns ink on paper, paper on olive.",
+      "html": "<div class=\"ds-ground\"><a class=\"ds-btn\" href=\"#\">Act for divestment <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></div>",
+      "css": ".ds-ground{background:var(--paper, #eff1e9);padding:1.5rem}.ds-btn{display:inline-flex;align-items:center;gap:0.55em;min-height:3rem;padding:0.55em 1.05em 0.45em;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.3125rem;line-height:1;text-decoration:none;border-radius:0;transition:background-color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));background:var(--red, #ff5b4f);color:var(--ink, #141710);border:2px solid var(--red, #ff5b4f)}.ds-btn:hover{background:var(--ink, #141710);border-color:var(--ink, #141710);color:var(--paper, #eff1e9)}.ds-btn:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}.ds-btn:active{background:var(--ink, #141710);color:var(--paper, #eff1e9)}.ds-btn .ds-icon{width:1em;height:1em;flex:none}"
+    },
+    {
+      "name": "Ink Button on Red",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Ink block with paper label, printed on a red field where the page asks for something now.",
+      "html": "<div class=\"ds-red\"><a class=\"ds-btn-ink\" href=\"#\">Tell the Treasurer <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></div>",
+      "css": ".ds-red{background:var(--red, #ff5b4f);color:var(--ink, #141710);padding:1.5rem}.ds-btn-ink{display:inline-flex;align-items:center;gap:0.55em;min-height:3rem;padding:0.55em 1.05em 0.45em;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.3125rem;line-height:1;text-decoration:none;border-radius:0;transition:background-color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));background:var(--ink, #141710);color:var(--paper, #eff1e9);border:2px solid var(--ink, #141710)}.ds-btn-ink:hover{background:var(--paper, #eff1e9);color:var(--ink, #141710)}.ds-btn-ink:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}.ds-btn-ink .ds-icon{width:1em;height:1em;flex:none}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Outline in the current ink; fills ink on hover. Secondary copy actions.",
+      "html": "<div class=\"ds-ground-q\"><button class=\"ds-btn-quiet\" type=\"button\">Copy discussion prompts</button></div>",
+      "css": ".ds-ground-q{background:var(--paper, #eff1e9);color:var(--ink, #141710);padding:1.5rem}.ds-btn-quiet{display:inline-flex;align-items:center;gap:0.55em;min-height:3rem;padding:0.55em 1.05em 0.45em;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.3125rem;line-height:1;text-decoration:none;border-radius:0;transition:background-color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));background:transparent;color:inherit;border:2px solid currentColor;cursor:pointer}.ds-btn-quiet:hover{background:var(--ink, #141710);color:var(--paper, #eff1e9);border-color:var(--ink, #141710)}.ds-btn-quiet:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}"
+    },
+    {
+      "name": "Go Link",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "A link that leads somewhere: words, then a drawn arrow. Underlines in the ink of its ground; only links carrying the ask underline red.",
+      "html": "<div class=\"ds-go-ground\"><a class=\"ds-go\" href=\"#\">Why we must act <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a><a class=\"ds-go ds-go--ask\" href=\"#\">Take the demand to Thurston <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></div>",
+      "css": ".ds-go-ground{background:var(--paper, #eff1e9);color:var(--ink, #141710);padding:1.5rem;display:flex;flex-direction:column;align-items:flex-start;gap:0.25rem;font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif);font-size:1.375rem}.ds-go{display:inline-flex;align-items:center;gap:0.35em;min-height:2.75rem;font-weight:600;color:inherit;text-decoration-line:underline;text-decoration-thickness:0.075em;text-underline-offset:0.18em;text-decoration-color:rgb(43 53 23 / 0.6)}.ds-go:hover{text-decoration-color:currentColor;text-decoration-thickness:0.14em}.ds-go--ask{text-decoration-color:var(--red-deep, #c42b22)}.ds-go .ds-icon{width:0.85em;height:0.85em;flex:none;transition:transform 180ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1))}.ds-go:hover .ds-icon{transform:translateX(0.15em)}.ds-go:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}"
+    },
+    {
+      "name": "Masthead",
+      "kind": "nav",
+      "refersTo": "masthead",
+      "description": "The top of the olive sheet: wordmark in Lalezar, nav in Markazi 600 with a 3px bottom bar on hover and current, the red Take action button.",
+      "html": "<header class=\"ds-mast\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-brand-name\">Break the Bonds</span><span class=\"ds-brand-place\">Arkansas</span></a><nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#\" aria-current=\"page\">The issue</a><a href=\"#\">How we win</a><a href=\"#\">Evidence &amp; progress</a><a href=\"#\">About</a></nav><a class=\"ds-mast-act\" href=\"#\">Take action <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></header>",
+      "css": ".ds-mast{display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem 1.5rem;padding:1rem 1.5rem 0.75rem;background:var(--olive, #2b3517);color:var(--paper, #eff1e9)}.ds-brand{display:inline-flex;flex-direction:column;line-height:0.95;color:inherit;text-decoration:none;margin-right:auto;min-height:2.75rem;justify-content:center}.ds-brand-name{font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.5rem}.ds-brand-place{font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.05rem;letter-spacing:0.02em;color:var(--olive-screen, #b9c49a)}.ds-nav{display:flex;flex-wrap:wrap;gap:0 1rem}.ds-nav a{display:inline-flex;align-items:center;min-height:2.75rem;font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif);font-weight:600;font-size:1.25rem;color:inherit;text-decoration:none;border-bottom:3px solid transparent}.ds-nav a:hover{border-bottom-color:var(--olive-screen, #b9c49a)}.ds-nav a[aria-current]{border-bottom-color:var(--paper, #eff1e9)}.ds-nav a:focus-visible,.ds-brand:focus-visible,.ds-mast-act:focus-visible{outline:3px solid var(--paper, #eff1e9);outline-offset:3px;box-shadow:0 0 0 6px var(--ink, #141710);}.ds-mast-act{display:inline-flex;align-items:center;gap:0.55em;min-height:3rem;padding:0.55em 1.05em 0.45em;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.3125rem;line-height:1;text-decoration:none;border-radius:0;transition:background-color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));min-height:2.75rem;font-size:1.2rem;background:var(--red, #ff5b4f);color:var(--ink, #141710);border:2px solid var(--red, #ff5b4f)}.ds-mast-act:hover{background:var(--paper, #eff1e9);border-color:var(--paper, #eff1e9);color:var(--ink, #141710)}.ds-mast-act .ds-icon{width:1em;height:1em;flex:none}"
+    },
+    {
+      "name": "Poster Band",
+      "kind": "custom",
+      "refersTo": "poster-band",
+      "description": "Opens every page after the home page: breadcrumb, title knocked out in paper with its second line in the second pull, intro.",
+      "html": "<section class=\"ds-band\"><nav class=\"ds-crumbs\" aria-label=\"Breadcrumb\"><a href=\"#\">Home</a><span aria-hidden=\"true\">/</span><span aria-current=\"page\">The issue</span></nav><h1 class=\"ds-band-title\">Palestinian life.<br><em>Palestinian freedom.</em></h1><p class=\"ds-band-intro\">A future in which people can learn, heal, raise their families, and live freely. That is what our solidarity is for.</p></section>",
+      "css": ".ds-band{background:var(--olive, #2b3517);color:var(--paper, #eff1e9);padding:2rem 1.5rem 4.5rem}.ds-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 0.5em;font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif);font-size:1.0625rem;color:var(--olive-screen, #b9c49a)}.ds-crumbs a{display:inline-flex;align-items:center;min-height:2.75rem;color:inherit;text-decoration-color:var(--olive-screen, #b9c49a);text-underline-offset:0.18em}.ds-crumbs a:hover{text-decoration-color:var(--paper, #eff1e9)}.ds-crumbs a:focus-visible{outline:3px solid var(--paper, #eff1e9);outline-offset:3px;box-shadow:0 0 0 6px var(--ink, #141710);}.ds-crumbs [aria-current]{color:var(--paper, #eff1e9);font-weight:600}.ds-band-title{margin:1rem 0 0;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-weight:400;font-size:clamp(2.75rem,1.3rem + 5.4vw,5rem);line-height:0.95;letter-spacing:-0.005em;max-width:16ch;text-wrap:balance}.ds-band-title em{font-style:normal;font-weight:400;color:var(--olive-screen, #b9c49a)}.ds-band-intro{margin:1.5rem 0 0;max-width:30em;font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif);font-size:clamp(1.5rem,1.3rem + 0.8vw,1.875rem);line-height:1.3}"
+    },
+    {
+      "name": "Due Strip",
+      "kind": "custom",
+      "refersTo": "red-strip",
+      "description": "A red field for what is due now: the two fall maturities, each under a 3px ink rule, and the ink button.",
+      "html": "<section class=\"ds-due\" aria-label=\"Treasury maturity dates\"><h2 class=\"ds-due-title\">Two maturities this fall.</h2><ol class=\"ds-due-stops\"><li><time datetime=\"2026-10-01\">October 1, 2026</time><span class=\"ds-due-amt\">$10 million</span><span class=\"ds-due-note\">Two $5 million positions</span></li><li><time datetime=\"2026-11-01\">November 1, 2026</time><span class=\"ds-due-amt\">$10 million</span><span class=\"ds-due-note\">One position</span></li></ol><a class=\"ds-due-btn\" href=\"#\">Tell the Treasurer <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></section>",
+      "css": ".ds-due{background:var(--red, #ff5b4f);color:var(--ink, #141710);padding:1.5rem;display:grid;gap:1rem;font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif)}.ds-due-title{margin:0;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-weight:400;font-size:clamp(1.875rem,1.5rem + 1.6vw,2.75rem);line-height:1}.ds-due-stops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.ds-due-stops li{display:flex;flex-direction:column;border-top:3px solid var(--ink, #141710);padding-top:0.5rem;line-height:1.2}.ds-due-stops time{font-weight:700}.ds-due-amt{font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:clamp(1.75rem,1rem + 1.6vw,2.75rem);line-height:1.05}.ds-due-note{font-size:1.0625rem}.ds-due-btn{display:inline-flex;align-items:center;gap:0.55em;min-height:3rem;padding:0.55em 1.05em 0.45em;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-size:1.3125rem;line-height:1;text-decoration:none;border-radius:0;transition:background-color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),color 160ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));justify-self:start;background:var(--ink, #141710);color:var(--paper, #eff1e9);border:2px solid var(--ink, #141710)}.ds-due-btn:hover{background:var(--paper, #eff1e9);color:var(--ink, #141710)}.ds-due-btn:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}.ds-due-btn .ds-icon{width:1em;height:1em;flex:none}"
+    },
+    {
+      "name": "Record Row",
+      "kind": "card",
+      "refersTo": "body",
+      "description": "A dated finding: institution, the figure in Lalezar, its record line in olive ink, a drawn arrow. Rows sit under a 3px rule, divided by hairlines.",
+      "html": "<ul class=\"ds-records\"><li><a class=\"ds-record\" href=\"#\"><span class=\"ds-record-inst\">State Treasury</span><span class=\"ds-record-line\"><strong>$55 million held</strong><br>Bondholder statement · June 30, 2025</span><svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></li><li><a class=\"ds-record\" href=\"#\"><span class=\"ds-record-inst\">Teachers’ retirement</span><span class=\"ds-record-line\"><strong>$50 million funded; $9.9 million bought</strong><br>ATRS · January–February 2026</span><svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M3.5 12h15.5M13 5.5 19.5 12 13 18.5\"/></svg></a></li></ul>",
+      "css": ".ds-records{list-style:none;margin:0;padding:0 1.5rem;background:var(--paper, #eff1e9);color:var(--ink, #141710);border-top:3px solid var(--olive, #2b3517);font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif)}.ds-record{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0.5rem 1.5rem;align-items:start;padding-block:1.5rem;border-bottom:1px solid var(--rule-soft, rgb(43 53 23 / 0.28));color:inherit;text-decoration:none}.ds-record-inst{font-weight:700;font-size:1.375rem;line-height:1.2}.ds-record-line{grid-column:1;font-size:1.0625rem;line-height:1.35;color:var(--olive, #2b3517)}.ds-record-line strong{display:inline-block;margin-bottom:0.5rem;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-weight:400;font-size:clamp(1.9rem,1.2rem + 2.4vw,3.25rem);line-height:1;color:var(--ink, #141710)}.ds-record .ds-icon{grid-column:2;grid-row:1 / span 2;align-self:center;width:2rem;height:2rem;transition:transform 200ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1))}.ds-record:hover strong{text-decoration:underline;text-decoration-thickness:0.06em;text-underline-offset:0.12em}.ds-record:hover .ds-icon{transform:translateX(0.3rem)}.ds-record:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}"
+    },
+    {
+      "name": "Disclosure",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "A printed tab under a 2px rule that opens onto a halftone-screened panel; the plus turns 45 degrees.",
+      "html": "<details class=\"ds-disc\" open><summary>What this record does and does not establish <svg class=\"ds-icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M12 4v16M4 12h16\"/></svg></summary><div class=\"ds-disc-panel\"><p>The amounts come from different record dates, so they are not added together.</p></div></details>",
+      "css": ".ds-disc{background:var(--paper, #eff1e9);color:var(--ink, #141710);border-top:2px solid var(--olive, #2b3517);margin:0 1.5rem;font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif);font-size:1.375rem;line-height:1.45}.ds-disc>summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3rem;padding:0.75rem 0;cursor:pointer;font-weight:700;list-style:none}.ds-disc>summary::-webkit-details-marker{display:none}.ds-disc>summary:focus-visible{outline:3px solid var(--ink, #141710);outline-offset:3px;box-shadow:0 0 0 6px var(--paper, #eff1e9);}.ds-disc>summary .ds-icon{width:1.1rem;height:1.1rem;flex:none;transition:transform 200ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1))}.ds-disc[open]>summary .ds-icon{transform:rotate(45deg)}.ds-disc-panel{padding:1rem 1rem 1.5rem;background:radial-gradient(circle at 50% 50%, rgb(43 53 23 / 0.17) 0.95px, transparent 1.3px) 0 0 / 5px 5px,var(--paper, #eff1e9);border-left:1px solid var(--rule-soft, rgb(43 53 23 / 0.28))}.ds-disc-panel p{margin:0}"
+    },
+    {
+      "name": "Margin Dateline",
+      "kind": "custom",
+      "refersTo": "dateline",
+      "description": "Read-page heading with its dateline in the 12rem margin under a 2px rule; nothing printed above the heading. Under the heading on phones.",
+      "html": "<section class=\"ds-margin\"><h2 class=\"ds-margin-h\">To study. To heal.<br><em>To live.</em></h2><p class=\"ds-dateline\">Marwa · Gaza · March 2024</p><p class=\"ds-margin-prose\">Marwa was in her fourth year at Al-Azhar University in Gaza.</p></section>",
+      "css": ".ds-margin{display:grid;grid-template-columns:minmax(0,1fr);gap:0.5rem 3rem;padding:1.5rem;background:var(--paper, #eff1e9);color:var(--ink, #141710);font-family:var(--text, \"Markazi Text\", \"Markazi fallback\", Georgia, serif)}.ds-margin-h{margin:0;font-family:var(--display, \"Lalezar\", \"Lalezar fallback\", \"Arial Black\", sans-serif);font-weight:400;font-size:clamp(2.25rem,1.6rem + 3vw,4.25rem);line-height:0.98;letter-spacing:-0.005em;text-wrap:balance}.ds-margin-h em{font-style:normal;font-weight:400;color:inherit}.ds-dateline{margin:0;font-size:1.0625rem;font-weight:600;line-height:1.3;color:var(--olive, #2b3517)}.ds-margin-prose{margin:0.5rem 0 0;max-width:30em;font-size:clamp(1.3125rem,1.2rem + 0.4vw,1.4375rem);line-height:1.45}@media (min-width:60rem){.ds-margin{grid-template-columns:12rem minmax(0,30em)}.ds-margin>*{grid-column:2}.ds-margin>.ds-dateline{grid-column:1;grid-row:1;padding-top:0.35em;border-top:2px solid var(--olive, #2b3517)}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Poster and Its Fine Print",
+    "overview": "Each page opens as a silkscreened solidarity poster from the Palestinian poster tradition: flat ink pulled in one pass, one message per sheet, type knocked out of the colour. The Arkansas records sit under the poster as the fine print it stands on. The poster states the demand at a scale meant to be read across a room. The records below are dated, sourced, and set for close reading, because reporters and skeptics will check them.\n\nThe world has three inks and paper. Deep olive covers the poster sheet, and paper-white type is knocked out of it. Mark red, taken from the campaign mark, is held back for what is due or being asked now. Black ink sets the record on a cool lime-wash paper. Tints are halftone screens of olive dots, never washes. Lalezar, from Arabic-script poster and cinema lettering, carries the display voice. Markazi Text, drawn for Arabic and Latin together, sets the reading copy. Atkinson Hyperlegible Mono sets record IDs, CUSIPs, ISO dates and hashes, where a reader has to tell 0 from O.\n\nThe density is two-speed. The sheet is loud and sparse, with one message, one action and one strip of dates. The record is quiet and dense, with tables, provenance lines, rules and margins. The system refuses the campaign template of a dark band, a red eyebrow and an italic-serif second line, and it refuses the soft-cornered NGO report.",
+    "keyCharacteristics": [
+      "Every page opens on the olive sheet: a full poster on the home page, a poster band with breadcrumb on every other page.",
+      "Three inks and paper, printed flat. No shadows, no gradient fills, no rounded corners.",
+      "Red means \"due now\" or \"asked now\", and nothing else.",
+      "Headings carry their own weight. Nothing is printed above a heading.",
+      "Every figure carries its date and record beside it.",
+      "Rules, bars and squares are the structure. Boxes and cards are not."
+    ],
+    "rules": [
+      {
+        "name": "The Due-Now Rule",
+        "body": "Red marks only what is due or being asked now: the primary action, the fall maturities, the demand, and links that lead to the ask. If an element is neither the ask nor a date that is due, it is not red. Red is never used for emphasis, decoration, status or error.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-of-Its-Ground Rule",
+        "body": "Links underline in the ink of the ground they sit on: olive at 60% on paper, Second Pull on olive, ink on red. Only links that carry the ask underline in red: anything pointing to /take-action/, `tel:` links, and artreasury.gov links. They use Dense Mark Red on paper and Mark Red on olive.",
+        "section": "colors"
+      },
+      {
+        "name": "The Never-Gray Rule",
+        "body": "Secondary text on paper is olive ink. On olive it is Second Pull. No gray exists in the system.",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Ink Heading Rule",
+        "body": "On paper a heading prints in one ink. Only on the olive sheet does the heading's second line take the second ink, Second Pull. On red it stays ink. Emphasis is a change of ink. It is never a slant, a second face or a synthesized heavier weight, because Lalezar has one weight (400).",
+        "section": "typography"
+      },
+      {
+        "name": "The Margin Dateline Rule",
+        "body": "No label, eyebrow, kicker or section number is printed above a heading. On Read pages, datelines and record IDs sit in the 12rem left margin beside the heading. On phones they sit under the heading. A page's own label is the last item of its breadcrumb.",
+        "section": "typography"
+      },
+      {
+        "name": "The Figure-and-Record Rule",
+        "body": "A money figure is set in Lalezar, and its record line (date and source, in Small olive ink) prints directly beside or beneath it. A figure never appears without its record line.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono-for-Records Rule",
+        "body": "Atkinson Hyperlegible Mono is used only where characters must be told apart: IDs, CUSIPs, ISO dates, hashes and measurement axes. It is never a \"technical\" costume.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Sheet Rule",
+        "body": "The olive sheet appears once per page, at the top. Further down the page, rules and halftone screens divide sections, and red fields carry the ask. The olive is not repeated as a mid-page band.",
+        "section": "layout"
+      },
+      {
+        "name": "The Measure Rule",
+        "body": "Reading text holds a 30em measure. Display lines may run the full width, but prose may not.",
+        "section": "layout"
+      },
+      {
+        "name": "The One-Pass Rule",
+        "body": "Nothing floats. Layers are inks laid flat, never elevations. A block needs a different ink, a screen or a rule to stand apart, not a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do open every page on the olive sheet: the full poster on the home page, and the poster band with breadcrumb, title and intro everywhere else.",
+      "Do keep red for the ask and what is due now, with Mark Red (#ff5b4f) on olive and as fields, and Dense Mark Red (#c42b22) for text on paper.",
+      "Do print the second line of a heading in Second Pull (#b9c49a) only on the olive sheet. On paper and red, a heading is one ink.",
+      "Do print every money figure in Lalezar with its date and source beside it in olive-ink Small type.",
+      "Do put datelines and record IDs in the 12rem margin on Read pages, under the heading on phones.",
+      "Do hold reading text to the 30em measure and every target to at least 2.75rem.",
+      "Do separate blocks with the rule weights (0.75rem bar, 3px, 2px, 1px hairline) and tint only with the olive halftone screen.",
+      "Do theme the browser surfaces from the inks: red selection with ink text, olive-on-paper scrollbars, the two-ink focus ring, and the 0.18em underline offset.",
+      "Do keep forced colours, print and reduced motion working: in print everything goes black on white, disclosures print open, and link URLs are printed."
+    ],
+    "donts": [
+      "Don't print a label, eyebrow, kicker or section number above a heading.",
+      "Don't use red for emphasis, decoration, status, errors or ordinary links.",
+      "Don't slant heading emphasis, set it in a second face, or give paper headings a second ink.",
+      "Don't add shadows, rounded corners, gradients other than the halftone screen, glass, or a second olive band mid-page.",
+      "Don't use gray. Secondary text is olive ink on paper and Second Pull on olive.",
+      "Don't use monospace outside IDs, CUSIPs, ISO dates, hashes and measurement axes.",
+      "Don't turn statuses into badges, pills or coloured chips. They print as words.",
+      "Don't use photographs, stock or generated imagery. Images are literal crops of source records on a halftone mount.",
+      "Don't use Unicode glyphs or emoji as icons. Use the drawn 24-unit, 2-stroke set.",
+      "Don't rewrite body copy to fit a layout. The body copy reproduces the old site word for word, so fit the layout to the copy."
+    ]
+  }
+}
