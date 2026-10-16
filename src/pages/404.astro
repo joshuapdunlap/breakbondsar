@@ -3,17 +3,21 @@ import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 ---
 
-<Base path="/404/" title="Page not found | Break the Bonds | Arkansas" description="This page is not on the site." noindex>
+<Base
+  path="/404/"
+  title="Page not found – Break the Bonds | Arkansas"
+  description="That address does not lead to a page on this site."
+  noindex
+>
   <section class="lost on-olive crop" aria-labelledby="page-title">
     <div class="wrap lost__inner">
-      <h1 id="page-title">This page is not<br /><em>on the site.</em></h1>
-      <p>The address may be mistyped, or the page may have moved when the site was rebuilt. Every campaign page is still here.</p>
-      <ul class="stack">
-        <li><a class="go" href="/">Home <Icon name="arrow-right" /></a></li>
-        <li><a class="go" href="/the-issue/">The issue <Icon name="arrow-right" /></a></li>
-        <li><a class="go" href="/evidence/">Evidence &amp; progress <Icon name="arrow-right" /></a></li>
-        <li><a class="go" href="/take-action/">Take action <Icon name="arrow-right" /></a></li>
-      </ul>
+      <h1 id="page-title">Let’s get you back to the campaign.</h1>
+      <p class="lost__label">Page not found</p>
+      <p>That address does not lead to a page on this site.</p>
+      <div class="lost__actions">
+        <a class="button" href="/">Go to the homepage <Icon name="arrow-right" /></a>
+        <a class="go" href="/the-issue/">Explore the issue <Icon name="arrow-right" /></a>
+      </div>
     </div>
   </section>
 </Base>
@@ -27,13 +31,22 @@ import Icon from "../components/Icon.astro";
   }
   .lost h1 {
     font-size: var(--step-4);
+    max-width: 14ch;
   }
-  .lost p {
+  .lost__label {
+    margin-top: var(--s-3) !important;
+    font-family: var(--display);
+    font-size: var(--step-1);
+    color: var(--olive-screen);
+  }
+  .lost p:not(.lost__label) {
     max-width: 30em;
     font-size: var(--step-1);
   }
-  .lost ul {
-    list-style: none;
-    padding: 0;
+  .lost__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-3) var(--s-5);
   }
 </style>

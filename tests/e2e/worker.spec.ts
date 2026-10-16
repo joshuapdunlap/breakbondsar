@@ -55,7 +55,7 @@ test("WordPress machinery paths go somewhere sensible", async ({ request }) => {
 test("unknown paths get the 404 page", async ({ request }) => {
   const r = await request.get("/no-such-page/");
   expect(r.status()).toBe(404);
-  expect(await r.text()).toContain("This page is not");
+  expect(await r.text()).toContain("That address does not lead to a page on this site.");
 });
 
 test("security and caching headers", async ({ request }) => {

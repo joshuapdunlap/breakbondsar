@@ -55,5 +55,5 @@ test("robots.txt, sitemap and manifest", async ({ request }) => {
 test("the 404 page is noindex and links home", async ({ page }) => {
   await page.goto("/404/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
-  await expect(page.getByRole("link", { name: "Home" }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Go to the homepage" })).toHaveAttribute("href", "/");
 });
