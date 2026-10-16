@@ -15,4 +15,10 @@ export default defineConfig({
   },
   integrations: [sitemap({ filter: (page) => !page.endsWith("/404/") })],
   devToolbar: { enabled: false },
+  vite: {
+    // Never inline a script into the page: the Content-Security-Policy in public/_headers
+    // allows scripts only from this origin (script-src 'self'), so the copy buttons'
+    // script has to ship as its own file under /_astro/.
+    build: { assetsInlineLimit: 0 },
+  },
 });

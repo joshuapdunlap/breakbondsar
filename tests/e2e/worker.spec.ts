@@ -66,8 +66,9 @@ test("security and caching headers", async ({ request }) => {
   expect(h["content-security-policy"]).toContain("default-src 'self'");
   expect(h["x-robots-tag"]).toBeUndefined();
   const html = await page.text();
-  const asset = html.match(/\/_astro\/[^"']+\.(?:woff2|js|webp|avif)/)?.[0];
-  expect(asset, "a hashed asset referenced by the home page").toBeTruthy();
+  expect(html, "no inline executable script").not.toMatch(/<script(?![^>]*\b(?:src=|type="application\/ld\+json"))[^>]*>/);
+  const asset = html.match(/\/_astro\/[^"']+\.js/)?.[0];
+  expect(asset, "the page's script is a hashed file").toBeTruthy();
   const a = await request.get(asset!);
   expect(a.headers()["cache-control"]).toContain("immutable");
 });
@@ -78,4 +79,30 @@ test("only breakbondsar.org may be indexed", async ({ request }) => {
   expect(await robots("breakbondsar.example.workers.dev")).toBe("noindex");
   expect(await robots("1a2b3c4d-breakbondsar.example.workers.dev")).toBe("noindex");
   expect(await robots("www.breakbondsar.org")).toBe("noindex");
+});
+
+// Pages as served with the real headers: the CSP must not block anything the pages load.
+test("pages run under the production Content-Security-Policy", async ({ page }) => {
+  const problems: string[] = [];
+  page.on("console", (m) => {
+    if (m.type() === "error" || /Content Security Policy|Content-Security-Policy/i.test(m.text())) problems.push(m.text());
+  });
+  page.on("pageerror", (e) => problems.push(e.message));
+  for (const route of ROUTES) await page.goto(route, { waitUntil: "networkidle" });
+  expect(problems).toEqual([]);
+
+  await page.goto("/take-action/", { waitUntil: "networkidle" });
+  await expect(page.locator(".copy-button").first()).toBeVisible();
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.locator('[data-copy-target="official-message"]').last().click();
+  await expect(page.locator("#official-copy-status")).toHaveText("Suggested message copied. Adapt it before sending.");
+});
+
+test("a printed evidence page keeps its hashes", async ({ page }) => {
+  await page.goto("/evidence/", { waitUntil: "networkidle" });
+  await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
+  await expect(page.locator("details.disclosure[open]")).toHaveCount(10);
+  await page.emulateMedia({ media: "print" });
+  await expect(page.locator("code.hash").first()).toBeVisible();
+  await expect(page.getByText("c1fee73d741980e2196d3c421269ed11c6cc6b1bdcdee5e8bb96f108aae42894")).toBeVisible();
 });
