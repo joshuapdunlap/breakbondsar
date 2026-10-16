@@ -30,7 +30,7 @@ export default defineConfig({
       timeout: 300_000,
     },
     {
-      command: "npx wrangler dev --ip 127.0.0.1 --port 8788 --log-level warn",
+      command: "npx wrangler dev --env test --ip 127.0.0.1 --port 8788 --log-level warn",
       url: WORKER,
       reuseExistingServer: !process.env.CI,
       timeout: 300_000,

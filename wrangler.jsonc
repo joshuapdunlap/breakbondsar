@@ -13,5 +13,8 @@
   // sends www.breakbondsar.org/* to https://breakbondsar.org/ with the path and query.
   // The workers.dev address stays on as a noindex preview (see public/_headers).
   "routes": [{ "pattern": "breakbondsar.org", "custom_domain": true }],
-  "workers_dev": true
+  "workers_dev": true,
+  // The tests run `wrangler dev --env test`. With a route set, wrangler dev rewrites every
+  // request to breakbondsar.org, so the noindex rule for other hosts could not be tested.
+  "env": { "test": { "routes": [] } }
 }

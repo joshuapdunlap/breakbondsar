@@ -17,8 +17,8 @@
     "test:site": "playwright test --project=site --project=nojs",
     "test:worker": "playwright test --project=worker",
     "lhci": "npm run build && node scripts/lhci.mjs",
-    "deploy": "npm run build && wrangler deploy",
-    "deploy:dry": "npm run build && wrangler deploy --dry-run",
+    "deploy": "npm run build && wrangler deploy --env=\"\"",
+    "deploy:dry": "npm run build && wrangler deploy --env=\"\" --dry-run",
     "check:live": "node scripts/check-live.mjs"
   },
   "dependencies": {
