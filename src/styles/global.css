@@ -129,6 +129,8 @@ body {
   font-size: var(--step-0);
   line-height: 1.45;
   font-variant-numeric: lining-nums;
+  /* Only real weights and no fake italics: Lalezar has one weight, Markazi no italic. */
+  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -153,6 +155,8 @@ h3,
 h4 {
   font-family: var(--display);
   font-weight: 400;
+  /* Lalezar has one weight; never let the browser fake a bold or a slant. */
+  font-synthesis: none;
   line-height: 0.98;
   letter-spacing: -0.005em;
   margin: 0;
@@ -174,6 +178,7 @@ h1 em,
 h2 em,
 h3 em {
   font-style: normal;
+  font-weight: inherit;
   color: inherit;
 }
 
