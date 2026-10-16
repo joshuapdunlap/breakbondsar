@@ -11,6 +11,10 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
+# The WordPress site sent HSTS for the apex; keep sending it there.
+https://breakbondsar.org/*
+  Strict-Transport-Security: max-age=31536000
+
 # Keep every host except breakbondsar.org out of search results: the workers.dev
 # preview, version preview URLs, and www if it is ever attached to the Worker.
 https://:version.:subdomain.workers.dev/*
