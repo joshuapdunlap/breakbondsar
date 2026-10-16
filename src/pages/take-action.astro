@@ -1,0 +1,462 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import Icon from "../components/Icon.astro";
+import { SITE } from "../data/site";
+---
+
+<Base path="/take-action/">
+  <PosterBand crumb="Take action" class="act-band">
+    <Fragment slot="title">Turn solidarity<br /><em>into pressure.</em></Fragment>
+    <p slot="intro">Ask Treasurer John Thurston for no new Israel Bonds, no renewals, and no reinvestment.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="steps__num" aria-hidden="true">1</span>
+        <div class="steps__body">
+          <h2 class="steps__title">Copy the message</h2>
+          <p>
+            A short letter asking the Treasurer for no new Israel Bonds, no renewals and no reinvestment. Adapt it in your own
+            words.
+          </p>
+          <div class="steps__links">
+            <span class="copy-tools" hidden>
+              <button class="button copy-button" type="button" data-copy-target="official-message" data-copy-status="step-copy-status">
+                <Icon name="copy" /><span class="copy-label">Copy the message</span>
+              </button>
+            </span>
+            <a class="go" href="#official-message">Read it first <Icon name="arrow-down" /></a>
+          </div>
+          <p class="copy-status" id="step-copy-status" role="status"></p>
+        </div>
+      </li>
+      <li>
+        <span class="steps__num" aria-hidden="true">2</span>
+        <div class="steps__body">
+          <h2 class="steps__title">Call or write to the Treasury</h2>
+          <p>Ask the main office to pass your message to Treasurer Thurston, and ask for a written reply.</p>
+          <div class="steps__links">
+            <a class="go" href="tel:+15016825888"><Icon name="phone" />(501) 682-5888</a>
+            <a class="go" href="https://artreasury.gov/for-arkansans/about-us/contact-us/"
+              >Treasury contact page <Icon name="external" /></a
+            >
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="steps__num" aria-hidden="true">3</span>
+        <div class="steps__body">
+          <h2 class="steps__title">Tell the campaign</h2>
+          <p>Send us what you said and any reply, so we can follow up together.</p>
+          <div class="steps__links">
+            <a class="go" href={`mailto:${SITE.email}?subject=I%20contacted%20the%20Treasury`}
+              ><Icon name="mail" />Email the campaign</a
+            >
+          </div>
+        </div>
+      </li>
+    </ol>
+    <nav class="shortcuts" aria-label="Other ways to act">
+      <a class="go" href="#discuss">Organize with your group <Icon name="arrow-down" /></a>
+      <a class="go" href="#join">Join the organizing <Icon name="arrow-down" /></a>
+    </nav>
+
+    <section slot="foot" class="strip on-red" aria-label="Treasury maturity dates">
+      <div class="wrap">
+        <p>
+          <strong>Treasury maturities:</strong>
+          <span class="strip__stop">October 1, 2026 · $10 million</span>
+          <span class="strip__stop">November 1, 2026 · $10 million</span>
+          <a href="/the-issue/#treasury">See the record</a>
+        </p>
+      </div>
+    </section>
+  </PosterBand>
+
+  <div class="wrap act">
+    <section class="officials" id="officials" aria-labelledby="officials-title">
+      <h2 id="officials-title">Tell the Treasurer: no more Israel Bonds.</h2>
+      <p class="officials__lede">Adapt this message for a letter, email, or call. Ask for a written reply.</p>
+
+      <div class="kit">
+        <div class="letter">
+          <h3>Suggested message</h3>
+          <div class="letter__sheet" id="official-message">
+            <p>Treasurer Thurston, Palestinian lives and freedom must matter in Arkansas’s investment decisions.</p>
+            <p>
+              Publicly commit the Treasury to no new Israel Bonds purchases, renewals, or reinvestment. Bring the principal home
+              as existing bonds mature and keep it out of Israel Bonds.
+            </p>
+            <p>
+              Set out the steps, including any State Board of Finance action needed, and a timetable for ending these
+              investments. Please respond in writing.
+            </p>
+          </div>
+          <div class="copy-tools" hidden>
+            <button class="button button--ink copy-button" type="button" data-copy-target="official-message" data-copy-status="official-copy-status">
+              <Icon name="copy" /><span class="copy-label">Copy the suggested message</span>
+            </button>
+            <p id="official-copy-status" role="status"></p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="contact__official" id="treasury-contact">
+            <h3>Contact the Arkansas Treasury</h3>
+            <a class="button" href="https://artreasury.gov/for-arkansans/about-us/contact-us/"
+              >Open Treasury contact details <Icon name="external" /></a
+            >
+            <a class="go call" href="tel:+15016825888"><Icon name="phone" />Call Treasury: (501) 682-5888</a>
+          </div>
+          <p class="provenance">
+            Ask the main office to direct your request to Treasurer Thurston and the investment staff. The <a
+              href="https://artreasury.gov/">Treasury homepage</a
+            > also lists the main office’s contact information.
+          </p>
+          <details class="disclosure" open>
+            <summary>A short call script <Icon name="plus" /></summary>
+            <div class="panel">
+              <p>
+                Hello, I’m calling to ask Treasurer Thurston to commit to no new Israel Bonds, no renewals, and no reinvestment.
+                Please tell me how to request a written response.
+              </p>
+            </div>
+          </details>
+          <details class="disclosure">
+            <summary>Why address the Treasurer? <Icon name="plus" /></summary>
+            <div class="panel">
+              <p>
+                The Treasurer manages state investments. The State Board of Finance establishes the Treasury’s investment
+                policies. Ask Thurston to explain how he will carry out the commitment and pursue any necessary Board action.
+              </p>
+              <div class="stack">
+                <a class="go" href="https://artreasury.gov/">The Treasurer’s responsibilities <Icon name="external" /></a>
+                <a
+                  class="go"
+                  href="https://codeofarrules.arkansas.gov/Rules/Rule?chapterID=94&levelType=section&partID=439&sectionID=27006&subChapterID=120&subPartID=4296&titleID=19"
+                  >The State Board of Finance’s duties <Icon name="external" /></a
+                >
+                <a class="go" href="/the-issue/#treasury"
+                  >The Treasury’s documented Israel Bonds holdings <Icon name="arrow-right" /></a
+                >
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="follow">
+        <h3>Make the next contact together.</h3>
+        <p>
+          Keep your message and any reply. Invite two people to make the same demand, choose a date to compare responses, and
+          follow up if the office has not answered. A clear public commitment is the next result to seek.
+        </p>
+      </div>
+    </section>
+
+    <section class="margin-grid way" id="discuss" aria-labelledby="discuss-title">
+      <h2 id="discuss-title">Bring people together<br />around the demand.</h2>
+      <div class="margin way__label">
+        <p class="way__kind">Organize together</p>
+        <p class="way__line">One conversation.<br />A shared next step.</p>
+      </div>
+      <div class="prose">
+        <p>
+          Set aside ten minutes with friends or your group. Read Marwa’s account and the Palestinian call for divestment on The
+          issue page, then discuss:
+        </p>
+        <ul class="prompts" id="discussion-prompts">
+          <li>Why does Palestinian freedom call on us to act here?</li>
+          <li>Will we ask Treasurer Thurston together for no new purchases, no renewals, and no reinvestment?</li>
+          <li>Who will make contact, who will follow up, and when will we compare the responses?</li>
+        </ul>
+        <div class="copy-tools" hidden>
+          <button class="button button--quiet copy-button" type="button" data-copy-target="discussion-prompts" data-copy-status="copy-status">
+            <Icon name="copy" /><span class="copy-label">Copy discussion prompts</span>
+          </button>
+          <p id="copy-status" role="status"></p>
+        </div>
+        <p>Leave with one agreed action, someone to carry it forward, and a date to meet again.</p>
+        <a class="go" href="/the-issue/">Read the issue together <Icon name="arrow-right" /></a>
+        <details class="disclosure">
+          <summary>Organizing with public workers or teachers? <Icon name="plus" /></summary>
+          <div class="panel">
+            <p>
+              The demand also applies to Arkansas’s retirement systems. APERS and ATRS have separate trustees, investment
+              policies, and legal restrictions. Read the relevant brief before approaching the system: <a href="/policy/#apers"
+                >APERS</a
+              > or <a href="/policy/#atrs">ATRS</a>. Ask for the decision process, the applicable constraints, and a written
+              explanation of the steps officials can take. The Treasurer request above concerns Treasury investments.
+            </p>
+            <div class="stack">
+              <a class="go" href="https://apers.org/about/contact-us/">APERS contact information <Icon name="external" /></a>
+              <a class="go" href="https://www.artrs.gov/about-us">ATRS contact information <Icon name="external" /></a>
+            </div>
+          </div>
+        </details>
+        <a class="go brief" href="/media/break-the-bonds-arkansas-campaign-brief-2026-09-28.pdf"
+          ><Icon name="download" />Download the one-page campaign brief (PDF)</a
+        >
+      </div>
+    </section>
+
+    <section class="margin-grid way" id="share" aria-labelledby="share-title">
+      <h2 id="share-title">Help someone else<br />see the connection.</h2>
+      <div class="margin way__label">
+        <p class="way__kind">Share with purpose</p>
+        <p class="way__line">A story.<br />A reason to act.</p>
+      </div>
+      <div class="prose">
+        <p>
+          Share a public post from <a href={SITE.instagram}>@breakbondsar</a> with a sentence about why you support Palestinian
+          freedom and Arkansas divestment. Invite people to take the demand to public officials or bring it to their group.
+        </p>
+        <a class="button button--ink" href={SITE.instagram}>Choose a campaign post <Icon name="external" /></a>
+      </div>
+    </section>
+
+    <section class="join on-red" id="join" aria-labelledby="join-title">
+      <h2 id="join-title">Want to join<br />the organizing?</h2>
+      <div>
+        <p>
+          Start with an email exchange at <a href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a>. Tell us what brings you
+          to the campaign and how you would like to help.
+        </p>
+        <p>We can begin there and discuss a next step together.</p>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  /* Three steps, printed across the sheet */
+  .steps {
+    list-style: none;
+    margin: var(--s-7) 0 0 !important;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 2px solid var(--olive-screen);
+  }
+  .steps > li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0 var(--s-4);
+    padding-block: var(--s-5);
+    border-bottom: 1px solid rgb(239 241 233 / 0.25);
+  }
+  .steps__num {
+    font-family: var(--display);
+    font-size: clamp(3rem, 2rem + 4vw, 5rem);
+    line-height: 0.8;
+    color: var(--red);
+    min-width: 0.6em;
+  }
+  .steps__title {
+    font-size: var(--step-1);
+    line-height: 1.05;
+  }
+  .steps__body > * + * {
+    margin-top: var(--s-3);
+  }
+  .steps__body > p:not(.copy-status) {
+    max-width: 24em;
+  }
+  .steps__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-2) var(--s-5);
+  }
+  .steps .go .icon,
+  .call .icon,
+  .brief .icon {
+    width: 1.15em;
+    height: 1.15em;
+  }
+  .copy-status:empty {
+    display: none;
+  }
+  @media (min-width: 60rem) {
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .steps > li {
+      border-bottom: 0;
+      padding-right: var(--s-5);
+    }
+    .steps > li + li {
+      padding-left: var(--s-5);
+      border-left: 1px solid rgb(239 241 233 / 0.25);
+    }
+  }
+  .shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--s-6);
+  }
+  .strip {
+    padding-block: var(--s-3);
+    font-size: var(--step--1);
+  }
+  .strip p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-1) var(--s-5);
+  }
+  .strip__stop {
+    font-weight: 700;
+  }
+  .strip a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
+  .act {
+    padding-block: var(--s-7) var(--s-8);
+  }
+  .officials {
+    border-top: 0.75rem solid var(--olive);
+    padding-top: var(--s-6);
+  }
+  .officials > h2 {
+    font-size: var(--step-3);
+    max-width: 16ch;
+  }
+  .officials__lede {
+    margin-top: var(--s-4);
+    font-size: var(--step-1);
+  }
+  .kit {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-7);
+    margin-top: var(--s-6);
+  }
+  @media (min-width: 60rem) {
+    .kit {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    }
+  }
+  .letter h3,
+  .contact h3,
+  .follow h3 {
+    font-size: var(--step-1);
+  }
+  .letter__sheet {
+    margin-top: var(--s-4);
+    padding: var(--s-6) var(--s-5);
+    background: #fbfcf8;
+    border: 2px solid var(--rule);
+    border-top-width: 0.5rem;
+    font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
+    line-height: 1.4;
+  }
+  .copy-tools {
+    margin-top: var(--s-4);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-3);
+  }
+  .copy-tools[hidden],
+  .steps__links .copy-tools[hidden] {
+    display: none;
+  }
+  .copy-button .icon {
+    width: 1.05em;
+    height: 1.05em;
+  }
+  .copy-button.is-copied {
+    background: var(--olive);
+    border-color: var(--olive);
+    color: var(--paper);
+  }
+  .contact > * + * {
+    margin-top: var(--s-4);
+  }
+  .contact__official {
+    display: grid;
+    gap: var(--s-3);
+    justify-items: start;
+  }
+  .call {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: var(--step-1);
+  }
+  .follow {
+    margin-top: var(--s-7);
+    padding: var(--s-5);
+    background: var(--screen), var(--paper);
+    border: 2px solid var(--rule);
+    max-width: 46rem;
+  }
+  .follow p {
+    margin-top: var(--s-3);
+  }
+  .way {
+    margin-top: var(--s-8);
+    padding-top: var(--s-6);
+    border-top: 2px solid var(--rule);
+  }
+  .way > h2 {
+    font-size: var(--step-3);
+  }
+  .way .prose {
+    margin-top: var(--s-4);
+  }
+  .way__label {
+    display: grid;
+    gap: var(--s-1);
+  }
+  .way__kind {
+    font-weight: 700;
+    color: var(--olive-ink);
+    font-size: var(--step--1);
+  }
+  .way__line {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    line-height: 1.05;
+  }
+  .prompts {
+    list-style: none;
+    padding: 0 !important;
+    border-top: 2px solid var(--rule);
+  }
+  .prompts li {
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-weight: 600;
+    font-size: var(--step-1);
+    line-height: 1.25;
+  }
+  .prompts li + li {
+    margin-top: 0 !important;
+  }
+  .brief {
+    margin-top: var(--s-5) !important;
+  }
+  .join {
+    margin-top: var(--s-8);
+    padding: var(--s-6) var(--s-5);
+    display: grid;
+    gap: var(--s-4) var(--s-8);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .join h2 {
+    font-size: var(--step-3);
+  }
+  .join p {
+    max-width: 30em;
+  }
+  @media (min-width: 60rem) {
+    .join {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      padding: var(--s-7);
+    }
+  }
+</style>

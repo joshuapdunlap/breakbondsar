@@ -1,0 +1,142 @@
+---
+import Base from "../layouts/Base.astro";
+import PosterBand from "../components/PosterBand.astro";
+import Icon from "../components/Icon.astro";
+import Timeline from "../components/Timeline.astro";
+import CloseStrip from "../components/CloseStrip.astro";
+
+const rows = [
+  {
+    title: "Press the Treasurer.",
+    body: "Ask Arkansas Treasurer John Thurston to publicly commit the Treasury to no new Israel Bonds purchases or reinvestment. Bring the request with others, ask for a written answer, and agree when you will follow up. Our statewide demand also applies to retirement-system investments.",
+  },
+  {
+    title: "Stop adding money.",
+    body: "No new purchases, renewals, exchanges into new bonds, or reinvestment. Responsible officials should put the commitment in writing and direct their investment staff and managers to carry it out.",
+  },
+  {
+    title: "Bring existing money home.",
+    body: "As existing bonds mature, bring the principal home and keep it out of Israel Bonds. The issuer describes these bonds as designed to be held to maturity, without a secondary market. That makes preventing the next purchase an immediate point of pressure.",
+  },
+  {
+    title: "Hold them to it.",
+    body: "A commitment matters when it changes the investment record. Check that maturing money comes back and that new purchases stop. Report actual progress, setbacks, and renewed investment so people know where pressure is needed.",
+  },
+];
+---
+
+<Base path="/how-we-win/">
+  <PosterBand crumb="How we win">
+    <Fragment slot="title">End the support.<br /><em>Keep the money out.</em></Fragment>
+    <p slot="intro">
+      We organize to end Arkansas’s financial support for the Israeli government through Israel Bonds. Every decision to stop
+      buying or reinvesting can help close that channel of support.
+    </p>
+    <CloseStrip slot="foot" />
+  </PosterBand>
+
+  <div class="wrap win">
+    {
+      rows.map((r) => (
+        <div class="win__row">
+          <h2>{r.title}</h2>
+          <p>{r.body}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <section class="dates" aria-labelledby="dates-title">
+    <div class="wrap">
+      <div class="margin-grid">
+        <h2 id="dates-title">A deadline for<br /><em>ending support.</em></h2>
+        <p class="dateline">Why maturity dates matter</p>
+        <div class="prose">
+          <p>
+            The Treasury’s June 2025 statement lists $10 million due in October 2026 and $10 million in November 2026. These
+            dates identify decisions we can press officials to address before money is committed again.
+          </p>
+          <p>
+            Michigan’s Break the Bonds campaign reports securing non-reinvestment in November 2025 and checking later records
+            to confirm the retirement system stayed out of Israel Bonds.
+          </p>
+          <div class="stack">
+            <a class="go" href="/the-issue/#treasury">See the dated Arkansas record <Icon name="arrow-right" /></a>
+            <a class="go" href="https://michigandivest.org/break-the-bonds-michigan-divesting-from-israeli-bonds/"
+              >Read the Michigan campaign’s account <Icon name="external" /></a
+            >
+            <a class="go" href="https://israelbonds.com/knowledge-base/about-israel-bonds/"
+              >Read the bond terms overview <Icon name="external" /></a
+            >
+          </div>
+        </div>
+      </div>
+      <Timeline id="mt-win" />
+    </div>
+  </section>
+
+  <section class="routes" aria-labelledby="routes-title">
+    <div class="wrap margin-grid">
+      <h2 id="routes-title">Different institutions. Specific routes.</h2>
+      <div class="prose">
+        <p>
+          The Treasury, APERS, and ATRS have different powers, policies, and statutory duties. Our demand is statewide; the
+          steps to carry it out must fit each institution.
+        </p>
+        <p>
+          <a href="/policy/">Read the institutional routes and legislative options</a>. <a href="/progress/"
+            >See what would count as a documented change</a
+          >.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .win {
+    padding-block: var(--s-7) var(--s-8);
+  }
+  .win__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-3) var(--s-8);
+    padding-block: var(--s-6);
+    border-bottom: 2px solid var(--rule);
+  }
+  .win__row:first-child {
+    border-top: 0.75rem solid var(--olive);
+  }
+  .win__row h2 {
+    font-size: var(--step-3);
+  }
+  .win__row:first-child h2 {
+    color: var(--red-deep);
+  }
+  .win__row p {
+    max-width: 30em;
+  }
+  @media (min-width: 60rem) {
+    .win__row {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: baseline;
+    }
+  }
+  .dates {
+    padding-block: var(--s-8);
+  }
+  .dates h2,
+  .routes h2 {
+    font-size: var(--step-3);
+  }
+  .dates .prose {
+    margin-top: var(--s-4);
+  }
+  .routes {
+    padding-block: var(--s-7) var(--s-8);
+    border-top: 2px solid var(--rule);
+  }
+  .routes .prose {
+    margin-top: var(--s-4);
+  }
+</style>
