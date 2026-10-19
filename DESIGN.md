@@ -215,7 +215,7 @@ Three inks and a paper. The olive sheet is the voice, mark red is the ask, and b
 ### Neutral
 - **Lime-Wash Paper** (#eff1e9): The ground for the record, and the colour of type knocked out of olive. Ink on paper is 15.89:1.
 - **Press Black** (#141710): A green-leaning black. It sets text on paper and text on red, the ink button, and the focus outline on paper.
-- **Letter White** (#fbfcf8): A brighter sheet used for one thing, the suggested letter on Take action, so the text a visitor will copy stands apart from the record.
+- **Letter White** (#fbfcf8): A brighter sheet for the visitor's own words: the suggested letter on Take action, so the text a visitor will copy stands apart from the record, and the fields of the sign-up form.
 - **Soft Olive Hairline** (rgb(43 53 23 / 0.28)): Hairlines between table rows, timeline gridlines, and the left rule of an open disclosure panel.
 - **Paper Hairline** (rgb(239 241 233 / 0.25)): Hairlines on the olive sheet, between take-action steps and above the phone nav.
 - **Halftone Screen** (`radial-gradient(circle at 50% 50%, rgb(43 53 23 / 0.17) 0.95px, transparent 1.3px) 0 0 / 5px 5px` over paper): The only tint. It covers the home responsibility band, open disclosure panels, record-figure mounts, the slip containers, the empty part of the ATRS bar, and a targeted ledger row.
@@ -336,6 +336,13 @@ The three steps on Take action print across the sheet in three columns at 60rem 
 
 ### Statuses
 Statuses print as words, using weight and ink and never badges. "No" is olive ink. "Not applicable" is olive ink with a dotted underline. "Against" is 700 ink.
+
+### Form
+The "Get involved" sign-up on Take action is the only form. It sits in the Take action "way" pattern (margin label, poster-line heading, 2px rule) and holds the 30em measure.
+- **Fields:** Letter White with a 2px olive border, square, at least 3rem tall, Markazi at body size. The border turns ink on hover. Labels print above in 700; "(optional)" and hints print in Small olive ink. Short fields (phone, ZIP) stop at 14em.
+- **Choices:** Checkboxes in an auto-fill grid of 13rem columns. Each label is the 2.75rem target; the box takes `accent-color` (Dense Mark Red).
+- **Errors:** Never red. A field's message prints between its label and the field in 700 ink behind a 0.7rem ink square, and the field's border becomes 3px ink. The summary above the form is a halftone slip framed in 3px ink, with each message linking to its field. Under forced colours the squares and borders print in CanvasText.
+- **Send:** The primary red button, then one Small olive line on what happens to the details, linking to the privacy page. In print the form is left out and its address printed instead.
 
 ### Disclosures
 A printed tab opens onto a screened panel. The summary row sits under a 2px rule, at least 3rem tall, in 700 weight. Its plus icon rotates 45° over 200ms when open. The panel takes the halftone screen with a 1px soft left rule. In print, disclosures print open.
