@@ -3,7 +3,8 @@ import fs from "node:fs";
 import { ROUTES } from "./routes";
 
 // Content fidelity against the WordPress site as it stood on 16 October 2026. The deliberate
-// changes are /privacy/, whose hosting section and review date were rewritten for the new host, and
+// changes are /privacy/, whose hosting section and review date were rewritten for the new host and
+// whose review date and "Email … optional" line changed with the sign-up form (19 October), and
 // the Treasury maturity passages, which mark October 1, 2026 as passed and November 1 as next.
 // tests/fixtures/fidelity.json holds, per page:
 //   facts  - every dollar figure, percentage, date, statute, agency, quote, source ID, CUSIP,
