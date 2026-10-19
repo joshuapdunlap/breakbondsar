@@ -1,20 +1,55 @@
 {
-  // Cloudflare Workers static assets: no Worker script, only the built site in ./dist.
+  // Cloudflare Workers static assets: the built site in ./dist, plus one small Worker
+  // (worker/index.ts) for the "Get involved" sign-up. The Worker runs first only for the
+  // paths in run_worker_first; every other request is served straight from the assets.
   // public/_headers and public/_redirects are copied into dist and applied by Cloudflare.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "breakbondsar",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "html_handling": "auto-trailing-slash"
+    "html_handling": "auto-trailing-slash",
+    // /api/* takes the form; /take-action/ gets a fresh signed timestamp in its form.
+    "run_worker_first": ["/api/*", "/take-action/"]
   },
+  // Sign-ups. Schema in migrations/. Read them with `npm run signups:export`.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "breakbondsar-signups",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // Five sign-up attempts a minute from one IP address. The address is the limiter's key
+  // only; it is never stored.
+  "ratelimits": [{ "name": "SIGNUP_LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }],
+  // SIGNUP_SECRET (signs the form's timestamp) is a secret: `npx wrangler secret put SIGNUP_SECRET`.
   // The apex is a Workers custom domain. www is not attached: a Cloudflare Redirect Rule
   // sends www.breakbondsar.org/* to https://breakbondsar.org/ with the path and query.
   // The workers.dev address stays on as a noindex preview (see public/_headers).
   "routes": [{ "pattern": "breakbondsar.org", "custom_domain": true }],
   "workers_dev": true,
-  // The tests run `wrangler dev --env test`. With a route set, wrangler dev rewrites every
-  // request to breakbondsar.org, so the noindex rule for other hosts could not be tested.
-  "env": { "test": { "routes": [] } }
+  // The tests run `wrangler dev --env test` with a local D1 in .wrangler/test-state. With a
+  // route set, wrangler dev rewrites every request to breakbondsar.org, so the noindex rule
+  // for other hosts could not be tested. Bindings are not inherited by environments, so
+  // they are repeated here; the test secret is not a secret.
+  "env": {
+    "test": {
+      "routes": [],
+      "vars": { "SIGNUP_SECRET": "test-only-not-secret" },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "breakbondsar-signups",
+          "database_id": "00000000-0000-0000-0000-000000000000",
+          "migrations_dir": "migrations"
+        }
+      ],
+      "ratelimits": [{ "name": "SIGNUP_LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }]
+    }
+  }
 }
