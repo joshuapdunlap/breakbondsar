@@ -582,6 +582,34 @@ th .data {
   }
 }
 
+/* Ways to act (Take action, the sign-up and its thank-you page): a poster line beside a
+   margin label, under a 2px rule. */
+.way {
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: 2px solid var(--rule);
+}
+.way > h2 {
+  font-size: var(--step-3);
+}
+.way .prose {
+  margin-top: var(--s-4);
+}
+.way__label {
+  display: grid;
+  gap: var(--s-1);
+}
+.way__kind {
+  font-weight: 700;
+  color: var(--olive-ink);
+  font-size: var(--step--1);
+}
+.way__line {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  line-height: 1.05;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   *,

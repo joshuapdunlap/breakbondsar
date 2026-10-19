@@ -13,7 +13,8 @@ export default defineConfig({
     // Pages are small; inlining the stylesheet removes the only render-blocking request.
     inlineStylesheets: "always",
   },
-  integrations: [sitemap({ filter: (page) => !page.endsWith("/404/") })],
+  // The sign-up thank-you page is reached by sending the form, not by search.
+  integrations: [sitemap({ filter: (page) => !page.endsWith("/404/") && !page.endsWith("/take-action/thanks/") })],
   devToolbar: { enabled: false },
   vite: {
     // Never inline a script into the page: the Content-Security-Policy in public/_headers

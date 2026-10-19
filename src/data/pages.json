@@ -88,5 +88,14 @@
     "ogImageAlt": "Break the Bonds Arkansas, privacy: Your information. Your choices. How this website and its campaign contact links handle your information. breakbondsar.org",
     "ogImageWidth": "1200",
     "ogImageHeight": "630"
+  },
+  "/take-action/thanks/": {
+    "title": "Signed up | Break the Bonds | Arkansas",
+    "description": "Your sign-up reached Break the Bonds | Arkansas. The next step: ask the State Treasurer for no new Israel Bonds.",
+    "ogTitle": "Take action | Break the Bonds | Arkansas",
+    "ogImage": "/media/take-action-sharing-1200x630-1.png",
+    "ogImageAlt": "Turn solidarity into pressure. No new Israel Bonds. No renewals. No reinvestment. Break the Bonds Arkansas, for Palestinian freedom.",
+    "ogImageWidth": "1200",
+    "ogImageHeight": "630"
   }
 }

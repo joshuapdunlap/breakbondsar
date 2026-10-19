@@ -1,0 +1,56 @@
+---
+// Where a sign-up lands: the Worker answers a successful POST /api/signup with a 303 here.
+import Base from "../../layouts/Base.astro";
+import PosterBand from "../../components/PosterBand.astro";
+import CloseStrip from "../../components/CloseStrip.astro";
+import Icon from "../../components/Icon.astro";
+import { SITE } from "../../data/site";
+---
+
+<Base path="/take-action/thanks/">
+  <PosterBand path="/take-action/thanks/" scale="poster">
+    <Fragment slot="title">Thank you.<br /><em>We’ll be in touch.</em></Fragment>
+    <p slot="intro">Your sign-up reached the campaign. We’ll email you about upcoming actions and how you can help.</p>
+  </PosterBand>
+
+  <div class="wrap thanks">
+    <section class="margin-grid way" aria-labelledby="thanks-next-title">
+      <h2 id="thanks-next-title">Next, tell<br />the Treasurer.</h2>
+      <div class="margin way__label">
+        <p class="way__kind">While you wait</p>
+        <p class="way__line">One message.<br />One official.</p>
+      </div>
+      <div class="prose">
+        <p>
+          Ask Treasurer John Thurston for no new Israel Bonds, no renewals, and no reinvestment. The suggested message and the
+          Treasury’s number are on the Take action page.
+        </p>
+        <a class="button" href="/take-action/#officials">Tell the Treasurer <Icon name="arrow-right" /></a>
+        <p class="thanks__change">
+          To change or delete what you sent, email <a href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a>. If you sign up
+          again with the same email address, your earlier sign-up is updated.
+        </p>
+      </div>
+    </section>
+  </div>
+  <CloseStrip />
+</Base>
+
+<style>
+  .thanks {
+    padding-block: var(--s-7) var(--s-8);
+  }
+  .thanks .way {
+    margin-top: 0;
+  }
+  .thanks .button {
+    margin-top: var(--s-5) !important;
+  }
+  .thanks__change {
+    margin-top: var(--s-6) !important;
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--rule-soft);
+    font-size: var(--step--1);
+    color: var(--olive-ink);
+  }
+</style>

@@ -39,6 +39,7 @@ export const CRUMBS: Record<string, { name: string; parent?: { href: string; lab
   "/progress/": { name: "Progress", parent: RECORD },
   "/policy/": { name: "Institutional routes", parent: RECORD },
   "/privacy/": { name: "Privacy" },
+  "/take-action/thanks/": { name: "Signed up", parent: { href: "/take-action/", label: "Take action" } },
 };
 
 /** Old absolute links become site-relative; WordPress upload paths become /media/ paths. */
