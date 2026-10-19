@@ -8,7 +8,10 @@
 
 const origin = new URL(process.argv[2] ?? "https://breakbondsar.org").origin;
 const canonical = new URL(origin).hostname === "breakbondsar.org";
-const ROUTES = ["/", "/the-issue/", "/how-we-win/", "/evidence/", "/take-action/", "/about/", "/investments/", "/progress/", "/policy/", "/privacy/"];
+const ROUTES = [
+  "/", "/the-issue/", "/how-we-win/", "/evidence/", "/take-action/", "/about/", "/investments/", "/progress/", "/policy/", "/privacy/",
+  "/take-action/thanks/",
+];
 
 let failures = 0;
 const check = (ok, label, detail = "") => {
@@ -61,6 +64,17 @@ for (const [from, to] of redirects) {
   const r = await get(from);
   check(r.status >= 301 && r.status <= 308 && pathOf(r) === to, `${from} redirects to ${to}`, `${r.status} ${r.headers.get("location") ?? ""}`);
 }
+
+// The sign-up: the Worker signs a fresh timestamp into the form and keeps the page's
+// headers; the endpoint answers GET with a redirect to the form. Nothing is submitted.
+const act = await get("/take-action/");
+const actHtml = await act.text();
+check(/name="t" value="\d{10}\.[0-9a-f]{64}"/.test(actHtml), "/take-action/ form carries a signed timestamp");
+check(act.headers.get("content-security-policy") === home.headers.get("content-security-policy"), "/take-action/ keeps the Content-Security-Policy");
+check(act.headers.get("x-frame-options") === "DENY", "/take-action/ keeps X-Frame-Options");
+check(act.headers.get("etag") === null && act.headers.get("cache-control") === "private, no-cache", "/take-action/ is never served stale", act.headers.get("cache-control") ?? "");
+const api = await get("/api/signup");
+check(api.status === 303 && pathOf(api) === "/take-action/", "GET /api/signup redirects to the form", `${api.status} ${api.headers.get("location") ?? ""}`);
 
 const missing = await get("/no-such-page/");
 check(missing.status === 404, "unknown paths return 404", String(missing.status));

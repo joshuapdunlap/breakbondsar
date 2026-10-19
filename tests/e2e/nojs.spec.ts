@@ -1,10 +1,10 @@
 import { test, expect } from "@playwright/test";
-import { ROUTES } from "./routes";
+import { PAGES } from "./routes";
 
 // With JavaScript off, every page still reads and every action still works:
 // links, mailto and tel links, disclosures. Only the copy buttons (which need the
 // clipboard) stay hidden.
-for (const route of ROUTES) {
+for (const route of PAGES) {
   test(`${route} works without JavaScript`, async ({ page }) => {
     const response = await page.goto(route);
     expect(response?.status()).toBe(200);

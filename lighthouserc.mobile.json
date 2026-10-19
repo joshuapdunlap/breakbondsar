@@ -11,7 +11,8 @@
         "http://127.0.0.1:4322/investments/",
         "http://127.0.0.1:4322/progress/",
         "http://127.0.0.1:4322/policy/",
-        "http://127.0.0.1:4322/privacy/"
+        "http://127.0.0.1:4322/privacy/",
+        "http://127.0.0.1:4322/take-action/thanks/"
       ],
       "startServerCommand": "npx astro preview --host 127.0.0.1 --port 4322 --ignore-lock",
       "startServerReadyPattern": "127.0.0.1:4322",

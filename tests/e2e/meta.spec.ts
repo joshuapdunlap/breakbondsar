@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import { ROUTES, ORIGIN } from "./routes";
+import { ROUTES, PAGES, ORIGIN } from "./routes";
 
 test("every page has its title, description, canonical URL, share image and icons", async ({ page, request }) => {
-  for (const route of ROUTES) {
+  for (const route of PAGES) {
     await page.goto(route);
     const head = await page.evaluate(() => {
       const m = (sel: string) => document.querySelector(sel)?.getAttribute("content") ?? null;
@@ -48,6 +48,7 @@ test("robots.txt, sitemap and manifest", async ({ request }) => {
   const sitemap = await (await request.get("/sitemap-0.xml")).text();
   for (const route of ROUTES) expect(sitemap, route).toContain(`<loc>${ORIGIN}${route}</loc>`);
   expect(sitemap).not.toContain("/404/");
+  expect(sitemap, "the sign-up thank-you page is not a destination").not.toContain("/take-action/thanks/");
   expect((await request.get("/site.webmanifest")).status()).toBe(200);
   expect((await request.get("/favicon.ico")).status()).toBe(200);
 });
