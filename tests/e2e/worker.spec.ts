@@ -1,11 +1,11 @@
 import { test, expect } from "@playwright/test";
 import fs from "node:fs";
-import { ROUTES } from "./routes";
+import { PAGES } from "./routes";
 
 // The built site as Cloudflare serves it (wrangler dev applies _redirects and _headers).
 
 test("every page is served at its old URL", async ({ request }) => {
-  for (const route of ROUTES) {
+  for (const route of PAGES) {
     const r = await request.get(route, { maxRedirects: 0 });
     expect(r.status(), route).toBe(200);
   }
@@ -71,6 +71,18 @@ test("security and caching headers", async ({ request }) => {
   expect(asset, "the page's script is a hashed file").toBeTruthy();
   const a = await request.get(asset!);
   expect(a.headers()["cache-control"]).toContain("immutable");
+
+  // The Worker runs first for /take-action/ (to sign the form's timestamp); the page keeps
+  // every header from _headers, and is never answered from a stale cache.
+  const act = await request.get("/take-action/");
+  const ah = act.headers();
+  expect(ah["content-security-policy"]).toBe(h["content-security-policy"]);
+  expect(ah["x-frame-options"]).toBe("DENY");
+  expect(ah["x-content-type-options"]).toBe("nosniff");
+  expect(ah["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+  expect(ah["etag"]).toBeUndefined();
+  expect(ah["cache-control"]).toBe("private, no-cache");
+  expect(await act.text()).toMatch(/name="t" value="\d{10}\.[0-9a-f]{64}"/);
 });
 
 test("only breakbondsar.org may be indexed", async ({ request }) => {
@@ -88,7 +100,7 @@ test("pages run under the production Content-Security-Policy", async ({ page }) 
     if (m.type() === "error" || /Content Security Policy|Content-Security-Policy/i.test(m.text())) problems.push(m.text());
   });
   page.on("pageerror", (e) => problems.push(e.message));
-  for (const route of ROUTES) await page.goto(route, { waitUntil: "networkidle" });
+  for (const route of PAGES) await page.goto(route, { waitUntil: "networkidle" });
   expect(problems).toEqual([]);
 
   await page.goto("/take-action/", { waitUntil: "networkidle" });

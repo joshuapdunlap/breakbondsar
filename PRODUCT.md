@@ -10,7 +10,7 @@ web
 
 ## Stack
 
-Astro with static output, served by Cloudflare Workers static assets (no Worker script). Set by the owner's brief.
+Astro with static output, served by Cloudflare Workers static assets. Set by the owner's brief. Since 19 October 2026 a small Worker handles one form, the "Get involved" sign-up, and stores sign-ups in Cloudflare D1.
 
 ## Users
 
@@ -33,8 +33,8 @@ The site pairs Palestinian testimony and the Palestinian call for divestment wit
 ## Operating Context
 
 - Ten pages, all at fixed URLs that must keep working: /, /the-issue/, /how-we-win/, /evidence/, /take-action/, /about/, /investments/, /progress/, /policy/, /privacy/.
-- The action is offline: copy a suggested message, then call or write to the Treasury, then email the campaign. The site sends nothing itself.
-- Contact is email only: breakbondsar@proton.me. Instagram: @breakbondsar (https://www.instagram.com/breakbondsar/).
+- The action is offline: copy a suggested message, then call or write to the Treasury, then email the campaign. The site sends nothing to officials. Its one form, "Get involved" on /take-action/, stores a sign-up (name, email, and optionally phone, ZIP, ways to help and a note) for the campaign.
+- Contact is by email (breakbondsar@proton.me) or the sign-up form. Instagram: @breakbondsar (https://www.instagram.com/breakbondsar/).
 - Evidence is published as PDFs, PNG crops and an Excel ledger. Each record has an ID (SRC-TRE-001 and so on) that the ledger cites.
 - Records are dated. The site was last reviewed on 28 September 2026 *(inferred from page copy)*.
 
@@ -45,7 +45,7 @@ The site pairs Palestinian testimony and the Palestinian call for divestment wit
 - The evidence pages and the investment ledger are a record: every figure keeps its date and source beside it, and separate findings stay separate. The site tells readers not to add them together.
 - No individual organizers are named anywhere: copy, meta tags, author tags, structured data, humans.txt or the README.
 - Images come only from the site's own media library. No stock, no AI-generated imagery, nothing pulled from the web.
-- No third-party requests at runtime: self-hosted fonts, no embeds, no trackers, no analytics.
+- No third-party requests at runtime: self-hosted fonts, no embeds, no trackers, no analytics, no cookies. The sign-up uses no CAPTCHA or outside service.
 - Works without JavaScript. Respects reduced motion, forced colors and print.
 
 ## Brand Commitments

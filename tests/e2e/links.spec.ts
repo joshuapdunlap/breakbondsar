@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { ROUTES } from "./routes";
+import { PAGES } from "./routes";
 
 // Every internal link on every page resolves, and every in-page anchor it names exists.
 test("no broken internal links or anchors", async ({ page, request, baseURL }) => {
@@ -7,7 +7,7 @@ test("no broken internal links or anchors", async ({ page, request, baseURL }) =
   const targets = new Map<string, string>(); // url without hash -> first page that links it
   const anchors: { from: string; url: string; id: string }[] = [];
 
-  for (const route of ROUTES) {
+  for (const route of PAGES) {
     await page.goto(route);
     const hrefs = await page.$$eval("a[href]", (as) => as.map((a) => (a as HTMLAnchorElement).href));
     for (const href of hrefs) {

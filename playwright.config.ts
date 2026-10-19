@@ -6,6 +6,8 @@ import { defineConfig, devices } from "@playwright/test";
 //   nojs: every page with JavaScript disabled.
 //   worker: the built site served by `wrangler dev`, to check _redirects and _headers
 //           the way Cloudflare applies them.
+//   signup: the "Get involved" form against the Worker and a local D1 in .wrangler/test-state,
+//           with and without JavaScript.
 const PREVIEW = "http://127.0.0.1:4322";
 const WORKER = "http://127.0.0.1:8788";
 const chrome = devices["Desktop Chrome"];
@@ -20,6 +22,7 @@ export default defineConfig({
     { name: "site", testMatch: /(links|fidelity|meta)\.spec\.ts$/, use: { ...chrome, baseURL: PREVIEW } },
     { name: "nojs", testMatch: /nojs\.spec\.ts$/, use: { ...chrome, javaScriptEnabled: false, baseURL: PREVIEW } },
     { name: "worker", testMatch: /worker\.spec\.ts$/, use: { baseURL: WORKER } },
+    { name: "signup", testMatch: /signup\.spec\.ts$/, use: { ...chrome, baseURL: WORKER } },
   ],
   webServer: [
     {
@@ -30,7 +33,12 @@ export default defineConfig({
       timeout: 300_000,
     },
     {
-      command: "npx wrangler dev --env test --ip 127.0.0.1 --port 8788 --log-level warn",
+      // Starts once the build above has finished writing dist/ (the preview answers only then),
+      // with a local D1 kept apart from any other local state and the migrations applied.
+      command:
+        `node scripts/wait-for.mjs ${PREVIEW}/` +
+        " && npx wrangler d1 migrations apply breakbondsar-signups --local --env test --persist-to .wrangler/test-state" +
+        " && npx wrangler dev --env test --ip 127.0.0.1 --port 8788 --log-level warn --persist-to .wrangler/test-state",
       url: WORKER,
       reuseExistingServer: !process.env.CI,
       timeout: 300_000,

@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import PosterBand from "../components/PosterBand.astro";
 import Icon from "../components/Icon.astro";
+import Signup from "../components/Signup.astro";
 import { SITE } from "../data/site";
 ---
 
@@ -58,6 +59,7 @@ import { SITE } from "../data/site";
     </ol>
     <nav class="shortcuts" aria-label="Other ways to act">
       <a class="go" href="#discuss">Organize with your group <Icon name="arrow-down" /></a>
+      <a class="go" href="#get-involved">Get involved <Icon name="arrow-down" /></a>
       <a class="go" href="#join">Join the organizing <Icon name="arrow-down" /></a>
     </nav>
 
@@ -214,6 +216,8 @@ import { SITE } from "../data/site";
         <a class="button button--ink" href={SITE.instagram}>Choose a campaign post <Icon name="external" /></a>
       </div>
     </section>
+
+    <Signup />
 
     <section class="join on-red" id="join" aria-labelledby="join-title">
       <h2 id="join-title">Want to join<br />the organizing?</h2>
@@ -410,31 +414,6 @@ import { SITE } from "../data/site";
       align-items: baseline;
       padding: var(--s-6);
     }
-  }
-  .way {
-    margin-top: var(--s-8);
-    padding-top: var(--s-6);
-    border-top: 2px solid var(--rule);
-  }
-  .way > h2 {
-    font-size: var(--step-3);
-  }
-  .way .prose {
-    margin-top: var(--s-4);
-  }
-  .way__label {
-    display: grid;
-    gap: var(--s-1);
-  }
-  .way__kind {
-    font-weight: 700;
-    color: var(--olive-ink);
-    font-size: var(--step--1);
-  }
-  .way__line {
-    font-family: var(--display);
-    font-size: 1.4rem;
-    line-height: 1.05;
   }
   .prompts {
     list-style: none;

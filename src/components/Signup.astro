@@ -1,0 +1,307 @@
+---
+// "Get involved": a plain HTML form that posts to the Worker (worker/index.ts) and works
+// without JavaScript. The Worker writes the signed timestamp into the hidden "t" field
+// and, after a failed submission, fills in #signup-alert and the field errors.
+// src/scripts/enhance.ts adds the same checks inline when JavaScript runs.
+import Icon from "./Icon.astro";
+import { INTERESTS, LIMITS } from "../data/signup";
+---
+
+<section class="margin-grid way signup" id="get-involved" aria-labelledby="get-involved-title">
+  <h2 id="get-involved-title">Sign up to<br />get involved.</h2>
+  <div class="margin way__label">
+    <p class="way__kind">Get involved</p>
+    <p class="way__line">Your name.<br />How you can help.</p>
+  </div>
+  <div class="prose">
+    <p>Leave your name and email, and the campaign will write to you about upcoming actions and how you can help.</p>
+
+    <div class="signup__alert" id="signup-alert" tabindex="-1" aria-labelledby="signup-alert-title" role="group" hidden>
+      <h3 id="signup-alert-title">Your sign-up was not sent</h3>
+      <ul id="signup-alert-list"></ul>
+    </div>
+
+    <form class="signup__form" id="signup-form" method="post" action="/api/signup">
+      <div class="field">
+        <label for="signup-name">Name</label>
+        <p class="field__error" id="name-error"></p>
+        <input id="signup-name" name="name" type="text" autocomplete="name" required maxlength={LIMITS.name} aria-describedby="name-error" />
+      </div>
+      <div class="field">
+        <label for="signup-email">Email</label>
+        <p class="field__error" id="email-error"></p>
+        <input
+          id="signup-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          spellcheck="false"
+          required
+          maxlength={LIMITS.email}
+          aria-describedby="email-error"
+        />
+      </div>
+      <div class="field field--short">
+        <label for="signup-phone">Phone <span class="field__opt">(optional)</span></label>
+        <p class="field__error" id="phone-error"></p>
+        <input
+          id="signup-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength={LIMITS.phone}
+          pattern="[0-9 \(\)\+\.\-]{7,25}"
+          aria-describedby="phone-error"
+        />
+      </div>
+      <div class="field field--short">
+        <label for="signup-zip">ZIP code <span class="field__opt">(optional)</span></label>
+        <p class="field__error" id="zip-error"></p>
+        <input
+          id="signup-zip"
+          name="zip"
+          type="text"
+          inputmode="numeric"
+          autocomplete="postal-code"
+          maxlength={LIMITS.zip}
+          pattern="[0-9]{5}(-[0-9]{4})?"
+          aria-describedby="zip-error"
+        />
+      </div>
+      <fieldset class="field choices">
+        <legend>How do you want to help? <span class="field__opt">(optional)</span></legend>
+        <ul>
+          {
+            INTERESTS.map((i) => (
+              <li>
+                <label>
+                  <input type="checkbox" name="interests" value={i.value} />
+                  {i.label}
+                </label>
+              </li>
+            ))
+          }
+        </ul>
+      </fieldset>
+      <div class="field">
+        <label for="signup-note">Anything else? <span class="field__opt">(optional)</span></label>
+        <p class="field__hint" id="note-hint">Up to 500 characters.</p>
+        <p class="field__error" id="note-error"></p>
+        <textarea id="signup-note" name="note" rows="4" maxlength={LIMITS.note} aria-describedby="note-hint note-error"></textarea>
+      </div>
+
+      <!-- Left empty by people, who never see it; filled in by most scripts. -->
+      <div class="signup__trap" aria-hidden="true">
+        <label for="signup-extra">Leave this empty</label>
+        <input id="signup-extra" name="hp_extra" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" name="t" value="" />
+
+      <div class="signup__send">
+        <button class="button" type="submit"><span class="signup__label">Sign up</span> <Icon name="arrow-right" /></button>
+        <p class="provenance">
+          The campaign keeps these details to contact you, and never sells or shares them. <a href="/privacy/#signup-title"
+            >Read how they are stored</a
+          >.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .signup .prose > p:first-child {
+    max-width: 28em;
+  }
+  .signup__form {
+    margin-top: var(--s-5) !important;
+    border-top: 2px solid var(--rule);
+  }
+  .field {
+    display: grid;
+    gap: var(--s-1);
+    margin: 0;
+    padding: var(--s-4) 0 0;
+    border: 0;
+    min-width: 0;
+  }
+  .field label,
+  .field legend {
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .field__opt,
+  .field__hint {
+    font-weight: 400;
+    font-size: var(--step--1);
+    color: var(--olive-ink);
+  }
+  .field__hint {
+    line-height: 1.35;
+  }
+  /* An error prints in ink, heavier, behind a square mark. Red is kept for the ask. */
+  .field__error {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .field__error::before {
+    content: "";
+    flex: none;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--ink);
+  }
+  .field__error:empty {
+    display: none;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field textarea {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    margin: 0;
+    padding: 0.45em 0.7em 0.35em;
+    font: inherit;
+    line-height: 1.3;
+    color: var(--ink);
+    background: var(--letter);
+    border: 2px solid var(--rule);
+    border-radius: 0;
+    transition: border-color 160ms var(--ease-out);
+  }
+  .field textarea {
+    min-height: 7.5rem;
+    resize: vertical;
+  }
+  .field--short input {
+    max-width: 14em;
+  }
+  .field input:hover,
+  .field textarea:hover {
+    border-color: var(--ink);
+  }
+  .field [aria-invalid="true"] {
+    border-color: var(--ink);
+    border-width: 3px;
+    padding: calc(0.45em - 1px) calc(0.7em - 1px) calc(0.35em - 1px);
+  }
+
+  /* A legend sits in the fieldset's border, outside its padding: space it from above. */
+  .choices {
+    margin-top: var(--s-4);
+    padding-top: 0;
+  }
+  .choices legend {
+    padding: 0;
+  }
+  .choices ul {
+    list-style: none;
+    margin: var(--s-1) 0 0;
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 0 var(--s-5);
+  }
+  .choices li + li {
+    margin-top: 0 !important;
+  }
+  .choices label {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    min-height: 2.75rem;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .choices input {
+    flex: none;
+    width: 1.375rem;
+    height: 1.375rem;
+    margin: 0;
+  }
+
+  /* Off the page for people and screen readers; still in the form for scripts. */
+  .signup__trap {
+    position: absolute;
+    left: -100vw;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .signup__send {
+    margin-top: var(--s-5);
+    display: grid;
+    gap: var(--s-3);
+    justify-items: start;
+  }
+  .signup__send .provenance {
+    max-width: 30em;
+  }
+  .signup__send .button[aria-disabled="true"] {
+    cursor: progress;
+  }
+
+  .signup__alert {
+    margin-top: var(--s-5) !important;
+    padding: var(--s-4) var(--s-4) var(--s-4);
+    background: var(--screen), var(--paper);
+    border: 3px solid var(--ink);
+  }
+  /* Focused so it is read first; its own 3px frame already marks it. */
+  .signup__alert:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .signup__alert h3 {
+    font-size: var(--step-1);
+  }
+  .signup__alert ul {
+    list-style: none;
+    margin: var(--s-3) 0 0;
+    padding: 0 !important;
+  }
+  .signup__alert li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    font-weight: 700;
+  }
+  .signup__alert li::before {
+    content: "";
+    flex: none;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--ink);
+  }
+  .signup__alert a {
+    display: inline-block;
+    padding-block: 0.4em;
+  }
+
+  @media print {
+    .signup__form,
+    .signup__alert {
+      display: none !important;
+    }
+    .signup .prose > p:first-child::after {
+      content: " Sign up at breakbondsar.org/take-action/.";
+    }
+  }
+
+  @media (forced-colors: active) {
+    .field__error::before,
+    .signup__alert li::before {
+      background: CanvasText;
+    }
+    .field input,
+    .field textarea {
+      border-color: CanvasText;
+    }
+  }
+</style>

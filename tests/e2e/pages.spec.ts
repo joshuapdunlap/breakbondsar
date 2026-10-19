@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { ROUTES } from "./routes";
+import { PAGES } from "./routes";
 
-for (const route of ROUTES) {
+for (const route of PAGES) {
   test.describe(route, () => {
     test("renders with no console errors, no outside requests and no axe violations", async ({ page, baseURL }) => {
       const origin = new URL(baseURL!).origin;

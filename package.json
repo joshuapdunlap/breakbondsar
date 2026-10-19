@@ -16,10 +16,13 @@
     "test:pages": "playwright test --project=mobile --project=desktop",
     "test:site": "playwright test --project=site --project=nojs",
     "test:worker": "playwright test --project=worker",
+    "test:signup": "playwright test --project=signup",
     "lhci": "npm run build && node scripts/lhci.mjs",
     "deploy": "npm run build && wrangler deploy --env=\"\"",
     "deploy:dry": "npm run build && wrangler deploy --env=\"\" --dry-run",
-    "check:live": "node scripts/check-live.mjs"
+    "check:live": "node scripts/check-live.mjs",
+    "signups:count": "node scripts/signups.mjs count",
+    "signups:export": "node scripts/signups.mjs export"
   },
   "dependencies": {
     "astro": "~7.3.8"

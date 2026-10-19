@@ -42,6 +42,25 @@ import { SITE } from "../data/site";
         </p>
       </section>
 
+      <section aria-labelledby="signup-title">
+        <h2 id="signup-title">The sign-up form</h2>
+        <p>
+          The sign-up form on the Take action page asks for your name and email address. You can also give a phone number, a ZIP
+          code, the ways you want to help, and a short note.
+        </p>
+        <p>
+          When you press Sign up, the site stores what you entered in a Cloudflare D1 database kept for the campaign. With it,
+          the site stores the date and time, the path of the page you sent it from, and a one-way code made from your browser’s
+          user-agent string, which helps the campaign spot repeated or automated sign-ups. Your IP address is not stored.
+          Cloudflare uses it to count the sign-ups sent from each address over one-minute periods, so one connection cannot send
+          many at once. If you sign up again with the same email address, your earlier sign-up is updated.
+        </p>
+        <p>
+          The campaign uses these details to contact you about its work. It does not sell them or share them with anyone. To see,
+          correct, or delete your sign-up, email <a href={`mailto:${SITE.email}`}>breakbondsar@proton.me</a>.
+        </p>
+      </section>
+
       <section aria-labelledby="tools-title">
         <h2 id="tools-title">Action tools and outside links</h2>
         <p>
@@ -57,13 +76,13 @@ import { SITE } from "../data/site";
       <section aria-labelledby="updates-title">
         <h2 id="updates-title">Updates</h2>
         <p>This notice will be updated if the website’s features or information practices change.</p>
-        <p class="provenance">Last reviewed: October 16, 2026.</p>
+        <p class="provenance">Last reviewed: October 19, 2026.</p>
       </section>
 
       <section aria-labelledby="records-title">
         <h2 id="records-title">Records and contact choices</h2>
         <p>
-          You can read the records and download the ledger without submitting information to the campaign. Email is optional.
+          You can read the records and download the ledger without submitting information to the campaign. Email and the sign-up form are optional.
           Avoid including banking details, identity documents, or other sensitive information when reporting an error or asking
           to join.
         </p>

@@ -32,7 +32,7 @@ const isCurrent = (item: (typeof NAV)[number]) =>
         }
       </ul>
     </nav>
-    <a class="button masthead__act" href="/take-action/" aria-current={path === "/take-action/" ? "page" : undefined}>
+    <a class="button masthead__act" href="/take-action/" aria-current={path === "/take-action/" ? "page" : path.startsWith("/take-action/") ? "true" : undefined}>
       Take action <Icon name="arrow-right" />
     </a>
   </div>
@@ -106,7 +106,7 @@ const isCurrent = (item: (typeof NAV)[number]) =>
     font-size: 1.2rem;
     flex: none;
   }
-  .masthead__act[aria-current="page"] {
+  .masthead__act[aria-current] {
     background: var(--paper);
     border-color: var(--paper);
     color: var(--ink);
