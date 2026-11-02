@@ -210,7 +210,7 @@ Three inks and a paper. The olive sheet is the voice, mark red is the ask, and b
 
 ### Secondary
 - **Mark Red** (#ff5b4f): The campaign mark's red. It prints as a field (the due strip, the close strip, the action band, the join panel), as the primary button, as the red "out of" in the home title, as the take-action step numerals, as the timeline mark for the next Treasury maturity, and as the underline on ask links over olive. Ink on red is 5.92:1. Red on olive is 4.22:1, so as text it only ever appears at display scale.
-- **Dense Mark Red** (#c42b22): The same red printed dense enough to read on paper (4.96:1). It sets the demand line "No new Israel Bonds.", the first win row on How we win, the demand statement on The issue, and the fall dates in the timeline list. It also underlines ask links on paper and is the form `accent-color`.
+- **Dense Mark Red** (#c42b22): The same red printed dense enough to read on paper (4.96:1). It sets the demand line "No new Israel Bonds.", the first win row on How we win, the demand statement on The issue, and the next Treasury date in the timeline list. It also underlines ask links on paper and is the form `accent-color`.
 
 ### Neutral
 - **Lime-Wash Paper** (#eff1e9): The ground for the record, and the colour of type knocked out of olive. Ink on paper is 15.89:1.
@@ -221,7 +221,7 @@ Three inks and a paper. The olive sheet is the voice, mark red is the ask, and b
 - **Halftone Screen** (`radial-gradient(circle at 50% 50%, rgb(43 53 23 / 0.17) 0.95px, transparent 1.3px) 0 0 / 5px 5px` over paper): The only tint. It covers the home responsibility band, open disclosure panels, record-figure mounts, the slip containers, the empty part of the ATRS bar, and a targeted ledger row.
 
 ### Named Rules
-**The Due-Now Rule.** Red marks only what is due or being asked now: the primary action, the fall maturities, the demand, and links that lead to the ask. If an element is neither the ask nor a date that is due, it is not red. Red is never used for emphasis, decoration, status or error.
+**The Due-Now Rule.** Red marks only what is due or being asked now: the primary action, the next Treasury maturity, the demand, and links that lead to the ask. If an element is neither the ask nor a date that is due, it is not red. Red is never used for emphasis, decoration, status or error.
 
 **The Ink-of-Its-Ground Rule.** Links underline in the ink of the ground they sit on: olive at 60% on paper, Second Pull on olive, ink on red. Only links that carry the ask underline in red: anything pointing to /take-action/, `tel:` links, and artreasury.gov links. They use Dense Mark Red on paper and Mark Red on olive.
 
@@ -317,7 +317,7 @@ A text link that leads somewhere: words first, then a drawn arrow. Markazi 600, 
 - **Footer:** Sits on paper under the 0.75rem olive bar. It has a Lalezar wordmark at 2.25rem, page links in two columns with the record links set off by a 1px hairline, and a bottom row on a 2px rule.
 
 ### Red Strip
-A Mark Red field printed where a page asks for something now, in ink type with an ink button. On the home sheet it is the due strip: "Next maturity: November 1." with the dated amounts, the next one under a 3px ink rule and a passed one set back under a 1px rule at a smaller size, and "Tell the Treasurer". On other pages it is the close strip "Put the demand to Thurston." in Headline type, or a slim strip of maturities at the foot of the Take action band.
+A Mark Red field printed where a page asks for something now, in ink type with an ink button. On the home sheet it is the due strip: "Next maturity: May 1, 2028." with the dated amounts, the passed ones set back side by side under a 1px rule at a smaller size and the next one under a 3px ink rule across the full width beneath them, and "Tell the Treasurer". On other pages it is the close strip "Put the demand to Thurston." in Headline type, or a slim strip of maturities at the foot of the Take action band.
 
 ### Tell Bar
 For phones only: a sticky olive strip at the foot of `<main>` with a full-width primary button, "Tell the Treasurer". A CSS scroll timeline keeps it hidden until the first 90vh has scrolled past, with no JavaScript. Under reduced motion it appears without sliding. It never covers the footer, and Take action does not show it.

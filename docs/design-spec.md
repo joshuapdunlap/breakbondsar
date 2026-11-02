@@ -52,7 +52,7 @@ All three are OFL, self-hosted, Latin subsets, about 60 KB together. Fallback fa
 - Margin system. On Read pages, datelines such as "Marwa · Gaza · March 2024" and record IDs sit in a 12rem left margin beside the heading on desktop, and under it on phones. Nothing is printed above a heading.
 - Record tables. Each record set is one real table. On phones each row reflows into a slip with its column names printed beside the values; ARIA roles keep it a table. Ledger rows carry their event IDs as anchors, so `/investments/#ATR-P01` links to one row.
 - Timeline. One component draws it from the dates. Red marks the next Treasury maturity, as the copy says; a date that has passed stays olive. The SVG hides below 768 px, and its list version is always present.
-- Red strip. Where a page asks for something now (the fall maturities, "Put the demand to Thurston"), the ask is printed on a red field.
+- Red strip. Where a page asks for something now (the next Treasury maturity, "Put the demand to Thurston"), the ask is printed on a red field.
 
 ## Motion and details
 
@@ -67,4 +67,4 @@ All three are OFL, self-hosted, Latin subsets, about 60 KB together. Fallback fa
 - Images only from the old media library. Evidence crops are served as AVIF and WebP at the sizes used, and link to the original files.
 - No requests leave the site. No analytics, embeds or font services.
 - Works without JavaScript. The copy buttons are the only feature that needs it, and they stay hidden without it. The script ships as its own file, because the Content-Security-Policy allows scripts only from the site.
-- Forced colours (the fall dates keep a hollow mark; the headline animation is off), print (black on white, disclosures and hashes printed, link and document URLs printed) and reduced motion are handled.
+- Forced colours (the next due date keeps a hollow mark; the headline animation is off), print (black on white, disclosures and hashes printed, link and document URLs printed) and reduced motion are handled.
