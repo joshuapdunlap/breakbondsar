@@ -33,7 +33,7 @@ import Timeline from "../components/Timeline.astro";
     <section class="due on-red" aria-label="Treasury maturity dates">
       <div class="wrap due__inner">
         <div class="due__head">
-          <h2 class="due__title" id="due-title">Next maturity: November&nbsp;1.</h2>
+          <h2 class="due__title" id="due-title">Next maturity: May&nbsp;1,&nbsp;2028.</h2>
           <p class="due__label">State Treasury maturity dates</p>
         </div>
         <ol class="due__stops">
@@ -42,8 +42,13 @@ import Timeline from "../components/Timeline.astro";
             <span class="due__amount">$10 million</span>
             <span class="due__note">Two $5 million positions. Date passed; receipt not established.</span>
           </li>
-          <li>
+          <li class="is-past">
             <time datetime="2026-11-01">November 1, 2026</time>
+            <span class="due__amount">$10 million</span>
+            <span class="due__note">One position. Date passed; receipt not established.</span>
+          </li>
+          <li>
+            <time datetime="2028-05-01">May 1, 2028</time>
             <span class="due__amount">$10 million</span>
             <span class="due__note">One position</span>
           </li>
@@ -316,6 +321,10 @@ import Timeline from "../components/Timeline.astro";
   }
   .due__stops li.is-past .due__amount {
     font-size: var(--step-1);
+  }
+  /* The passed dates share a row; the next one takes the full width under them. */
+  .due__stops li:not(.is-past) {
+    grid-column: 1 / -1;
   }
   .due__act {
     display: grid;

@@ -13,9 +13,9 @@ const Title = `h${level}` as "h2" | "h3";
 type Entry = { date: string; long: string; label: string; inst: string; amount: string; short: string; record: string; due?: boolean; row: "high" | "low"; anchor?: "end" };
 const entries: Entry[] = [
   { date: "2026-10-01", long: "October 1, 2026", label: "Oct 1, 2026", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, two $5 million positions · June 30, 2025 statement · date passed; receipt not established", row: "high" },
-  { date: "2026-11-01", long: "November 1, 2026", label: "Nov 1, 2026", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", due: true, row: "low" },
+  { date: "2026-11-01", long: "November 1, 2026", label: "Nov 1, 2026", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement · date passed; receipt not established", row: "low" },
   { date: "2027-10-01", long: "October 1, 2027", label: "Oct 1, 2027", inst: "APERS", amount: "$15 million", short: "$15M", record: "one position · preliminary report, September 7, 2026", row: "high" },
-  { date: "2028-05-01", long: "May 1, 2028", label: "May 1, 2028", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", row: "low" },
+  { date: "2028-05-01", long: "May 1, 2028", label: "May 1, 2028", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", due: true, row: "low" },
   { date: "2028-08-01", long: "August 1, 2028", label: "Aug 1, 2028", inst: "APERS", amount: "$10 million", short: "$10M", record: "one position · preliminary report, September 7, 2026", row: "low" },
   { date: "2030-01-01", long: "January 1, 2030", label: "Jan 1, 2030", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", row: "high" },
   { date: "2030-05-01", long: "May 1, 2030", label: "May 1, 2030", inst: "State Treasury", amount: "$10 million", short: "$10M", record: "scheduled, one position · June 30, 2025 statement", row: "low" },
@@ -46,7 +46,7 @@ const laneOf = (inst: string) => lanes.find((l) => l.inst === inst)!;
     <p class="timeline__scope">
       Each date comes from the record named beside it. The Treasury dates are maturities scheduled on its June 30, 2025
       statement; later ownership and receipt are not established. The amounts come from different record dates, so they
-      are not added together. Red marks the next Treasury date, November 1, 2026. Reviewed September 28, 2026. <a href="/investments/"
+      are not added together. Red marks the next Treasury date, May 1, 2028. Reviewed September 28, 2026. <a href="/investments/"
         >See every record in the ledger</a
       >.
     </p>
